@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 
 void main() {
   runApp(MyApp());
