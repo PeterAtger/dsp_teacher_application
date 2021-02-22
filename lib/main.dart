@@ -1,7 +1,9 @@
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
 import 'package:flutter/material.dart';
-import 'Presentation/Theme/theme.dart';
+//import 'Presentation/Theme/theme.dart';
 
-void main() {
+void main() => runApp(MaterialApp(home:questionss(),) );
+/*void main() {
   runApp(MyApp());
 }
 
@@ -121,3 +123,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
