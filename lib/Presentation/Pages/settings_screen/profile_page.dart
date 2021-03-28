@@ -21,8 +21,8 @@ class _ProfileState extends State<Profile> {
             width: size.width,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.centerLeft,
-                  end: Alignment.centerRight,
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
                   colors: [AppColors.cGreen, AppColors.cPurple]),
             ),
           ),
