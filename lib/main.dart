@@ -1,4 +1,5 @@
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/notifications.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         ),
         initialRoute: '/',
         routes: {
-          '/': (context) => Profile(),
+          '/': (context) => Notifications(),
         });
   }
 }

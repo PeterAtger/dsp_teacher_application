@@ -24,14 +24,14 @@ class _NotificationsState extends State<Notifications> {
               height: size.height / 1.5,
               child: BlendMask(
                   blendMode: BlendMode.srcOver,
-                  opacity: 0.1,
+                  opacity: 0.05,
                   child:
                       Image.asset('lib/Presentation/Images/ArabicCircle.png')),
             ),
           ),
           Column(
             children: [
-              SizedBox(height: 71),
+              SizedBox(height: 50),
               Row(
                 children: [
                   SizedBox(width: 32),
@@ -77,7 +77,7 @@ class _NotificationsState extends State<Notifications> {
               Center(
                 child: Container(
                   height: 1,
-                  width: size.width - 50,
+                  width: size.width * 0.8,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.centerLeft,
@@ -140,7 +140,7 @@ class _NotificationsState extends State<Notifications> {
               Center(
                 child: Container(
                   height: 1,
-                  width: size.width - 50,
+                  width: size.width * 0.8,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.centerLeft,
@@ -149,7 +149,7 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Row(
                 children: [
                   SizedBox(width: 64),
@@ -164,7 +164,7 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Row(
                 children: [
                   SizedBox(width: 64),
@@ -181,6 +181,7 @@ class _NotificationsState extends State<Notifications> {
                   ),
                 ],
               ),
+              SizedBox(height: 50),
               Center(
                 child: Text(
                     'Time where you want to recieve questions notifications',

@@ -61,7 +61,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 32),
               Center(
                 child: Container(
                   height: 90,
@@ -78,87 +78,101 @@ class _ProfileState extends State<Profile> {
                   style: AppFonts.heading2.copyWith(color: AppColors.cWhite),
                 ),
               ),
-              SizedBox(height: 30),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 32,
-                  ),
-                  Text('Email : ',
-                      style: AppFonts.appText.copyWith(
-                        color: AppColors.cGreen,
-                      )),
-                  Text('Peter.Atef@example.com',
-                      style: AppFonts.appText
-                          .copyWith(color: AppColors.cDarkGrey)),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 32,
-                  ),
-                  Text('Expertise :  ',
-                      style: AppFonts.appText.copyWith(
-                        color: AppColors.cGreen,
-                      )),
-                  Text('<5 years',
-                      style: AppFonts.appText
-                          .copyWith(color: AppColors.cDarkGrey)),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 32,
-                  ),
-                  Text('Score : ',
-                      style: AppFonts.appText.copyWith(
-                        color: AppColors.cGreen,
-                      )),
-                  Text('Application interactant',
-                      style: AppFonts.appText
-                          .copyWith(color: AppColors.cDarkGrey)),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                height: 1,
-                width: size.width - 20,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                        colors: [AppColors.cGreen, AppColors.cPurple])),
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Center(
-                      child: QuestionButton(
-                          size: size,
-                          text: 'Solved Questions: 3',
-                          green: false))
-                ],
-              ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  QuestionButton(
-                      size: size, text: 'Waiting Questions: 3', green: true)
-                ],
-              ),
             ],
+          ),
+          Positioned(
+            top: size.height / 3,
+            child: Container(
+              height: size.height * 2 / 3,
+              width: size.width,
+              decoration: BoxDecoration(color: AppColors.cWhite),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 32,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 32,
+                      ),
+                      Text('Email : ',
+                          style: AppFonts.appText.copyWith(
+                            color: AppColors.cGreen,
+                          )),
+                      Text('Peter.Atef@example.com',
+                          style: AppFonts.appText
+                              .copyWith(color: AppColors.cDarkGrey)),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 32,
+                      ),
+                      Text('Expertise :  ',
+                          style: AppFonts.appText.copyWith(
+                            color: AppColors.cGreen,
+                          )),
+                      Text('<5 years',
+                          style: AppFonts.appText
+                              .copyWith(color: AppColors.cDarkGrey)),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 32,
+                      ),
+                      Text('Score : ',
+                          style: AppFonts.appText.copyWith(
+                            color: AppColors.cGreen,
+                          )),
+                      Text('Application interactant',
+                          style: AppFonts.appText
+                              .copyWith(color: AppColors.cDarkGrey)),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 1,
+                    width: size.width - 20,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                            colors: [AppColors.cGreen, AppColors.cPurple])),
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Center(
+                          child: QuestionButton(
+                              size: size,
+                              text: 'Solved Questions: 3',
+                              green: false))
+                    ],
+                  ),
+                  SizedBox(height: 30),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      QuestionButton(
+                          size: size, text: 'Waiting Questions: 3', green: true)
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -182,7 +196,7 @@ class QuestionButton extends StatelessWidget {
       width: size.width * 0.8,
       child: TextButton(
         style: ButtonStyle(
-            overlayColor: MaterialStateProperty.all(AppColors.cWhite[50]),
+            overlayColor: MaterialStateProperty.all(AppColors.cDarkGrey[50]),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30))),
