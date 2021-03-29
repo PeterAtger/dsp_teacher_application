@@ -144,44 +144,58 @@ class _ProfileState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Center(
-                    child: FlatButton(
-                        height: 50,
-                        minWidth: size.width - 20,
-                        onPressed: () {},
-                        child: Center(
-                          child: Text(
-                            'Solved Questions: 18',
-                            style: AppFonts.buttonText
-                                .copyWith(color: AppColors.cGreen),
-                          ),
-                        ),
-                        color: AppColors.cLightGrey),
-                  )
+                      child: QuestionButton(
+                          size: size,
+                          text: 'Solved Questions: 3',
+                          green: false))
                 ],
               ),
               SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    child: FlatButton(
-                        height: 50,
-                        minWidth: size.width - 20,
-                        onPressed: () {},
-                        child: Center(
-                          child: Text(
-                            'Waiting Questions: 3',
-                            style: AppFonts.buttonText
-                                .copyWith(color: AppColors.cWhite),
-                          ),
-                        ),
-                        color: AppColors.cGreen),
-                  )
+                  QuestionButton(
+                      size: size, text: 'Waiting Questions: 3', green: true)
                 ],
               ),
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class QuestionButton extends StatelessWidget {
+  const QuestionButton(
+      {Key key, @required this.size, @required this.text, @required this.green})
+      : super(key: key);
+
+  final Size size;
+  final String text;
+  final bool green;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 50,
+      width: size.width * 0.8,
+      child: TextButton(
+        style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all(AppColors.cWhite[50]),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30))),
+            backgroundColor: MaterialStateProperty.all(
+                green ? AppColors.cGreen : AppColors.cLightGrey)),
+        onPressed: () {},
+        child: Center(
+          child: Text(
+            this.text,
+            style: AppFonts.buttonText
+                .copyWith(color: green ? AppColors.cWhite : AppColors.cGreen),
+          ),
+        ),
       ),
     );
   }
