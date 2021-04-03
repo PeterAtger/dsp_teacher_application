@@ -4,7 +4,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/main_screen/main_scre
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
 import 'Presentation/Pages/settings_screen/settings_screen.dart';
-//import 'Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+
 
 void main() => runApp(MaterialApp(
   initialRoute: '/MainScreen',
