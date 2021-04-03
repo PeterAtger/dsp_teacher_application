@@ -1,3 +1,4 @@
+import 'package:adobe_xd/adobe_xd.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,12 @@ class GetStarted extends StatelessWidget {
 
     return Scaffold(
         body: Stack(children: <Widget>[
-      ArabicImage(top: -150, size: size.height / 1.5, opacity: 0.05),
+      ArabicImage(
+        bottom: -150,
+        size: size.height / 1.5,
+        mode: BlendMode.srcATop,
+        opacity: 0.1,
+      ),
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
