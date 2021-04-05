@@ -5,8 +5,8 @@ import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -34,18 +34,11 @@ class _ProfileState extends State<Profile> {
                   colors: [AppColors.cGreen, AppColors.cPurple]),
             ),
           ),
-          Positioned(
-            right: -size.height / 3,
+          ArabicImage(
+            size: size.height / 1.5,
             top: -size.height / 3,
-            child: Container(
-              width: size.height / 1.5,
-              height: size.height / 1.5,
-              child: BlendMask(
-                  blendMode: BlendMode.srcOver,
-                  opacity: 0.1,
-                  child:
-                      Image.asset('lib/Presentation/Images/ArabicCircle.png')),
-            ),
+            right: -size.height / 3,
+            opacity: 1,
           ),
           Column(
             children: [

@@ -72,18 +72,37 @@ class FAB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: AppColors.cWhite, width: 8),
-        shape: BoxShape.circle,
-      ),
-      child: FloatingActionButton(
-        elevation: 0,
-        focusColor: AppColors.cGreen,
-        child: Icon(
-          Icons.home_filled,
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.cWhite, width: 8),
+          shape: BoxShape.circle,
         ),
-        onPressed: () {},
-      ),
-    );
+        child: Container(
+          padding: EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(56)),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment(1, 0.0),
+              colors: [AppColors.cPurple, AppColors.cGreen],
+              tileMode: TileMode.clamp,
+            ),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              color: AppColors.cWhite,
+              borderRadius: BorderRadius.all(Radius.circular(54)),
+            ),
+            child: FloatingActionButton(
+              backgroundColor: AppColors.cWhite,
+              elevation: 0,
+              focusColor: AppColors.cWhite,
+              child: Icon(
+                Icons.home_filled,
+                color: AppColors.cGreen,
+              ),
+              onPressed: () {},
+            ),
+          ),
+        ));
   }
 }
