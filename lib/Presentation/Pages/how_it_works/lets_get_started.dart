@@ -1,8 +1,9 @@
-import 'package:adobe_xd/adobe_xd.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/ArabicImage.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import 'components/GradientHeading.dart';
 
 class GetStarted extends StatelessWidget {
   @override
@@ -12,10 +13,11 @@ class GetStarted extends StatelessWidget {
     return Scaffold(
         body: Stack(children: <Widget>[
       ArabicImage(
-        bottom: -150,
+        bottom: -size.height / 3,
+        left: -size.height / 3,
         size: size.height / 1.5,
-        mode: BlendMode.srcATop,
-        opacity: 0.1,
+        opacity: 0.05,
+        blendMode: BlendMode.srcATop,
       ),
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -33,9 +35,10 @@ class GetStarted extends StatelessWidget {
             height: 80,
             width: 80,
             child: FloatingActionButton(
-                elevation: 0,
+                focusColor: AppColors.cDarkGrey,
+                elevation: 2,
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/');
+                  Navigator.of(context).pushReplacementNamed('/MainScreen');
                 },
                 child: SvgPicture.asset(
                   'lib/Presentation/Images/arrow.svg',
