@@ -15,6 +15,16 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
+<<<<<<< HEAD
+=======
+  auto_size_text:
+    dependency: "direct main"
+    description:
+      name: auto_size_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+>>>>>>> origin/Saraz
   boolean_selector:
     dependency: transitive
     description:
@@ -50,13 +60,23 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.15.0"
+<<<<<<< HEAD
+=======
+  convex_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: convex_bottom_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
+>>>>>>> origin/Saraz
   cupertino_icons:
     dependency: "direct main"
     description:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.2"
   fake_async:
     dependency: transitive
     description:
@@ -192,5 +212,9 @@ packages:
     source: hosted
     version: "5.0.2"
 sdks:
+<<<<<<< HEAD
   dart: ">=2.12.0-0.0 <3.0.0"
+=======
+  dart: ">=2.12.0 <3.0.0"
+>>>>>>> origin/Saraz
   flutter: ">=1.24.0-7.0"
