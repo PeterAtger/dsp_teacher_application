@@ -1,9 +1,8 @@
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/diff_nav_bar.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/nav_bar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/buttonsBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/scroller.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/text_viewer.dart';

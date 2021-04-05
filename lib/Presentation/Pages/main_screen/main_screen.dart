@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/diff_nav_bar.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
