@@ -123,7 +123,9 @@ class _ColorMaps {
 }
 
 class AppColors {
+
   const AppColors();
+
   // static final MaterialColor cGreen =
   //     MaterialColor(0xFF1BB7A5, _ColorMaps.cGreenMap);
 
@@ -136,8 +138,10 @@ class AppColors {
       MaterialColor(0xFF5D5D5D, _ColorMaps.cDarkGreyMap);
   static final MaterialColor cWhite =
       MaterialColor(0xFFFFFFFF, _ColorMaps.cWhite);
+
   static final MaterialColor cPurple =
       MaterialColor(0xFF370B64, _ColorMaps.cPurpleMap);
+
   static final MaterialColor cGreen =
       MaterialColor(0xFF17998a, _ColorMaps.cGreenMap);
 }
