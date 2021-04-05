@@ -27,9 +27,15 @@ class RouterGenerator {
       case '/MainScreen':
         return MaterialPageRoute(builder: (_) => MainScreen());
       case '/MainScreen/Questions':
-        return MaterialPageRoute(builder: (_) => Questions());
+        return MaterialPageRoute(
+            builder: (_) => Questions(
+                  argument: args,
+                ));
       case '/MainScreen/Questions/QuestionScreen':
-        return MaterialPageRoute(builder: (_) => QuestionScreen());
+        return MaterialPageRoute(
+            builder: (_) => QuestionScreen(
+                  selectedQuestion: args,
+                ));
       case '/MainScreen/Settings':
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':
