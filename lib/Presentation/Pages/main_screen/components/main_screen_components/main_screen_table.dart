@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 
-
 class MainScreenTableItem extends StatelessWidget {
   const MainScreenTableItem({
     Key key,
@@ -20,9 +19,18 @@ class MainScreenTableItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-          style: outlineButtonStyle,
-          onPressed: () { Navigator.pushReplacementNamed(context, '/QuestionsList',arguments: txt);},
-          child: Column(children : [SvgPicture.asset(img , height:h*0.13),  
-          Text(txt, style: AppFonts.appText.copyWith(color:AppColors.cDarkGrey[800],))]),);
+      style: outlineButtonStyle,
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, '/QuestionsList',
+            arguments: txt);
+      },
+      child: Column(children: [
+        SvgPicture.asset(img, height: h * 0.13),
+        Text(txt,
+            style: AppFonts.appText.copyWith(
+              color: AppColors.cDarkGrey,
+            ))
+      ]),
+    );
   }
 }

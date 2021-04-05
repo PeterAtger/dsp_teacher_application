@@ -21,6 +21,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: AppColors.cPurple,
         accentColor: AppColors.cGreen,
+        focusColor: AppColors.cDarkGrey[100],
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'lato',
         buttonTheme: ButtonThemeData(
