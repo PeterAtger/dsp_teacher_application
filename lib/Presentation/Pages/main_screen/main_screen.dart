@@ -5,69 +5,97 @@ import 'package:dsp_teacher_application/Presentation/Pages/main_screen/component
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/nav_bar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/main_screen_components/main_screen_table.dart';
 
-
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {  
+class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    var h=MediaQuery.of(context).size.height;
+    final Size size = MediaQuery.of(context).size;
     //Buttoms Style function
-    final ButtonStyle outlineButtonStyle  = OutlinedButton.styleFrom(
-      primary: AppColors.cPurple[900],
-      padding: EdgeInsets.symmetric(vertical: 0.02*h),
+    final ButtonStyle outlineButtonStyle = OutlinedButton.styleFrom(
+      primary: AppColors.cDarkGrey[100],
+      padding: EdgeInsets.symmetric(vertical: 0.04 * size.height),
       shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(22)),
+        borderRadius: BorderRadius.all(Radius.circular(29)),
       ),
     );
     return Scaffold(
-      appBar: scrBar(h),
-      body: Container(
-            padding:EdgeInsets.symmetric(horizontal: 20),
-            child:Column(
-              crossAxisAlignment:CrossAxisAlignment.start,
-              children:[
-              Text("Welcome Back, \n" , style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey[900]),),
-              Text("We’ve got new questions waiting \n" , style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey[900]),),
-              QuestionLevelTable(outlineButtonStyle: outlineButtonStyle, h: h),
-            ]) ,
+      body: _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size),
+      drawer: SideMenu(
+        size: size,
       ),
-      drawer: SideMenu(),
-      bottomNavigationBar:NavBar(),
-  );}
+      bottomNavigationBar: NavBar(),
+    );
+  }
+}
 
+class _ScreenBody extends StatelessWidget {
+  const _ScreenBody({
+    Key key,
+    @required this.outlineButtonStyle,
+    @required this.size,
+  }) : super(key: key);
 
-  PreferredSize scrBar(double h) {
-    return PreferredSize(
-   preferredSize: Size.fromHeight(h*0.18),
-   child: Padding(
-     padding: EdgeInsets.symmetric(vertical:h*.05),
-     child: AppBar(
-       leading: Builder(
-            builder: (context) => IconButton(
-              icon: Icon(Icons.menu,    size: 32,   color: AppColors.cDarkGrey[700],),
+  final ButtonStyle outlineButtonStyle;
+  final Size size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 32),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        SizedBox(
+          height: 72,
+        ),
+        Row(
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.menu,
+                size: 32,
+                color: AppColors.cDarkGrey,
+              ),
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
-          ),  
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        title : Text('Main', style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey[800])),
-     ),),);
-  }}
+            SizedBox(
+              width: 8,
+            ),
+            Text('Main',
+                style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
+          ],
+        ),
+        SizedBox(
+          height: 72,
+        ),
+        Text(
+          "Welcome Back, \n",
+          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+        ),
+        Text(
+          "We’ve got new questions waiting \n",
+          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+        ),
+        SizedBox(
+          height: 16,
+        ),
+        QuestionLevelTable(outlineButtonStyle: outlineButtonStyle, size: size),
+      ]),
+    );
+  }
+}
 
 class QuestionLevelTable extends StatelessWidget {
   const QuestionLevelTable({
     Key key,
     @required this.outlineButtonStyle,
-    @required this.h,
+    @required this.size,
   }) : super(key: key);
 
   final ButtonStyle outlineButtonStyle;
-  final double h;
-
+  final Size size;
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -75,33 +103,59 @@ class QuestionLevelTable extends StatelessWidget {
         TableRow(
           children: [
             Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GradientOutline(chld: MainScreenTableItem(txt: 'Primary',img: 'lib/Presentation/Images/boysvg.svg',outlineButtonStyle: outlineButtonStyle, h: h ),),
+              padding: const EdgeInsets.only(right: 8.0, bottom: 8),
+              child: GradientOutline(
+                size: size,
+                chld: MainScreenTableItem(
+                    txt: 'Primary',
+                    img: 'lib/Presentation/Images/boysvg.svg',
+                    outlineButtonStyle: outlineButtonStyle,
+                    size: size),
+              ),
             ),
             Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GradientOutline(chld: MainScreenTableItem(txt: 'Preparatory',img: 'lib/Presentation/Images/girl.svg',outlineButtonStyle: outlineButtonStyle, h: h ),),
+              padding: const EdgeInsets.only(left: 8, bottom: 8),
+              child: GradientOutline(
+                size: size,
+                chld: MainScreenTableItem(
+                    txt: 'Preparatory',
+                    img: 'lib/Presentation/Images/girl.svg',
+                    outlineButtonStyle: outlineButtonStyle,
+                    size: size),
+              ),
             ),
-        ],
+          ],
         ),
-        TableRow(children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GradientOutline(chld: MainScreenTableItem(txt: 'Secondry',img: 'lib/Presentation/Images/secondaryboy.svg',outlineButtonStyle: outlineButtonStyle, h: h ),),
-          ), 
-              
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(22)),
-              color:AppColors.cGreen,),
-              child: MainScreenTableItem(txt: 'Saved',img: 'lib/Presentation/Images/yellow_star.svg',outlineButtonStyle: outlineButtonStyle, h: h ),),
+        TableRow(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0, top: 8),
+              child: GradientOutline(
+                chld: MainScreenTableItem(
+                    txt: 'Secondry',
+                    img: 'lib/Presentation/Images/secondaryboy.svg',
+                    outlineButtonStyle: outlineButtonStyle,
+                    size: size),
+                size: size,
+              ),
             ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 8, top: 8),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(32)),
+                  color: AppColors.cGreen,
+                ),
+                child: MainScreenTableItem(
+                    txt: 'Saved',
+                    img: 'lib/Presentation/Images/yellow_star.svg',
+                    outlineButtonStyle: outlineButtonStyle,
+                    size: size),
+              ),
+            ),
+          ],
         ),
       ],
     );
   }
 }
-
-

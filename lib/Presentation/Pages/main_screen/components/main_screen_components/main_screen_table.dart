@@ -7,13 +7,13 @@ class MainScreenTableItem extends StatelessWidget {
     Key key,
     @required this.outlineButtonStyle,
     @required this.img,
-    @required this.h,
+    @required this.size,
     @required this.txt,
   }) : super(key: key);
 
   final ButtonStyle outlineButtonStyle;
   final String img;
-  final double h;
+  final Size size;
   final String txt;
 
   @override
@@ -25,7 +25,7 @@ class MainScreenTableItem extends StatelessWidget {
             arguments: txt);
       },
       child: Column(children: [
-        SvgPicture.asset(img, height: h * 0.13),
+        SvgPicture.asset(img, height: 56),
         Text(txt,
             style: AppFonts.appText.copyWith(
               color: AppColors.cDarkGrey,
