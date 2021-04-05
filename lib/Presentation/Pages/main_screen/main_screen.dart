@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/diff_nav_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
@@ -23,11 +24,13 @@ class _MainScreenState extends State<MainScreen> {
       ),
     );
     return Scaffold(
+      floatingActionButton: FAB(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size),
       drawer: SideMenu(
         size: size,
       ),
-      bottomNavigationBar: NavBar(),
+      bottomNavigationBar: DiffNavBar(),
     );
   }
 }
@@ -79,7 +82,7 @@ class _ScreenBody extends StatelessWidget {
           style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
         ),
         SizedBox(
-          height: 16,
+          height: 32,
         ),
         QuestionLevelTable(outlineButtonStyle: outlineButtonStyle, size: size),
       ]),
