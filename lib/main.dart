@@ -1,30 +1,14 @@
-import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/main_screen.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-void main() => runApp(MaterialApp(initialRoute: '/MainScreen', routes: {
-      '/MainScreen': (context) => MainScreen(),
-      '/QuestionsList': (context) => Questions(),
-      '/Question': (context) => QuestionScreen(),
-      '/profile': (context) => Profile(),
-    }));
-/*void main() {
-  runApp(MyApp());
-}
+void main() => runApp(App());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark));
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Student Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -47,12 +31,8 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: '/',
       onGenerateRoute: RouterGenerator.generateRoute,
-      routes: {
-        '/': (context) => HIW(),
-      },
+      initialRoute: '/',
     );
   }
 }
-*/
