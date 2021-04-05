@@ -21,8 +21,7 @@ class MainScreenTableItem extends StatelessWidget {
     return OutlinedButton(
       style: outlineButtonStyle,
       onPressed: () {
-        Navigator.pushReplacementNamed(context, '/QuestionsList',
-            arguments: txt);
+        Navigator.pushNamed(context, '/MainScreen/Questions', arguments: txt);
       },
       child: Column(children: [
         SvgPicture.asset(img, height: 56),

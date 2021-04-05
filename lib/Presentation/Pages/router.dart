@@ -1,5 +1,8 @@
+import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/HIW.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/main_screen.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/notifications.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';
@@ -23,6 +26,10 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => HIW());
       case '/MainScreen':
         return MaterialPageRoute(builder: (_) => MainScreen());
+      case '/MainScreen/Questions':
+        return MaterialPageRoute(builder: (_) => Questions());
+      case '/MainScreen/Questions/QuestionScreen':
+        return MaterialPageRoute(builder: (_) => QuestionScreen());
       case '/MainScreen/Settings':
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':

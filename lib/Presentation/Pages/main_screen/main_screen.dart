@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/side_menu.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/nav_bar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/main_screen_components/main_screen_table.dart';
 
 class MainScreen extends StatefulWidget {

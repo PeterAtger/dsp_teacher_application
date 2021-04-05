@@ -13,14 +13,16 @@ class _QuestionsState extends State<Questions> {
   bool showUrgent = false;
   String questionLevel = "Primary";
   String displayOption = "Date";
+
   @override
   Widget build(BuildContext context) {
     questionLevel = ModalRoute.of(context).settings.arguments;
-    List<String> questionLevels = ['Primary', 'Preparatory', 'Secondry'];
-    List<String> displayOptions = ['Date', 'Option2', 'Option3'];
+    print(questionLevel);
+    final List<String> questionLevels = ['Primary', 'Preparatory', 'Secondry'];
+    final List<String> displayOptions = ['Date', 'Option2', 'Option3'];
     var qLevel = {'Primary': 1, 'Preparatory': 2, 'Secondry': 3};
     var avatar = {
-      'Primary': 'lib/Presentation/Images/boysvg.svg',
+      'Primary': 'lib/Presentation/Images/boy.svg',
       'Preparatory': "lib/Presentation/Images/girl.svg",
       'Secondry': "lib/Presentation/Images/secondaryboy.svg"
     };
@@ -61,7 +63,7 @@ class _QuestionsState extends State<Questions> {
           leading: Builder(
             builder: (context) => IconButton(
               icon: Icon(Icons.arrow_back_ios_rounded,
-                  size: 25, color: AppColors.cDarkGrey),
+                  size: 24, color: AppColors.cDarkGrey),
               onPressed: () => Navigator.pushNamed(context, '/MainScreen'),
             ),
           ),
@@ -105,7 +107,7 @@ class _QuestionsState extends State<Questions> {
   }
 
   Container levelMenu(
-      double w, List<String> questionLevels, Map<String, String> avatar) {
+      final double w, List<String> questionLevels, Map<String, String> avatar) {
     return Container(
       alignment: Alignment.topLeft,
       child: Padding(
@@ -219,7 +221,8 @@ class _QuestionsState extends State<Questions> {
               size: 24,
             ),
             onTap: () {
-              Navigator.pushNamed(context, '/Question',
+              Navigator.pushNamed(
+                  context, '/MainScreen/Questions/QuestionScreen',
                   arguments: ques[index].ques);
             },
           ),

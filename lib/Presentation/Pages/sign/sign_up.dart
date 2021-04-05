@@ -16,10 +16,10 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _gradeList = [
-    ['Grade', 'lib/Presentation/Images/greade.svg'],
-    ['Primary', 'lib/Presentation/Images/boysvg.svg'],
-    ['Preparatory', 'lib/Presentation/Images/girl.svg'],
-    ['Secondary', 'lib/Presentation/Images/secondaryboy.svg']
+    ['Expertise', 'lib/Presentation/Images/expertise.svg'],
+    ['Fresh Graduate', 'lib/Presentation/Images/graduate.svg'],
+    ['1-5 Years Experience', 'lib/Presentation/Images/years_experience.svg'],
+    ['5+ Years Experience', 'lib/Presentation/Images/scientist.svg']
   ];
   String _selectedItem;
   @override
