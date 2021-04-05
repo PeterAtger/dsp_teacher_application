@@ -26,8 +26,8 @@ class _NotificationsState extends State<Notifications> {
       body: Stack(
         children: [
           ArabicImage(
-            top: -170,
-            right: -250,
+            top: -size.height / 3,
+            right: -size.height / 3,
             size: size.height / 1.5,
             blendMode: BlendMode.srcATop,
             opacity: 0.1,
