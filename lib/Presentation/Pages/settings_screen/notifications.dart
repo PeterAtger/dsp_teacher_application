@@ -1,4 +1,5 @@
 import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/NavBar.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/ActiveHours.dart';
@@ -19,6 +20,9 @@ class _NotificationsState extends State<Notifications> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      bottomNavigationBar: DiffNavBar(),
+      floatingActionButton: FAB(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           ArabicImage(
@@ -42,7 +46,7 @@ class _NotificationsState extends State<Notifications> {
               ),
               SizedBox(height: 32),
               GradientLine(size: size),
-              SizedBox(height: 10),
+              SizedBox(height: 8),
               SettingsToggle(
                 spacing: 80,
                 toggleText: 'New Queries',
@@ -57,9 +61,7 @@ class _NotificationsState extends State<Notifications> {
               SizedBox(height: 40),
               ActiveHours(),
               SizedBox(height: 32),
-              GradientLine(
-                size: size,
-              ),
+              GradientLine(size: size),
               SizedBox(height: 8),
               FromToPanda(),
               SizedBox(height: 8),
