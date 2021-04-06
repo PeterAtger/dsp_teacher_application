@@ -1,7 +1,9 @@
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'components/BackGroundGradient.dart';
 
@@ -42,6 +44,14 @@ class HIW1 extends StatelessWidget {
           ),
         ],
       ),
+
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'First Select the grade you want to see questions from.',
+        instructionImage: 'hiw1',
+      )
     ]));
   }
 }

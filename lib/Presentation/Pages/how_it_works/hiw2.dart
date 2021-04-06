@@ -1,5 +1,6 @@
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,13 @@ class HIW2 extends StatelessWidget {
           )
         ],
       ),
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'Select a Question you feel confident about. \nUrgent questions have a green dot next to them.',
+        instructionImage: 'hiw2',
+      )
     ]));
   }
 }

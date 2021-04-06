@@ -1,5 +1,6 @@
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,14 @@ class HIW4 extends StatelessWidget {
           )
         ],
       ),
+
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'If sliders aren’t your style, you can also double tab any sentence to directly edit it.',
+        instructionImage: 'hiw4',
+      )
     ]));
   }
 }
