@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 class AppFonts {
+  const AppFonts();
+
   static final String _fontfamily = 'lato';
 
   static final TextStyle heading1 =
       TextStyle(fontSize: 48, fontFamily: _fontfamily);
+  static final TextStyle andro =
+      TextStyle(fontSize: 15, fontFamily: _fontfamily);
   static final TextStyle heading2 =
       TextStyle(fontSize: 32, fontFamily: _fontfamily);
   static final TextStyle heading3 = TextStyle(
@@ -119,6 +123,9 @@ class _ColorMaps {
 }
 
 class AppColors {
+
+  const AppColors();
+
   // static final MaterialColor cGreen =
   //     MaterialColor(0xFF1BB7A5, _ColorMaps.cGreenMap);
 
@@ -128,11 +135,10 @@ class AppColors {
   static final MaterialColor cLightGrey =
       MaterialColor(0xFFE7E7E7, _ColorMaps.cLightGreyMap);
   static final MaterialColor cDarkGrey =
-      MaterialColor(0xFFD5D5D5, _ColorMaps.cDarkGreyMap);
+      MaterialColor(0xFF5D5D5D, _ColorMaps.cDarkGreyMap);
   static final MaterialColor cWhite =
       MaterialColor(0xFFFFFFFF, _ColorMaps.cWhite);
 
-  // This is just a precaution if the colors aren't looking good
   static final MaterialColor cPurple =
       MaterialColor(0xFF370B64, _ColorMaps.cPurpleMap);
 
