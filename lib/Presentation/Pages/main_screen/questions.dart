@@ -125,8 +125,8 @@ class _QuestionsState extends State<Questions> {
                 children: [
                   SvgPicture.asset(
                     avatar[valueItem],
-                    height: 30,
-                    width: 30,
+                    height: 24,
+                    width: 24,
                   ),
                   SizedBox(
                     width: 8,

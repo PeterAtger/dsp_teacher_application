@@ -42,7 +42,8 @@ class GetStarted extends StatelessWidget {
                 },
                 child: SvgPicture.asset(
                   'lib/Presentation/Images/arrow.svg',
-                  semanticsLabel: 'Arrow',
+                  semanticsLabel: 'Arrow_f',
+                  color: AppColors.cWhite,
                 )),
           )
         ],
