@@ -48,7 +48,7 @@ class _ScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 32),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      child: Column(children: [
         SizedBox(
           height: 72,
         ),
@@ -69,21 +69,21 @@ class _ScreenBody extends StatelessWidget {
                 style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),
-        SizedBox(
-          height: 72,
+        Expanded(
+          flex: 1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Welcome Back, \n\nWe’ve got new questions waiting \n ",
+                style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              ),
+              QuestionLevelTable(
+                  outlineButtonStyle: outlineButtonStyle, size: size),
+            ],
+          ),
         ),
-        Text(
-          "Welcome Back, \n",
-          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-        ),
-        Text(
-          "We’ve got new questions waiting \n",
-          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-        ),
-        SizedBox(
-          height: 32,
-        ),
-        QuestionLevelTable(outlineButtonStyle: outlineButtonStyle, size: size),
       ]),
     );
   }
