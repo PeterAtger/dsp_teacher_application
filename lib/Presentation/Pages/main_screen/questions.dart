@@ -1,4 +1,5 @@
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -12,11 +13,20 @@ class Questions extends StatefulWidget {
 }
 
 class _QuestionsState extends State<Questions> {
-  bool showUrgent = false;
-  String questionLevel = 'Primary';
+  bool showUrgent;
+
+  String questionLevel;
   List<String> questionLevels = ['Primary', 'Preparatory', 'Secondry'];
-  List<String> displayOptions = ['Date', 'Option2', 'Option3'];
-  String displayOption = "Date";
+  List<String> displayOptions = ['Date', 'Alphabetical', 'Option3'];
+  String displayOption;
+
+  @override
+  void initState() {
+    showUrgent = true;
+    questionLevel = 'Primary';
+    displayOption = "Date";
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,26 +70,20 @@ class _QuestionsState extends State<Questions> {
       List<String> displayOptions,
       ListView requestedList) {
     return Stack(children: [
+      ArabicImage(
+        right: -h / 3,
+        top: -h / 3,
+        size: h / 1.5,
+        opacity: 0.05,
+        blendMode: BlendMode.srcATop,
+      ),
       Column(
         children: [
           SizedBox(
             height: 72,
           ),
-          Row(
-            children: [
-              SizedBox(width: 32),
-              IconButton(
-                icon: Icon(Icons.arrow_back_ios_rounded,
-                    size: 32, color: AppColors.cDarkGrey),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              SizedBox(
-                width: 8,
-              ),
-              Text('Questions',
-                  style:
-                      AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
-            ],
+          TitleBar(
+            title: 'Questions',
           ),
           SizedBox(height: 32),
           Padding(
@@ -96,13 +100,6 @@ class _QuestionsState extends State<Questions> {
           requestedList,
         ],
       ),
-      ArabicImage(
-        right: -h / 3,
-        top: -h / 3,
-        size: h / 1.5,
-        opacity: 0.05,
-        blendMode: BlendMode.srcATop,
-      )
     ]);
   }
 
@@ -144,9 +141,9 @@ class _QuestionsState extends State<Questions> {
 
   Container filterBar(double w, List<String> displayOptions) {
     return Container(
-      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+      child: Row(children: [
         Text(
-          "Sorted By",
+          "Sorted By: ",
           style: AppFonts.smallButtonText,
         ),
         DropdownButton<String>(
@@ -167,21 +164,19 @@ class _QuestionsState extends State<Questions> {
                 ));
           }).toList(),
         ),
-        Text(
-          "Urgent Only",
-          style: AppFonts.smallButtonText,
-        ),
-        Transform.scale(
-          scale: 0.75,
-          child: Switch(
-              value: showUrgent,
-              activeColor: AppColors.cGreen,
-              onChanged: (value) {
-                setState(() {
-                  showUrgent = value;
-                  print(showUrgent);
-                });
-              }),
+        Expanded(
+          flex: 1,
+          child: SwitchListTile(
+            contentPadding: EdgeInsets.symmetric(horizontal: 8),
+            title: Text('Urgent Only: '),
+            value: showUrgent,
+            onChanged: (isOn) {
+              setState(() {
+                showUrgent = isOn;
+              });
+              print(isOn);
+            },
+          ),
         ),
       ]),
     );

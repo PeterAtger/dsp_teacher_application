@@ -14,7 +14,7 @@ Widget inputfield(var size, MaterialColor linecolor, MaterialColor hintcolor,
       isDense: true,
       hintText: hint,
       hintStyle: AppFonts.appText.copyWith(
-        color: hintcolor,
+        color: hintcolor[500],
       ),
       suffixIcon: isPass
           ? Padding(

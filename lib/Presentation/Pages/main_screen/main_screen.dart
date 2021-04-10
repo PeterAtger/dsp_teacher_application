@@ -81,6 +81,7 @@ class _ScreenBody extends StatelessWidget {
               ),
               QuestionLevelTable(
                   outlineButtonStyle: outlineButtonStyle, size: size),
+              SizedBox(height: 24)
             ],
           ),
         ),
