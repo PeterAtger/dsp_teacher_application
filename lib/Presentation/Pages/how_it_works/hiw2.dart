@@ -2,7 +2,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/componen
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 
 class HIW2 extends StatelessWidget {

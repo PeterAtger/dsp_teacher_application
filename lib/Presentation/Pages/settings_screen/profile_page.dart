@@ -1,11 +1,10 @@
-import 'package:adobe_xd/adobe_xd.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/NavBar.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/QuestionButton.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 
 class Profile extends StatefulWidget {

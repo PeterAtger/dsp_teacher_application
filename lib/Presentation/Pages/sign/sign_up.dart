@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/button.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/buttonicon.dart';

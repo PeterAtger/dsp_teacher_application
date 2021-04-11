@@ -6,7 +6,6 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Settings extends StatefulWidget {
   @override

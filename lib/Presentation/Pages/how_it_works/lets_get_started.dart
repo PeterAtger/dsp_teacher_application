@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
