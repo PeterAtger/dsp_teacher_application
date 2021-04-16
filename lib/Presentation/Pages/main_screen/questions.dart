@@ -168,7 +168,10 @@ class _QuestionsState extends State<Questions> {
           flex: 1,
           child: SwitchListTile(
             contentPadding: EdgeInsets.symmetric(horizontal: 8),
-            title: Text('Urgent Only: '),
+            title: Text(
+              'Urgent Only: ',
+              maxLines: 2,
+            ),
             value: showUrgent,
             onChanged: (isOn) {
               setState(() {

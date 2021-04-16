@@ -65,7 +65,7 @@ class _ScreenBody extends StatelessWidget {
             SizedBox(
               width: 8,
             ),
-            Text('Main',
+            Text('Main Screen',
                 style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),

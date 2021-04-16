@@ -196,7 +196,7 @@ class _SignUpState extends State<SignUp> {
                             onButtonPress: () {},
                           ),
                         ),
-                        SizedBox(width: 32),
+                        SizedBox(width: 16),
                         Expanded(
                           flex: 1,
                           child: ButtonIcon(
