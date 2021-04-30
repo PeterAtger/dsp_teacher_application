@@ -102,8 +102,13 @@ class SidMenuBar extends StatelessWidget {
                 Column(
                   children: items
                       .map((e) => InkWell(
-                            onTap: () => Navigator.of(context)
-                                .pushNamed('/MainScreen/$e'),
+                            onTap: () async {
+                              await Future.delayed(Duration(milliseconds: 250),
+                                  () {
+                                Navigator.of(context)
+                                    .pushNamed('/MainScreen/$e');
+                              });
+                            },
                             child: Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 16.0),

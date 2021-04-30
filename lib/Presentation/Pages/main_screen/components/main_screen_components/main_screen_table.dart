@@ -20,8 +20,11 @@ class MainScreenTableItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: outlineButtonStyle,
-      onPressed: () {
-        Navigator.pushNamed(context, '/MainScreen/Questions', arguments: txt);
+      onPressed: () async {
+        await Future.delayed(Duration(milliseconds: 250), () {
+          Navigator.of(context)
+              .pushNamed('/MainScreen/Questions', arguments: txt);
+        });
       },
       child: Column(children: [
         SvgPicture.asset(img, height: 56),
