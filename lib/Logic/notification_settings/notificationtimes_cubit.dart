@@ -15,13 +15,19 @@ class NotificationTimesCubit extends Cubit<NotificationTimesState> {
 
   Future<void> selectFromTime(
       BuildContext context, NotificationTimesState state) async {
-    await cubitShowTimePicker(context)
-        .then((value) => emit(NotificationTimesState(value, state.toTime)));
+    await cubitShowTimePicker(context).then((value) {
+      value == null
+          ? emit(NotificationTimesState(state.fromTime, state.toTime))
+          : emit(NotificationTimesState(value, state.toTime));
+    });
   }
 
   Future<void> selectToTime(
       BuildContext context, NotificationTimesState state) async {
-    await cubitShowTimePicker(context)
-        .then((value) => emit(NotificationTimesState(state.fromTime, value)));
+    await cubitShowTimePicker(context).then((value) {
+      value == null
+          ? emit(NotificationTimesState(state.fromTime, state.toTime))
+          : emit(NotificationTimesState(state.fromTime, value));
+    });
   }
 }
