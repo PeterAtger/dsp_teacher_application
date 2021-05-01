@@ -19,7 +19,7 @@ class App extends StatelessWidget {
       title: 'Teacher Demo',
       theme: ThemeData(
         // Theme Properties
-        primarySwatch: AppColors.cPurple,
+        primarySwatch: AppColors.cGreen,
         accentColor: AppColors.cGreen,
         highlightColor: AppColors.cDarkGrey[100],
         focusColor: AppColors.cDarkGrey[100],
