@@ -23,10 +23,6 @@ class _NotificationsState extends State<Notifications> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       //Body
       body: MultiBlocProvider(
         providers: [

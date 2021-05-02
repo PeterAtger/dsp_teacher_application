@@ -3,7 +3,6 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +17,6 @@ class _SettingsState extends State<Settings> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           Positioned(

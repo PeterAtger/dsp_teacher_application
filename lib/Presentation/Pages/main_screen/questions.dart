@@ -83,6 +83,7 @@ class _QuestionsState extends State<Questions> {
             height: 72,
           ),
           TitleBar(
+            hasBackButton: true,
             title: 'Questions',
           ),
           SizedBox(height: 32),

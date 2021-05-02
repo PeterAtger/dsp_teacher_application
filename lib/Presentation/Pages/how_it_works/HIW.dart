@@ -20,8 +20,6 @@ class _HIWState extends State<HIW> {
 
   @override
   Widget build(BuildContext context) {
-    // Get size of phone
-
     // Returns Three Pages of how it works
     return Scaffold(
       body: Stack(alignment: Alignment.center, children: <Widget>[

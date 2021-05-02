@@ -1,16 +1,14 @@
-import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/main_screen_components/main_screen_table.dart';
 
-class MainScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -22,15 +20,7 @@ class _MainScreenState extends State<MainScreen> {
         borderRadius: BorderRadius.all(Radius.circular(29)),
       ),
     );
-    return Scaffold(
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size),
-      drawer: SideMenu(
-        size: size,
-      ),
-      bottomNavigationBar: DiffNavBar(),
-    );
+    return _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size);
   }
 }
 

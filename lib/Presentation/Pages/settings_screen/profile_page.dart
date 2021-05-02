@@ -4,7 +4,6 @@ import 'package:dsp_teacher_application/Logic/profile_image/profile_image_cubit.
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,11 +21,6 @@ class _ProfileState extends State<Profile> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      // NavBar
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
       // Body
       body: MultiBlocProvider(
         providers: [
