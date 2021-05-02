@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/error_screen/error_screen.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/HIW.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
@@ -42,6 +42,8 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => Profile());
       case '/MainScreen/Settings/Notifications':
         return MaterialPageRoute(builder: (_) => Notifications());
+      default:
+        return MaterialPageRoute(builder: (_) => ErorrScreen());
     }
   }
 }
