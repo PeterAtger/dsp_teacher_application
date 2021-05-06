@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavItem.dart';
@@ -66,6 +67,9 @@ class _DiffNavBarState extends State<DiffNavBar> {
                       iconText: 'check',
                       fn: () {
                         context.read<NavbarCubit>().goToAnsweredQuestions();
+                        context
+                            .read<AnsweredQuestionsCubit>()
+                            .goToAnsweredQuestions();
                       }),
                 ],
               ),

@@ -5,5 +5,5 @@ class Answers {
 class _Answer {
   List<String> answerWord;
   String askedTime;
-  List<double> accurecy;
+  List<double> accuracy;
 }
