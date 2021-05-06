@@ -1,16 +1,14 @@
-import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/gradientOutline.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/side_menu.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/main_screen_components/main_screen_table.dart';
 
-class MainScreen extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -22,15 +20,7 @@ class _MainScreenState extends State<MainScreen> {
         borderRadius: BorderRadius.all(Radius.circular(29)),
       ),
     );
-    return Scaffold(
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size),
-      drawer: SideMenu(
-        size: size,
-      ),
-      bottomNavigationBar: DiffNavBar(),
-    );
+    return _ScreenBody(outlineButtonStyle: outlineButtonStyle, size: size);
   }
 }
 
@@ -48,7 +38,7 @@ class _ScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 32),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      child: Column(children: [
         SizedBox(
           height: 72,
         ),
@@ -65,25 +55,26 @@ class _ScreenBody extends StatelessWidget {
             SizedBox(
               width: 8,
             ),
-            Text('Main',
+            Text('Main Screen',
                 style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),
-        SizedBox(
-          height: 72,
+        Expanded(
+          flex: 1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Welcome Back, \n\nWe’ve got new questions waiting \n ",
+                style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              ),
+              QuestionLevelTable(
+                  outlineButtonStyle: outlineButtonStyle, size: size),
+              SizedBox(height: 24)
+            ],
+          ),
         ),
-        Text(
-          "Welcome Back, \n",
-          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-        ),
-        Text(
-          "We’ve got new questions waiting \n",
-          style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
-        ),
-        SizedBox(
-          height: 32,
-        ),
-        QuestionLevelTable(outlineButtonStyle: outlineButtonStyle, size: size),
       ]),
     );
   }

@@ -1,9 +1,17 @@
+import 'package:dsp_teacher_application/Logic/notification_settings/notificationtimes_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class TeacherTimeSettings extends StatelessWidget {
+  final Function fromTimeTab;
+  final Function toTimeTab;
+  final NotificationTimesState state;
+
   const TeacherTimeSettings({
     Key key,
+    this.fromTimeTab,
+    this.toTimeTab,
+    this.state,
   }) : super(key: key);
 
   @override
@@ -13,13 +21,19 @@ class TeacherTimeSettings extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            '7:00 PM',
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+          InkWell(
+            onTap: fromTimeTab,
+            child: Text(
+              "${state.fromTime.format(context)}",
+              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+            ),
           ),
-          Text(
-            '8:00 PM',
-            style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+          InkWell(
+            onTap: toTimeTab,
+            child: Text(
+              "${state.toTime.format(context)}",
+              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+            ),
           ),
         ],
       ),

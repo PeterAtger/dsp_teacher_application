@@ -4,6 +4,8 @@ import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 
+import 'components/Instruction.dart';
+
 class HIW3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,6 +43,14 @@ class HIW3 extends StatelessWidget {
           )
         ],
       ),
+
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'Select a sentence and a slider with possible dactirizations will appear.',
+        instructionImage: 'hiw3',
+      )
     ]));
   }
 }

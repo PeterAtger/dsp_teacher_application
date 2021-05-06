@@ -1,12 +1,10 @@
 import 'package:adobe_xd/adobe_xd.dart';
-import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
-import 'package:dsp_teacher_application/Presentation/Global_components/NavBar.dart';
-import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/ContactUsList.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -19,9 +17,6 @@ class _SettingsState extends State<Settings> {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Stack(
         children: [
           Positioned(
@@ -52,25 +47,29 @@ class _SettingsState extends State<Settings> {
             IconListSetting(
               iconName: 'notification',
               settingText: 'Notifications',
+              onTab: () {
+                Navigator.of(context)
+                    .pushNamed('/MainScreen/Settings/Notifications');
+              },
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'book',
               settingText: 'Terms of use',
+              onTab: () {},
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'how_it_works_question_mark',
               settingText: 'How it works',
+              onTab: () {},
             ),
-            SizedBox(height: 24),
             IconListSetting(
               iconName: 'profile',
               settingText: 'Log out',
+              onTab: () {},
             ),
             SizedBox(height: 32),
             GradientLine(size: size),
-            SizedBox(height: 8),
+            SizedBox(height: 16),
             Row(children: <Widget>[
               SizedBox(width: 32),
               Text(
@@ -78,7 +77,7 @@ class _SettingsState extends State<Settings> {
                 style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
               ),
             ]),
-            SizedBox(height: 8),
+            SizedBox(height: 24),
             ContactUsList(
               iconName: 'phone',
               contactText: '+202 991 991 991',

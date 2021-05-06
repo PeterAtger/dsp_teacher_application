@@ -1,6 +1,6 @@
-import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/error_screen/error_screen.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_page.Dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/HIW.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/main_screen.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/notifications.dart';
@@ -25,7 +25,7 @@ class RouterGenerator {
       case '/HIW':
         return MaterialPageRoute(builder: (_) => HIW());
       case '/MainScreen':
-        return MaterialPageRoute(builder: (_) => MainScreen());
+        return MaterialPageRoute(builder: (_) => MainPage());
       case '/MainScreen/Questions':
         return MaterialPageRoute(
             builder: (_) => Questions(
@@ -40,8 +40,10 @@ class RouterGenerator {
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':
         return MaterialPageRoute(builder: (_) => Profile());
-      case '/MainScreen/Notifications':
+      case '/MainScreen/Settings/Notifications':
         return MaterialPageRoute(builder: (_) => Notifications());
+      default:
+        return MaterialPageRoute(builder: (_) => ErorrScreen());
     }
   }
 }

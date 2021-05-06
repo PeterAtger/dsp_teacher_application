@@ -1,40 +1,46 @@
+import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() => runApp(App());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getTemporaryDirectory(),
+  );
+  runApp(App());
+}
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Teacher Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: AppColors.cPurple,
-        accentColor: AppColors.cGreen,
-        highlightColor: AppColors.cDarkGrey[100],
-        focusColor: AppColors.cDarkGrey[100],
-        scaffoldBackgroundColor: Colors.white,
-        fontFamily: 'lato',
-        buttonTheme: ButtonThemeData(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32.0))),
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+    return BlocProvider(
+      create: (context) => NavbarCubit(),
+      child: MaterialApp(
+        title: 'Teacher Demo',
+        theme: buildThemeData(),
+        onGenerateRoute: RouterGenerator.generateRoute,
+        initialRoute: '/',
       ),
-      onGenerateRoute: RouterGenerator.generateRoute,
-      initialRoute: '/',
+    );
+  }
+
+  ThemeData buildThemeData() {
+    return ThemeData(
+      // Theme Properties
+      primarySwatch: AppColors.cGreen,
+      accentColor: AppColors.cGreen,
+      highlightColor: AppColors.cDarkGrey[100],
+      focusColor: AppColors.cDarkGrey[100],
+      scaffoldBackgroundColor: Colors.white,
+      fontFamily: 'lato',
+      buttonTheme: ButtonThemeData(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32.0))),
+      visualDensity: VisualDensity.adaptivePlatformDensity,
     );
   }
 }

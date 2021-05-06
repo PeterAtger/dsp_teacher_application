@@ -1,5 +1,5 @@
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -55,9 +55,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
 
     return Scaffold(
       body: _ScreenBody(w: w, h: h, spans: spans, scrollData: scrollData),
-      bottomNavigationBar: DiffNavBar(),
-      floatingActionButton: FAB(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
@@ -83,20 +80,9 @@ class _ScreenBody extends StatelessWidget {
         SizedBox(
           height: 72,
         ),
-        Row(
-          children: [
-            SizedBox(width: 32),
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios_rounded,
-                  size: 32, color: AppColors.cDarkGrey),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-            SizedBox(
-              width: 8,
-            ),
-            Text('Questions',
-                style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
-          ],
+        TitleBar(
+          hasBackButton: true,
+          title: 'Question',
         ),
         Expanded(
           flex: 1,

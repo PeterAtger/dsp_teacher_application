@@ -14,7 +14,7 @@ class GradientLine extends StatelessWidget {
     return Center(
       child: Container(
         height: 1,
-        width: size.width - 50,
+        width: size.width * 0.9,
         decoration: BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.centerLeft,

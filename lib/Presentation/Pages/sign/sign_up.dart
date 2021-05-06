@@ -160,8 +160,10 @@ class _SignUpState extends State<SignUp> {
                       text: 'Sign Up',
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
-                      onButtonPress: () {
-                        Navigator.of(context).pushReplacementNamed('/HIW');
+                      onButtonPress: () async {
+                        await Future.delayed(Duration(milliseconds: 250), () {
+                          Navigator.of(context).pushNamed('/HIW');
+                        });
                       },
                     ),
                   ),
@@ -180,27 +182,37 @@ class _SignUpState extends State<SignUp> {
                     height: 16,
                   ),
                   Container(
+                    height: 48,
                     width: size.width * 0.8,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        ButtonIcon(
-                          size: size,
-                          text: 'Facebook',
-                          icon: 'facebook',
-                          iconcolor: Colors.blue,
-                          textcolor: Colors.blue,
-                          buttoncolor: AppColors.cWhite,
-                          onButtonPress: () {},
+                        Expanded(
+                          flex: 1,
+                          child: ButtonIcon(
+                            size: size,
+                            text: 'Facebook',
+                            icon: 'facebook',
+                            iconcolor: Colors.blue,
+                            textcolor: Colors.blue,
+                            buttoncolor: AppColors.cWhite,
+                            onButtonPress: () async {
+                              await Future.delayed(
+                                  Duration(milliseconds: 250), () {});
+                            },
+                          ),
                         ),
-                        ButtonIcon(
-                          size: size,
-                          text: 'Google',
-                          icon: 'googlee',
-                          iconcolor: Colors.red,
-                          textcolor: AppColors.cDarkGrey,
-                          buttoncolor: AppColors.cWhite,
-                          onButtonPress: () {},
+                        SizedBox(width: 16),
+                        Expanded(
+                          flex: 1,
+                          child: ButtonIcon(
+                            size: size,
+                            text: 'Google',
+                            icon: 'googlee',
+                            iconcolor: Colors.red,
+                            textcolor: AppColors.cDarkGrey,
+                            buttoncolor: AppColors.cWhite,
+                            onButtonPress: () {},
+                          ),
                         ),
                       ],
                     ),
