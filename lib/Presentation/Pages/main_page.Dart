@@ -6,6 +6,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/setti
 import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/questions/answered_questions.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -18,6 +19,7 @@ class _MainPageState extends State<MainPage> {
     Profile(),
     Settings(),
     HomeScreen(),
+    AnsweredQuestions(),
   ];
 
   @override

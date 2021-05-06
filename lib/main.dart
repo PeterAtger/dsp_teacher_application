@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -17,8 +18,15 @@ Future<void> main() async {
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NavbarCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<NavbarCubit>(
+          create: (BuildContext context) => NavbarCubit(),
+        ),
+        BlocProvider<AnsweredQuestionsCubit>(
+          create: (BuildContext context) => AnsweredQuestionsCubit(),
+        ),
+      ],
       child: MaterialApp(
         title: 'Teacher Demo',
         theme: buildThemeData(),
