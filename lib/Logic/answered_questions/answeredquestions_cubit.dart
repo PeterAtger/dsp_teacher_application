@@ -38,7 +38,7 @@ class AnsweredQuestionsCubit extends Cubit<AnsweredQuestionsState> {
     for (int i = 0; i < answers.length; i++) {
       templist.add(Answer(
         answer: answers[i],
-        // color: i % 2 == 0 ? Colors.transparent : AppColors.cGreen,
+        isGreen: i % 2 == 0,
       ));
     }
     emit(AnsweredQuestionsState(templist));

@@ -1,8 +1,8 @@
 import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
-import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AnsweredQuestions extends StatefulWidget {
@@ -29,20 +29,23 @@ class _AnsweredQuestionsState extends State<AnsweredQuestions> {
               child: Image.asset('lib/Presentation/Images/ArabicCircle.png')),
         ),
       ),
-      Column(children: [
-        SizedBox(height: 72),
-        TitleBar(title: 'Answered Questions'),
-        SizedBox(height: 24),
-        BlocBuilder<AnsweredQuestionsCubit, AnsweredQuestionsState>(
-          builder: (context, state) {
-            return SingleChildScrollView(
-              child: Column(
-                children: state.list == null ? [Container()] : state.list,
-              ),
-            );
-          },
-        )
-      ])
+      SingleChildScrollView(
+        child: Column(children: [
+          SizedBox(height: 72),
+          TitleBar(title: 'Answered Questions'),
+          SizedBox(height: 24),
+          BlocBuilder<AnsweredQuestionsCubit, AnsweredQuestionsState>(
+            builder: (context, state) {
+              return SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: state.list == null ? [Container()] : state.list,
+                ),
+              );
+            },
+          )
+        ]),
+      )
     ]));
   }
 }

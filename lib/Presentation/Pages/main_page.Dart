@@ -4,9 +4,9 @@ import 'package:dsp_teacher_application/Presentation/Pages/main_screen/home_scre
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/questions/answered_questions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/questions/answered_questions.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -14,11 +14,12 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  PageController _controller = PageController(initialPage: 3);
+  PageController _controller = PageController(initialPage: 2);
   List<Widget> _screens = [
     Profile(),
     Settings(),
     HomeScreen(),
+    Settings(),
     AnsweredQuestions(),
   ];
 
@@ -27,6 +28,7 @@ class _MainPageState extends State<MainPage> {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
         floatingActionButton: FAB(),
+        floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: DiffNavBar(),
         drawer: SideMenu(
