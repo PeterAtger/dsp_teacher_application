@@ -57,12 +57,12 @@ class _ProfileState extends State<Profile> {
             ),
             Column(
               children: [
-                SizedBox(height: 48),
+                SizedBox(height: 72),
                 TitleBar(
                   title: 'Profile',
                   isTitleColorWhite: true,
                 ),
-                SizedBox(height: 32),
+                SizedBox(height: 16),
                 // Profile Image
                 BlocBuilder<ProfileImageCubit, ProfileImageState>(
                   builder: (context, state) {

@@ -1,5 +1,7 @@
+import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -38,7 +40,10 @@ class GetStarted extends StatelessWidget {
                 focusColor: AppColors.cDarkGrey,
                 elevation: 2,
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/MainScreen');
+                  Future.delayed(Duration(milliseconds: 250), () {
+                    context.read<NavbarCubit>().goToHome();
+                    Navigator.of(context).pushReplacementNamed('/MainScreen');
+                  });
                 },
                 child: SvgPicture.asset(
                   'lib/Presentation/Images/arrow_f.svg',

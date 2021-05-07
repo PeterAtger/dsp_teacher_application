@@ -39,7 +39,7 @@ class _MainPageState extends State<MainPage> {
           listener: (context, state) {
             print(state.selectedPage.index);
             _controller.animateToPage(state.selectedPage.index,
-                duration: Duration(milliseconds: 30), curve: Curves.bounceIn);
+                duration: Duration(milliseconds: 50), curve: Curves.bounceIn);
           },
           child: PageView(
             physics: NeverScrollableScrollPhysics(),
