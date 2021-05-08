@@ -1,17 +1,20 @@
+import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/selectable_text.dart';
 
 class TextViewer extends StatelessWidget {
   const TextViewer({
     Key key,
     @required this.h,
     @required this.w,
-    @required this.spans,
+    this.selectedQuestion,
   }) : super(key: key);
 
   final double h;
   final double w;
-  final List<TextSpan> spans;
+  final String selectedQuestion;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +25,14 @@ class TextViewer extends StatelessWidget {
           color: AppColors.cGreen[100],
         ),
         child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: w * 0.05),
-            child: RichText(
-                maxLines: 4,
-                text: TextSpan(
-                  style: AppFonts.appText
-                      .copyWith(color: AppColors.cDarkGrey[800]),
-                  children: spans,
-                ))
-            //child: Text(sentence,  style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey[800]), maxLines: 6,),
-            ));
+          padding: EdgeInsets.symmetric(horizontal: w * 0.05),
+          child: WordSelectableText(
+            onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
+            text: selectedQuestion,
+            highlightColor: Colors.yellow[300],
+            style: AppFonts.appText,
+            sentenceLength: 2,
+          ),
+        ));
   }
 }
