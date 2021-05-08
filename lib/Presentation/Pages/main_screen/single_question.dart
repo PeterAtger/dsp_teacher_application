@@ -1,11 +1,13 @@
-import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
-import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
-import 'package:flutter/gestures.dart';
+import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
+import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
 import 'package:flutter/material.dart';
-import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/buttonsBar.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/scroller.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/text_viewer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../Global_components/ArabicImage.dart';
+import '../../Global_components/TitleBar.dart';
+import '../../Theme/theme.dart';
+import 'components/single_question_components/buttonsBar.dart';
+import 'components/single_question_components/scroller.dart';
+import 'components/single_question_components/text_viewer.dart';
 
 class QuestionScreen extends StatefulWidget {
   final selectedQuestion;
@@ -16,45 +18,32 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  String selectedQuestion;
-
   @override
   Widget build(BuildContext context) {
-    selectedQuestion = widget.selectedQuestion;
-
-    //Preparing text to show in the Text rich so that it can be pressed
-    List<String> sentence = selectedQuestion.split(".");
-    List<TextSpan> spans = sentence.map((st) {
-      return (TextSpan(
-        text: st,
-        recognizer: TapGestureRecognizer()..onTap = () => print(st),
-      ));
-    }).toList();
+    List<List<String>> list = [
+      ['sara', 'was', 'eating', 'apple', 'she', 'is', 'funny'],
+      ['Doba', 'is', 'sleeping', 'early', 'she', 'is', 'cute'],
+      ['tata', 'has', 'big', 'book', 'he', 'is', 'bad']
+    ];
+    String selectedQuestion = list[0].join(' ');
 
     //Preparing data to show in the Scroll
-    List<List<String>> choices = [
-      ["Sara", "Doba", "Tata", "Bibo"],
-      ["is", "was"],
-      ["eating", "sleeping"]
-    ];
-
-    List<List<Widget>> scrollData = [];
-    for (var choice in choices) {
-      List<Text> choi = choice.map((st) {
-        return (Text(
-          st,
-          style: AppFonts.smallButtonText,
-        ));
-      }).toList();
-      scrollData.add(choi);
-    }
 
     //ddeclaring h & w for hight and width so it will be used in sizing throw widgets.
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: _ScreenBody(w: w, h: h, spans: spans, scrollData: scrollData),
+      body: BlocProvider(
+        create: (context) => ManipulateQusetionCubit(),
+        child: BlocBuilder<ManipulateQusetionCubit, ManipulateState>(
+          builder: (context, state) {
+            print(state.question);
+            return _ScreenBody(
+                w: w, h: h, selectedQuestion: selectedQuestion, scrollData: []);
+          },
+        ),
+      ),
     );
   }
 }
@@ -64,41 +53,18 @@ class _ScreenBody extends StatelessWidget {
     Key key,
     @required this.w,
     @required this.h,
-    @required this.spans,
+    @required this.selectedQuestion,
     @required this.scrollData,
   }) : super(key: key);
 
   final double w;
   final double h;
-  final List<TextSpan> spans;
+  final String selectedQuestion;
   final List<List<Widget>> scrollData;
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      Column(children: [
-        SizedBox(
-          height: 72,
-        ),
-        TitleBar(
-          hasBackButton: true,
-          title: 'Question',
-        ),
-        Expanded(
-          flex: 1,
-          child: Container(
-            child: Column(
-              children: [
-                TextViewer(h: h, w: w, spans: spans),
-                ScrollingWidget(scrollData: scrollData),
-                Buttons(),
-              ],
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-            ),
-          ),
-        ),
-      ]),
-      //Screen Backgroud
       ArabicImage(
         right: -h / 3,
         top: -h / 3,
@@ -106,6 +72,27 @@ class _ScreenBody extends StatelessWidget {
         opacity: 0.05,
         blendMode: BlendMode.srcATop,
       ),
+      Column(children: [
+        SizedBox(
+          height: 72,
+        ),
+        TitleBar(
+          title: 'Question',
+        ),
+        Expanded(
+          flex: 1,
+          child: Container(
+            child: Column(
+              children: [
+                TextViewer(h: h, w: w, selectedQuestion: selectedQuestion),
+                // ScrollingWidget(scrollData: scrollData),
+                Buttons(),
+              ],
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            ),
+          ),
+        ),
+      ]),
     ]);
   }
 }
