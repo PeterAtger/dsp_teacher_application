@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class WordSelectableText extends StatefulWidget {
   final String text;
-  final Function(String word, int index, int sentenceLength) onWordTapped;
+  final Function(
+    String word,
+    int index,
+  ) onWordTapped;
   final bool highlight;
   final Color highlightColor;
   final String alphabets;
@@ -63,13 +66,13 @@ class _WordSelectableTextState extends State<WordSelectableText> {
                         });
                         if (widget.onWordTapped != null)
                           widget.onWordTapped(
-                              sentenceList[i]
-                                  .trim()
-                                  .replaceAll(
-                                      RegExp(r'${widget.alphabets}'), "")
-                                  .trim(),
-                              selectedWordIndex,
-                              widget.sentenceLength);
+                            sentenceList[i]
+                                .trim()
+                                .replaceAll(RegExp(r'${widget.alphabets}'), "")
+                                .trim(),
+                            selectedWordIndex,
+                            // widget.sentenceLength,
+                          );
                       }),
                 // TextSpan(text: ' ')
               ],

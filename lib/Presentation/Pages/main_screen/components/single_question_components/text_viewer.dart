@@ -1,8 +1,6 @@
-import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/selectable_text.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:flutter/material.dart';
 
 class TextViewer extends StatelessWidget {
   const TextViewer({
@@ -18,6 +16,7 @@ class TextViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(this.selectedQuestion);
     return Container(
         height: h * 0.33,
         width: w,
@@ -25,13 +24,13 @@ class TextViewer extends StatelessWidget {
           color: AppColors.cGreen[100],
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: w * 0.05),
+          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: WordSelectableText(
-            onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
-            text: selectedQuestion,
-            highlightColor: Colors.yellow[300],
+            // onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
+            text: this.selectedQuestion,
+            highlightColor: Colors.yellow[200],
             style: AppFonts.appText,
-            sentenceLength: 2,
+            sentenceLength: 5,
           ),
         ));
   }

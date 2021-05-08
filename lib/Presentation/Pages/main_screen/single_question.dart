@@ -1,13 +1,11 @@
 import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/buttonsBar.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/text_viewer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../Global_components/ArabicImage.dart';
-import '../../Global_components/TitleBar.dart';
-import '../../Theme/theme.dart';
-import 'components/single_question_components/buttonsBar.dart';
-import 'components/single_question_components/scroller.dart';
-import 'components/single_question_components/text_viewer.dart';
 
 class QuestionScreen extends StatefulWidget {
   final selectedQuestion;
@@ -65,6 +63,7 @@ class _ScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
+      //Screen Backgroud
       ArabicImage(
         right: -h / 3,
         top: -h / 3,
