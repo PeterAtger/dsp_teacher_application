@@ -15,15 +15,14 @@ class Answer extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
           color: Colors.transparent,
-          // this.isGreen == true ? AppColors.cGreen[100] : Colors.transparent,
           child: Row(
             children: [
               Container(
-                height: 8,
+                height: 2,
                 width: 8,
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.cDarkGrey[500],
+                  // shape: BoxShape.circle,
+                  color: AppColors.cPurple[700],
                 ),
               ),
               SizedBox(width: 8),

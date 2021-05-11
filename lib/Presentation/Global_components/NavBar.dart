@@ -1,5 +1,6 @@
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavItem.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +61,7 @@ class _DiffNavBarState extends State<DiffNavBar> {
                       iconText: 'question',
                       fn: () {
                         context.read<NavbarCubit>().goToSavedQuestions();
+                        context.read<WaitingQuestionsCubit>().filter(0);
                       }),
                   NavItem(
                       state: state,

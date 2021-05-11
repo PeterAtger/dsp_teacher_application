@@ -1,16 +1,17 @@
 import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
+import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AnsweredQuestions extends StatefulWidget {
+class WaitingQuestions extends StatefulWidget {
   @override
-  _AnsweredQuestionsState createState() => _AnsweredQuestionsState();
+  _WaitingQuestionsState createState() => _WaitingQuestionsState();
 }
 
-class _AnsweredQuestionsState extends State<AnsweredQuestions> {
+class _WaitingQuestionsState extends State<WaitingQuestions> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -32,9 +33,9 @@ class _AnsweredQuestionsState extends State<AnsweredQuestions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Answered Questions'),
+          TitleBar(title: 'Waiting Questions'),
           SizedBox(height: 24),
-          BlocBuilder<AnsweredQuestionsCubit, AnsweredQuestionsState>(
+          BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
               return Column(
                 children: state.list == null ? [Container()] : state.list,

@@ -12,20 +12,20 @@ class AppFonts {
   static final TextStyle heading2 =
       TextStyle(fontSize: 32, fontFamily: _fontfamily);
   static final TextStyle heading3 = TextStyle(
-      fontSize: 22, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
+      fontSize: 24, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
 
-  static final TextStyle buttonText =
-      TextStyle(fontSize: 24, fontFamily: _fontfamily);
+  static final TextStyle buttonText = TextStyle(
+      fontSize: 14, fontWeight: FontWeight.w500, fontFamily: _fontfamily);
   static final TextStyle smallButtonText =
-      TextStyle(fontSize: 18, fontFamily: _fontfamily);
+      TextStyle(fontSize: 14, fontFamily: _fontfamily);
 
   static final TextStyle appText =
-      TextStyle(fontSize: 22, fontFamily: _fontfamily);
+      TextStyle(fontSize: 16, fontFamily: _fontfamily);
 
   static final TextStyle versionControl =
-      TextStyle(fontSize: 15, fontFamily: _fontfamily);
+      TextStyle(fontSize: 12, fontFamily: _fontfamily);
   static final TextStyle captionText =
-      TextStyle(fontSize: 13, fontFamily: _fontfamily);
+      TextStyle(fontSize: 12, fontFamily: _fontfamily);
 }
 
 class _ColorMaps {
@@ -123,7 +123,6 @@ class _ColorMaps {
 }
 
 class AppColors {
-
   const AppColors();
 
   // static final MaterialColor cGreen =

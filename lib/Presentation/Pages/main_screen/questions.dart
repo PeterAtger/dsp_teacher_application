@@ -16,7 +16,7 @@ class _QuestionsState extends State<Questions> {
   bool showUrgent;
 
   String questionLevel;
-  List<String> questionLevels = ['Primary', 'Preparatory', 'Secondry'];
+  List<String> questionLevels = ['All', 'Primary', 'Preparatory', 'Secondry'];
   List<String> displayOptions = ['Date', 'Alphabetical', 'Option3'];
   String displayOption;
 
