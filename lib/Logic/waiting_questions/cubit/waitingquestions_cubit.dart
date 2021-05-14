@@ -32,9 +32,15 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     List<Waiting> primaryList = [];
     List<Waiting> prepList = [];
     List<Waiting> secondaryList = [];
+    List<Waiting> allList = [];
     for (int i = 0; i < questions.length; i++) {
+      allList.add(Waiting(
+        question: questions[i].question,
+        level: questions[i].level,
+        isUrgent: questions[i].isUrgent,
+      ));
+
       if (questions[i].level == Level.Primary) {
-        print('doba is sleepy');
         primaryList.add(Waiting(
             question: questions[i].question,
             level: questions[i].level,
@@ -53,17 +59,12 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     }
 
     if (newValue == 0) {
-      emit(WaitingQuestionsState(questions
-          .map((e) => Waiting(
-                question: e.question,
-                level: e.level,
-                isUrgent: e.isUrgent,
-              ))
-          .toList()));
-      // emit(WaitingQuestionsState(primaryList));
+      emit(WaitingQuestionsState(allList));
     } else if (newValue == 1) {
-      emit(WaitingQuestionsState(prepList));
+      emit(WaitingQuestionsState(primaryList));
     } else if (newValue == 2) {
+      emit(WaitingQuestionsState(prepList));
+    } else if (newValue == 3) {
       emit(WaitingQuestionsState(secondaryList));
     }
   }

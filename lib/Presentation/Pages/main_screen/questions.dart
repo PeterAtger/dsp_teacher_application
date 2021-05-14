@@ -1,5 +1,6 @@
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
+import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -16,7 +17,7 @@ class _QuestionsState extends State<Questions> {
   bool showUrgent;
 
   String questionLevel;
-  List<String> questionLevels = ['All', 'Primary', 'Preparatory', 'Secondry'];
+
   List<String> displayOptions = ['Date', 'Alphabetical', 'Option3'];
   String displayOption;
 
@@ -32,11 +33,7 @@ class _QuestionsState extends State<Questions> {
   Widget build(BuildContext context) {
     questionLevel = widget.argument;
     var qLevel = {'Primary': 1, 'Preparatory': 2, 'Secondry': 3};
-    var avatar = {
-      'Primary': 'lib/Presentation/Images/boy.svg',
-      'Preparatory': "lib/Presentation/Images/girl.svg",
-      'Secondry': "lib/Presentation/Images/secondaryboy.svg"
-    };
+
     int requestedLevel = qLevel[questionLevel];
     List<Question> ques = [
       Question(

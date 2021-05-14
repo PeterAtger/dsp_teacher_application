@@ -5,8 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-Container levelMenu(
-    final double w, List<String> questionLevels, Map<String, String> avatar) {
+class LevelMenu extends StatelessWidget {
+  final double w;
+  final List<String> questionLevels;
+  final Map<String, String> avatar;
+
+  const LevelMenu({Key key, this.w, this.questionLevels, this.avatar})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
