@@ -28,7 +28,7 @@ class Waiting extends StatelessWidget {
         width: size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Colors.white,
+          color: AppColors.cWhite,
           boxShadow: [
             BoxShadow(
                 spreadRadius: 2, blurRadius: 4, color: AppColors.cLightGrey)
