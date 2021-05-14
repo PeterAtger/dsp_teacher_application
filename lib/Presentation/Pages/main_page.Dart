@@ -5,6 +5,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profi
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/questions/answered_questions.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/questions/waiting_questions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +20,7 @@ class _MainPageState extends State<MainPage> {
     Profile(),
     Settings(),
     HomeScreen(),
-    Settings(),
+    WaitingQuestions(),
     AnsweredQuestions(),
   ];
 
@@ -37,7 +38,6 @@ class _MainPageState extends State<MainPage> {
         //Body
         body: BlocListener<NavbarCubit, NavBarState>(
           listener: (context, state) {
-            print(state.selectedPage.index);
             _controller.animateToPage(state.selectedPage.index,
                 duration: Duration(milliseconds: 50), curve: Curves.bounceIn);
           },

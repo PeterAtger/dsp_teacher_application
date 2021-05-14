@@ -1,5 +1,7 @@
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
+import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +27,12 @@ class App extends StatelessWidget {
         ),
         BlocProvider<AnsweredQuestionsCubit>(
           create: (BuildContext context) => AnsweredQuestionsCubit(),
+        ),
+        BlocProvider<WaitingQuestionsCubit>(
+          create: (BuildContext context) => WaitingQuestionsCubit(),
+        ),
+        BlocProvider<FilterQuestionCubit>(
+          create: (BuildContext context) => FilterQuestionCubit(),
         ),
       ],
       child: MaterialApp(
