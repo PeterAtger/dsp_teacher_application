@@ -37,8 +37,8 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
           SizedBox(height: 72),
           TitleBar(title: 'Waiting Questions'),
           SizedBox(height: 24),
-          LevelMenu(
-              w: size.width, questionLevels: questionLevels, avatar: avatar),
+          // LevelMenu(
+          //     w: size.width, questionLevels: questionLevels, avatar: avatar),
           BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
               print(state.list);

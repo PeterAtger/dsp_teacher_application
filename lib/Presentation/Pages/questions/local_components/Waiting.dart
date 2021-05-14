@@ -11,79 +11,93 @@ class Waiting extends StatelessWidget {
 
   const Waiting({
     Key key,
-    @required this.size,
     this.question,
     this.level,
     this.isUrgent,
   }) : super(key: key);
 
-  final Size size;
-
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
+    final Size size = MediaQuery.of(context).size;
+
+    // Main Container
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        width: size.width,
         decoration: BoxDecoration(
+          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          color: AppColors.cWhite,
           boxShadow: [
             BoxShadow(
-                spreadRadius: 2, blurRadius: 4, color: AppColors.cLightGrey)
+                spreadRadius: 4,
+                blurRadius: 4,
+                color: AppColors.cLightGrey,
+                offset: Offset(0, 4))
           ],
         ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    _iconChooser(this.level),
-                    SizedBox(width: 8),
-                    _textChooser(this.level),
-                  ],
-                ),
-                this.isUrgent
-                    ? Row(
+
+        //Clickabble Item
+        child: Material(
+          borderRadius: BorderRadius.circular(16),
+          color: AppColors.cWhite,
+          child: InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              // Column of 2 Rows and a seperator
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
                         children: [
-                          Text('Urgent'),
-                          SizedBox(
-                            width: 8,
-                          ),
-                          Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                                color: AppColors.cGreen,
-                                shape: BoxShape.circle),
-                          ),
+                          _iconChooser(this.level),
+                          SizedBox(width: 8),
+                          _textChooser(this.level),
                         ],
-                      )
-                    : Container()
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 8),
-              child: GradientLine(size: size),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Container(
-                    child: Text(this.question),
+                      ),
+                      this.isUrgent
+                          ? Row(
+                              children: [
+                                Text('Urgent'),
+                                SizedBox(
+                                  width: 8,
+                                ),
+                                Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                      color: AppColors.cGreen,
+                                      shape: BoxShape.circle),
+                                ),
+                              ],
+                            )
+                          : Container()
+                    ],
                   ),
-                ),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  color: AppColors.cPurple,
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8),
+                    child: GradientLine(size: size),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: Container(
+                          child: Text(this.question, style: AppFonts.appText),
+                        ),
+                      ),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: AppColors.cPurple,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -92,22 +106,23 @@ class Waiting extends StatelessWidget {
 
 Text _textChooser(Level level) {
   if (level == Level.Primary) {
-    return Text('Primary');
+    return Text('Primary', style: AppFonts.appText);
   } else if (level == Level.Preparatory) {
-    return Text('Preparatory');
+    return Text('Preparatory', style: AppFonts.appText);
   } else if (level == Level.Secondary) {
-    return Text('Secondary');
+    return Text('Secondary', style: AppFonts.appText);
   }
   return Text('Error');
 }
 
 SvgPicture _iconChooser(Level level) {
   if (level == Level.Primary) {
-    return SvgPicture.asset('lib/Presentation/Images/boy.svg');
+    return SvgPicture.asset('lib/Presentation/Images/boy.svg', height: 24);
   } else if (level == Level.Preparatory) {
-    return SvgPicture.asset('lib/Presentation/Images/girl.svg');
+    return SvgPicture.asset('lib/Presentation/Images/girl.svg', height: 24);
   } else if (level == Level.Secondary) {
-    return SvgPicture.asset(' lib/Presentation/Images/secondaryboy.svg');
+    return SvgPicture.asset('lib/Presentation/Images/secondaryboy.svg',
+        height: 24);
   }
-  return SvgPicture.asset('lib/Presentation/Images/error.svg');
+  return SvgPicture.asset('lib/Presentation/Images/error.svg', height: 24);
 }
