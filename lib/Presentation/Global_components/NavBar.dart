@@ -61,7 +61,7 @@ class _DiffNavBarState extends State<DiffNavBar> {
                       iconText: 'question',
                       fn: () {
                         context.read<NavbarCubit>().goToSavedQuestions();
-                        context.read<WaitingQuestionsCubit>().filter(0);
+                        context.read<WaitingQuestionsCubit>().filter('All');
                       }),
                   NavItem(
                       state: state,

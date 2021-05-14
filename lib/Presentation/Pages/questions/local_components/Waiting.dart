@@ -106,11 +106,14 @@ class Waiting extends StatelessWidget {
 
 Text _textChooser(Level level) {
   if (level == Level.Primary) {
-    return Text('Primary', style: AppFonts.appText);
+    return Text('Primary',
+        style: AppFonts.appText.copyWith(fontWeight: FontWeight.w700));
   } else if (level == Level.Preparatory) {
-    return Text('Preparatory', style: AppFonts.appText);
+    return Text('Preparatory',
+        style: AppFonts.appText.copyWith(fontWeight: FontWeight.w700));
   } else if (level == Level.Secondary) {
-    return Text('Secondary', style: AppFonts.appText);
+    return Text('Secondary',
+        style: AppFonts.appText.copyWith(fontWeight: FontWeight.w700));
   }
   return Text('Error');
 }

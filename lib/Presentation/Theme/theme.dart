@@ -19,8 +19,8 @@ class AppFonts {
   static final TextStyle smallButtonText =
       TextStyle(fontSize: 14, fontFamily: _fontfamily);
 
-  static final TextStyle appText =
-      TextStyle(fontSize: 16, fontFamily: _fontfamily);
+  static final TextStyle appText = TextStyle(
+      fontSize: 16, fontFamily: _fontfamily, color: AppColors.cDarkGrey);
 
   static final TextStyle versionControl =
       TextStyle(fontSize: 12, fontFamily: _fontfamily);

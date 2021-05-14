@@ -75,6 +75,9 @@ flutter:
       fonts:
         - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Regular.ttf
         - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Bold.ttf
+        - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Black.ttf
+        - asset: lib/Presentation/Theme/Fonts/Lato/Lato-Light.ttf
+        - asset: lib/Presentation/Theme/Fonts/Lato/Lato-thin.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

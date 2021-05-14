@@ -57,13 +57,13 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
       }
     }
 
-    if (newValue == 0) {
+    if (newValue == 'All') {
       emit(WaitingQuestionsState(allList));
-    } else if (newValue == 1) {
+    } else if (newValue == 'Primary') {
       emit(WaitingQuestionsState(primaryList));
-    } else if (newValue == 2) {
+    } else if (newValue == 'Preparatory') {
       emit(WaitingQuestionsState(prepList));
-    } else if (newValue == 3) {
+    } else if (newValue == 'Secondary') {
       emit(WaitingQuestionsState(secondaryList));
     }
   }

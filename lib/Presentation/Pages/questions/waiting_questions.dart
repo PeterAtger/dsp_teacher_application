@@ -1,5 +1,4 @@
 import 'package:adobe_xd/blend_mask.dart';
-import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
@@ -37,11 +36,15 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
           SizedBox(height: 72),
           TitleBar(title: 'Waiting Questions'),
           SizedBox(height: 24),
-          // LevelMenu(
-          //     w: size.width, questionLevels: questionLevels, avatar: avatar),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
+            child: LevelMenu(
+                width: size.width,
+                questionLevels: questionLevels,
+                avatar: avatar),
+          ),
           BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
-              print(state.list);
               return Column(
                 children: state.list == null ? [Container()] : state.list,
               );

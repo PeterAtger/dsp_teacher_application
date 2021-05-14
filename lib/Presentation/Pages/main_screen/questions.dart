@@ -1,8 +1,8 @@
+import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/services/questions.dart';
 
@@ -87,10 +87,8 @@ class _QuestionsState extends State<Questions> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(children: [
-              levelMenu(w, questionLevels, avatar),
-              SizedBox(
-                height: 16,
-              ),
+              LevelMenu(
+                  width: w, questionLevels: questionLevels, avatar: avatar),
               filterBar(w, displayOptions),
               UnderLine(),
             ]),
@@ -99,42 +97,6 @@ class _QuestionsState extends State<Questions> {
         ],
       ),
     ]);
-  }
-
-  Container levelMenu(
-      final double w, List<String> questionLevels, Map<String, String> avatar) {
-    return Container(
-      alignment: Alignment.topLeft,
-      child: DropdownButton(
-        underline: UnderLine(),
-        value: questionLevel,
-        onChanged: (newValue) {
-          setState(() {
-            questionLevel = newValue;
-          });
-        },
-        items: questionLevels.map((String valueItem) {
-          return DropdownMenuItem(
-              value: valueItem,
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    avatar[valueItem],
-                    height: 24,
-                    width: 24,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(valueItem,
-                      style: AppFonts.heading3.copyWith(
-                        color: AppColors.cDarkGrey,
-                      ))
-                ],
-              ));
-        }).toList(),
-      ),
-    );
   }
 
   Container filterBar(double w, List<String> displayOptions) {
