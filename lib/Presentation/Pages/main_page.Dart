@@ -38,7 +38,6 @@ class _MainPageState extends State<MainPage> {
         //Body
         body: BlocListener<NavbarCubit, NavBarState>(
           listener: (context, state) {
-            print(state.selectedPage.index);
             _controller.animateToPage(state.selectedPage.index,
                 duration: Duration(milliseconds: 50), curve: Curves.bounceIn);
           },
