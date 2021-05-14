@@ -11,84 +11,79 @@ class Waiting extends StatelessWidget {
 
   const Waiting({
     Key key,
+    @required this.size,
     this.question,
     this.level,
     this.isUrgent,
   }) : super(key: key);
 
+  final Size size;
+
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
     return InkWell(
       onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          width: size.width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                  spreadRadius: 2, blurRadius: 4, color: AppColors.cLightGrey)
-            ],
-          ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Container(
-                          height: 24,
-                          width: 24,
-                          child: _iconChooser(this.level)),
-                      SizedBox(width: 8),
-                      _textChooser(this.level),
-                    ],
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        width: size.width,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+          color: AppColors.cWhite,
+          boxShadow: [
+            BoxShadow(
+                spreadRadius: 2, blurRadius: 4, color: AppColors.cLightGrey)
+          ],
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    _iconChooser(this.level),
+                    SizedBox(width: 8),
+                    _textChooser(this.level),
+                  ],
+                ),
+                this.isUrgent
+                    ? Row(
+                        children: [
+                          Text('Urgent'),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Container(
+                            width: 8,
+                            height: 8,
+                            decoration: BoxDecoration(
+                                color: AppColors.cGreen,
+                                shape: BoxShape.circle),
+                          ),
+                        ],
+                      )
+                    : Container()
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8),
+              child: GradientLine(size: size),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Container(
+                    child: Text(this.question),
                   ),
-                  this.isUrgent
-                      ? Row(
-                          children: [
-                            Text('Urgent'),
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Container(
-                              width: 8,
-                              height: 8,
-                              decoration: BoxDecoration(
-                                  color: AppColors.cGreen,
-                                  shape: BoxShape.circle),
-                            ),
-                          ],
-                        )
-                      : Container()
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: GradientLine(size: size),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Container(
-                      child: Text(this.question),
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: AppColors.cPurple,
-                  ),
-                ],
-              ),
-            ],
-          ),
+                ),
+                Icon(
+                  Icons.arrow_forward_ios,
+                  color: AppColors.cPurple,
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
