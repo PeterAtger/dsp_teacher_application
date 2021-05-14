@@ -9,12 +9,14 @@ class MainScreenTableItem extends StatelessWidget {
     @required this.img,
     @required this.size,
     @required this.txt,
+    this.isGrey = true,
   }) : super(key: key);
 
   final ButtonStyle outlineButtonStyle;
   final String img;
   final Size size;
   final String txt;
+  final bool isGrey;
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +30,12 @@ class MainScreenTableItem extends StatelessWidget {
       },
       child: Column(children: [
         SvgPicture.asset(img, height: 56),
+        SizedBox(
+          height: 8,
+        ),
         Text(txt,
             style: AppFonts.appText.copyWith(
-              color: AppColors.cDarkGrey,
+              color: this.isGrey ? AppColors.cDarkGrey : AppColors.cWhite,
             ))
       ]),
     );

@@ -67,7 +67,8 @@ class _ScreenBody extends StatelessWidget {
             children: [
               Text(
                 "Welcome Back, \n\nWe’ve got new questions waiting \n ",
-                style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+                style: AppFonts.appText.copyWith(
+                    color: AppColors.cDarkGrey, fontWeight: FontWeight.w700),
               ),
               QuestionLevelTable(
                   outlineButtonStyle: outlineButtonStyle, size: size),
@@ -140,10 +141,12 @@ class QuestionLevelTable extends StatelessWidget {
                   color: AppColors.cGreen,
                 ),
                 child: MainScreenTableItem(
-                    txt: 'Saved',
-                    img: 'lib/Presentation/Images/yellow_star.svg',
-                    outlineButtonStyle: outlineButtonStyle,
-                    size: size),
+                  txt: 'Saved',
+                  img: 'lib/Presentation/Images/yellow_star.svg',
+                  outlineButtonStyle: outlineButtonStyle,
+                  size: size,
+                  isGrey: false,
+                ),
               ),
             ),
           ],

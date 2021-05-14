@@ -3,7 +3,6 @@ import 'package:dsp_teacher_application/Presentation/global_components/ArabicIma
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import 'components/GradientHeading.dart';
 
@@ -45,11 +44,8 @@ class GetStarted extends StatelessWidget {
                     Navigator.of(context).pushReplacementNamed('/MainScreen');
                   });
                 },
-                child: SvgPicture.asset(
-                  'lib/Presentation/Images/arrow_f.svg',
-                  width: 24,
-                  height: 24,
-                  semanticsLabel: 'Arrow',
+                child: Icon(
+                  Icons.arrow_forward_ios,
                   color: AppColors.cWhite,
                 )),
           )

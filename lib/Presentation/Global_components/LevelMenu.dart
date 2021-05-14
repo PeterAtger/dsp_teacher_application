@@ -10,8 +10,14 @@ class LevelMenu extends StatelessWidget {
   final double width;
   final List<String> questionLevels;
   final Map<String, String> avatar;
+  final String initialValue;
 
-  const LevelMenu({Key key, this.width, this.questionLevels, this.avatar})
+  const LevelMenu(
+      {Key key,
+      this.width,
+      this.questionLevels,
+      this.avatar,
+      this.initialValue})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
