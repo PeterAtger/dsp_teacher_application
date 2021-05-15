@@ -104,7 +104,7 @@ class _QuestionsState extends State<Questions> {
       child: Row(children: [
         Text(
           "Sorted By: ",
-          style: AppFonts.smallButtonText,
+          style: AppFonts.button,
         ),
         DropdownButton<String>(
           value: displayOption,
@@ -117,10 +117,7 @@ class _QuestionsState extends State<Questions> {
             return DropdownMenuItem<String>(
                 value: valueItem,
                 child: Row(
-                  children: [
-                    Text(valueItem,
-                        style: AppFonts.smallButtonText.copyWith(fontSize: 15))
-                  ],
+                  children: [Text(valueItem, style: AppFonts.button)],
                 ));
           }).toList(),
         ),
@@ -156,7 +153,7 @@ class _QuestionsState extends State<Questions> {
           child: ListTile(
             title: Text(
               ques[index].ques,
-              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
             ),
             trailing: Icon(
               Icons.arrow_forward_ios_rounded,

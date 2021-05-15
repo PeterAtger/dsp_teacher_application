@@ -182,7 +182,7 @@ class SettingTab extends StatelessWidget {
               width: 64,
             ),
             Text(this.text,
-                style: AppFonts.appText.copyWith(
+                style: AppFonts.bodyText1.copyWith(
                   color: AppColors.cDarkGrey,
                 )),
           ],

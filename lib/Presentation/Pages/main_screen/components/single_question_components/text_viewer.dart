@@ -29,7 +29,7 @@ class TextViewer extends StatelessWidget {
             // onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
             text: this.selectedQuestion,
             highlightColor: Colors.yellow[200],
-            style: AppFonts.appText,
+            style: AppFonts.bodyText1,
             sentenceLength: 5,
           ),
         ));

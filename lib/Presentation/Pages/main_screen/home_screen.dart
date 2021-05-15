@@ -67,7 +67,7 @@ class _ScreenBody extends StatelessWidget {
             children: [
               Text(
                 "Welcome Back, \n\nWe’ve got new questions waiting \n ",
-                style: AppFonts.appText.copyWith(
+                style: AppFonts.bodyText1.copyWith(
                     color: AppColors.cDarkGrey, fontWeight: FontWeight.w700),
               ),
               QuestionLevelTable(

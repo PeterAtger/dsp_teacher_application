@@ -30,7 +30,7 @@ class Answer extends StatelessWidget {
                 width: size.width - 80,
                 child: Text(
                   this.answer,
-                  style: AppFonts.appText,
+                  style: AppFonts.bodyText1,
                   textAlign: TextAlign.justify,
                 ),
               ),

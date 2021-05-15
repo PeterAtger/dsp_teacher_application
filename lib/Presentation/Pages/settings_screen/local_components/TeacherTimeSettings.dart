@@ -25,14 +25,14 @@ class TeacherTimeSettings extends StatelessWidget {
             onTap: fromTimeTab,
             child: Text(
               "${state.fromTime.format(context)}",
-              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
             ),
           ),
           InkWell(
             onTap: toTimeTab,
             child: Text(
               "${state.toTime.format(context)}",
-              style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey),
+              style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
             ),
           ),
         ],

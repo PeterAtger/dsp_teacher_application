@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppFonts {
   const AppFonts();
@@ -14,18 +15,14 @@ class AppFonts {
   static final TextStyle heading3 = TextStyle(
       fontSize: 24, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
 
-  static final TextStyle buttonText = TextStyle(
-      fontSize: 14, fontWeight: FontWeight.w500, fontFamily: _fontfamily);
-  static final TextStyle smallButtonText =
-      TextStyle(fontSize: 14, fontFamily: _fontfamily);
+  static final TextStyle button = GoogleFonts.lato(
+      fontSize: 15, fontWeight: FontWeight.w500, letterSpacing: 1.25);
 
-  static final TextStyle appText = TextStyle(
-      fontSize: 16, fontFamily: _fontfamily, color: AppColors.cDarkGrey);
+  static final TextStyle bodyText1 = GoogleFonts.lato(
+      fontSize: 17, fontWeight: FontWeight.w400, letterSpacing: 0.5);
 
-  static final TextStyle versionControl =
-      TextStyle(fontSize: 12, fontFamily: _fontfamily);
-  static final TextStyle captionText =
-      TextStyle(fontSize: 12, fontFamily: _fontfamily);
+  static final TextStyle captionText = GoogleFonts.lato(
+      fontSize: 13, fontWeight: FontWeight.w400, letterSpacing: 0.4);
 }
 
 class _ColorMaps {

@@ -52,7 +52,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: Button(
                       size: size,
-                      text: 'Login',
+                      text: 'LOG IN',
                       textcolor: AppColors.cGreen,
                       buttoncolor: AppColors.cWhite,
                       onButtonPress: () {},
@@ -66,7 +66,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: Button(
                       size: size,
-                      text: 'Sign Up',
+                      text: 'SIGN UP',
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
                       onButtonPress: () async {
@@ -99,7 +99,7 @@ class _SignInState extends State<SignIn> {
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'Facebook',
+                            text: 'FACEBOOK',
                             icon: 'facebook',
                             iconcolor: Colors.blue,
                             textcolor: Colors.blue,
@@ -108,14 +108,12 @@ class _SignInState extends State<SignIn> {
                             onButtonPress: () {},
                           ),
                         ),
-                        SizedBox(
-                          width: 16,
-                        ),
+                        SizedBox(width: 8),
                         Expanded(
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'Google',
+                            text: 'GOOGLE',
                             icon: 'googlee',
                             iconcolor: Colors.red,
                             textcolor: AppColors.cDarkGrey,

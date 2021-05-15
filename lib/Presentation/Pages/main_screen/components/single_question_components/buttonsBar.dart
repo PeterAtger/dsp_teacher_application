@@ -17,7 +17,7 @@ class Buttons extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {},
             child: Text("Apply",
-                style: AppFonts.appText.copyWith(color: Colors.white)),
+                style: AppFonts.bodyText1.copyWith(color: Colors.white)),
             style: ButtonStyle(
                 elevation: MaterialStateProperty.all(4),
                 shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),
@@ -39,7 +39,7 @@ class Buttons extends StatelessWidget {
               width: 24,
             ),
             label: Text("Save",
-                style: AppFonts.appText.copyWith(color: AppColors.cDarkGrey)),
+                style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey)),
             style: ButtonStyle(
                 elevation: MaterialStateProperty.all(4),
                 shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),

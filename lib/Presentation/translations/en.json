@@ -1,8 +1,8 @@
 {
   "Email": "Email",
   "Password": "Password",
-  "Login": "Log In",
-  "SignUp": "Sign Up",
+  "Login": "LOG IN",
+  "SignUp": "SIGN UP",
   "FullName": "Full Name",
   "Expertise": "Expertise",
   "Fresh Graduate": "Fresh Graduate",
@@ -45,8 +45,8 @@
   "Date": "Date",
   "Alphabetical": "Alphabetical",
   "UrgentOnly": "Urgent Only: ",
-  "Apply": "Apply",
-  "Save": "Save",
+  "Apply": "APPLY",
+  "Save": "SAVE",
   "Profile": "Profile",
   "Questions": "Questions",
   "Question": "Question"

@@ -34,7 +34,7 @@ class MainScreenTableItem extends StatelessWidget {
           height: 8,
         ),
         Text(txt,
-            style: AppFonts.appText.copyWith(
+            style: AppFonts.bodyText1.copyWith(
               color: this.isGrey ? AppColors.cDarkGrey : AppColors.cWhite,
             ))
       ]),

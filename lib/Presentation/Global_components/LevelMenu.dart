@@ -46,7 +46,7 @@ class LevelMenu extends StatelessWidget {
                         width: 8,
                       ),
                       Text(valueItem,
-                          style: AppFonts.appText
+                          style: AppFonts.bodyText1
                               .copyWith(fontWeight: FontWeight.w700))
                     ],
                   ));
