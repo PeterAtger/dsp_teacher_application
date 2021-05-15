@@ -75,7 +75,7 @@ class SidMenuBar extends StatelessWidget {
                       width: 8,
                     ),
                     Text("Menu",
-                        style: AppFonts.heading2.copyWith(
+                        style: AppFonts.heading4.copyWith(
                           color: AppColors.cDarkGrey,
                         ))
                   ],
@@ -95,7 +95,7 @@ class SidMenuBar extends StatelessWidget {
                   Text(
                     " Sara Magdy",
                     style:
-                        AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
+                        AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
                   ),
                 ]),
 

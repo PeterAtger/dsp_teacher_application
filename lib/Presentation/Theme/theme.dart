@@ -4,16 +4,23 @@ import 'package:google_fonts/google_fonts.dart';
 class AppFonts {
   const AppFonts();
 
-  static final String _fontfamily = 'lato';
+  static final TextStyle heading1 = GoogleFonts.lato(
+      fontSize: 101, fontWeight: FontWeight.w300, letterSpacing: -1.5);
 
-  static final TextStyle heading1 =
-      TextStyle(fontSize: 48, fontFamily: _fontfamily);
-  static final TextStyle andro =
-      TextStyle(fontSize: 15, fontFamily: _fontfamily);
   static final TextStyle heading2 =
-      TextStyle(fontSize: 32, fontFamily: _fontfamily);
-  static final TextStyle heading3 = TextStyle(
-      fontSize: 24, fontFamily: _fontfamily, fontWeight: FontWeight.bold);
+      GoogleFonts.lato(fontSize: 63, fontWeight: FontWeight.w300);
+
+  static final TextStyle heading3 =
+      GoogleFonts.lato(fontSize: 50, fontWeight: FontWeight.w400);
+
+  static final TextStyle heading4 = GoogleFonts.lato(
+      fontSize: 36, fontWeight: FontWeight.w400, letterSpacing: 0.25);
+
+  static final TextStyle heading5 =
+      GoogleFonts.lato(fontSize: 25, fontWeight: FontWeight.w400);
+
+  static final TextStyle heading6 = GoogleFonts.lato(
+      fontSize: 21, fontWeight: FontWeight.w500, letterSpacing: 0.15);
 
   static final TextStyle button = GoogleFonts.lato(
       fontSize: 15, fontWeight: FontWeight.w500, letterSpacing: 1.25);

@@ -62,7 +62,7 @@ class _SignUpState extends State<SignUp> {
               top: size.height * 0.13,
               child: Text(
                 'Sign Up',
-                style: AppFonts.heading1.copyWith(color: AppColors.cWhite),
+                style: AppFonts.heading2.copyWith(color: AppColors.cWhite),
               ),
             ),
           ),

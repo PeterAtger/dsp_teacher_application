@@ -99,7 +99,7 @@ class _ProfileState extends State<Profile> {
                 Center(
                   child: Text(
                     'Habiba Ashraf',
-                    style: AppFonts.heading3.copyWith(color: AppColors.cWhite),
+                    style: AppFonts.heading6.copyWith(color: AppColors.cWhite),
                   ),
                 ),
               ],
@@ -123,28 +123,28 @@ class _ProfileState extends State<Profile> {
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'Grade: ',
-                      field2: 'Secondary',
+                      field1: 'Expertize: ',
+                      field2: '5+ Years',
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'User since: ',
-                      field2: '1+ years',
+                      field1: 'User Score: ',
+                      field2: '4.8',
                     ),
                     SizedBox(height: 32),
                     GradientLine(size: size),
-                    SizedBox(height: 8),
+                    SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'Answered Questions: 3',
+                      text: 'ANSWERED QUESTIONS: 3',
                       green: false,
                     ),
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'Waiting Questions: 3',
+                      text: 'WAITING QUESTIONS: 3',
                       green: true,
                     ),
                   ],

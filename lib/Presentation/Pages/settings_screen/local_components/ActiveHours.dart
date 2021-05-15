@@ -14,7 +14,7 @@ class ActiveHours extends StatelessWidget {
         SizedBox(width: 48),
         Text(
           'Active Hours',
-          style: AppFonts.heading3.copyWith(color: AppColors.cDarkGrey),
+          style: AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
         ),
         SizedBox(width: 70),
         Container(

@@ -56,7 +56,7 @@ class _ScreenBody extends StatelessWidget {
               width: 8,
             ),
             Text('Main Screen',
-                style: AppFonts.heading2.copyWith(color: AppColors.cDarkGrey)),
+                style: AppFonts.heading4.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),
         Expanded(
@@ -67,8 +67,8 @@ class _ScreenBody extends StatelessWidget {
             children: [
               Text(
                 "Welcome Back, \n\nWe’ve got new questions waiting \n ",
-                style: AppFonts.bodyText1.copyWith(
-                    color: AppColors.cDarkGrey, fontWeight: FontWeight.w700),
+                style: AppFonts.heading6
+                    .copyWith(color: AppColors.cDarkGrey, fontSize: 20),
               ),
               QuestionLevelTable(
                   outlineButtonStyle: outlineButtonStyle, size: size),
