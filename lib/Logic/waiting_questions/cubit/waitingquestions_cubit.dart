@@ -24,8 +24,6 @@ List<Question> questions = [
       question: 'you are double right tata is a cow')
 ];
 
-// level filter
-
 class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   WaitingQuestionsCubit() : super(WaitingQuestionsState(null));
 
@@ -35,14 +33,23 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   List<Waiting> prepList = [];
   List<Waiting> secondaryList = [];
   List<Waiting> allList = [];
+  List<Waiting> primaryUrgentList = [];
+  List<Waiting> prepUrgentList = [];
+  List<Waiting> secondaryUrgentList = [];
+  List<Waiting> allUrgentList = [];
   String chosenLevel = 'All';
+  bool chosenUrgent = false;
 
-  void filter(newValue) {
-    chosenLevel = newValue;
+//making the eight lists
+  void _listOrder() {
     primaryList = [];
     prepList = [];
     secondaryList = [];
     allList = [];
+    primaryUrgentList = [];
+    prepUrgentList = [];
+    secondaryUrgentList = [];
+    allUrgentList = [];
     for (int i = 0; i < questions.length; i++) {
       allList.add(Waiting(
         question: questions[i].question,
@@ -67,33 +74,51 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
             isUrgent: questions[i].isUrgent));
       }
     }
+    allUrgentList = [...allList];
+    allUrgentList.removeWhere((element) => element.isUrgent == false);
+    primaryUrgentList = [...primaryList];
+    primaryUrgentList.removeWhere((element) => element.isUrgent == false);
+    prepUrgentList = [...prepList];
+    prepUrgentList.removeWhere((element) => element.isUrgent == false);
+    secondaryUrgentList = [...secondaryList];
+    secondaryUrgentList.removeWhere((element) => element.isUrgent == false);
+  }
 
-    if (newValue == 'All') {
-      emit(WaitingQuestionsState(allList));
-    } else if (newValue == 'Primary') {
-      emit(WaitingQuestionsState(primaryList));
-    } else if (newValue == 'Preparatory') {
-      emit(WaitingQuestionsState(prepList));
-    } else if (newValue == 'Secondary') {
-      emit(WaitingQuestionsState(secondaryList));
+  void _listSelector() {
+    if (chosenUrgent == true) {
+      if (chosenLevel == 'All') {
+        emit(WaitingQuestionsState(allUrgentList));
+      } else if (chosenLevel == 'Primary') {
+        emit(WaitingQuestionsState(primaryUrgentList));
+      } else if (chosenLevel == 'Preparatory') {
+        emit(WaitingQuestionsState(prepUrgentList));
+      } else if (chosenLevel == 'Secondary') {
+        emit(WaitingQuestionsState(secondaryUrgentList));
+      }
+    } else {
+      if (chosenLevel == 'All') {
+        emit(WaitingQuestionsState(allList));
+      } else if (chosenLevel == 'Primary') {
+        emit(WaitingQuestionsState(primaryList));
+      } else if (chosenLevel == 'Preparatory') {
+        emit(WaitingQuestionsState(prepList));
+      } else if (chosenLevel == 'Secondary') {
+        emit(WaitingQuestionsState(secondaryList));
+      }
     }
   }
 
-  // urgent filter
+  //urgent filter
   void urgentFilter(newValue) {
-    List<Waiting> urgentList = [];
-    for (int i = 0; i < questions.length; i++) {
-      if (questions[i].isUrgent == true) {
-        urgentList.add(Waiting(
-          isUrgent: questions[i].isUrgent,
-          question: questions[i].question,
-          level: questions[i].level,
-        ));
-      }
-    }
-    if (newValue == true)
-      emit(WaitingQuestionsState(urgentList));
-    else
-      emit(WaitingQuestionsState(allList));
+    _listOrder();
+    chosenUrgent = newValue;
+    _listSelector();
+  }
+
+//level filter
+  void filter(newValue) {
+    _listOrder();
+    chosenLevel = newValue;
+    _listSelector();
   }
 }
