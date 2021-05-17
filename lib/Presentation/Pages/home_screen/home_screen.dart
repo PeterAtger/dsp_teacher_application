@@ -126,7 +126,7 @@ class QuestionLevelTable extends StatelessWidget {
               padding: const EdgeInsets.only(right: 8.0, top: 8),
               child: GradientOutline(
                 chld: MainScreenTableItem(
-                    txt: 'Secondry',
+                    txt: 'Secondary',
                     img: 'lib/Presentation/Images/secondaryboy.svg',
                     outlineButtonStyle: outlineButtonStyle,
                     size: size),

@@ -24,14 +24,25 @@ List<Question> questions = [
       question: 'you are double right tata is a cow')
 ];
 
+// level filter
+
 class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   WaitingQuestionsCubit() : super(WaitingQuestionsState(null));
 
+  //initializing variables and lists
+
+  List<Waiting> primaryList = [];
+  List<Waiting> prepList = [];
+  List<Waiting> secondaryList = [];
+  List<Waiting> allList = [];
+  String chosenLevel = 'All';
+
   void filter(newValue) {
-    List<Waiting> primaryList = [];
-    List<Waiting> prepList = [];
-    List<Waiting> secondaryList = [];
-    List<Waiting> allList = [];
+    chosenLevel = newValue;
+    primaryList = [];
+    prepList = [];
+    secondaryList = [];
+    allList = [];
     for (int i = 0; i < questions.length; i++) {
       allList.add(Waiting(
         question: questions[i].question,
@@ -66,5 +77,23 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     } else if (newValue == 'Secondary') {
       emit(WaitingQuestionsState(secondaryList));
     }
+  }
+
+  // urgent filter
+  void urgentFilter(newValue) {
+    List<Waiting> urgentList = [];
+    for (int i = 0; i < questions.length; i++) {
+      if (questions[i].isUrgent == true) {
+        urgentList.add(Waiting(
+          isUrgent: questions[i].isUrgent,
+          question: questions[i].question,
+          level: questions[i].level,
+        ));
+      }
+    }
+    if (newValue == true)
+      emit(WaitingQuestionsState(urgentList));
+    else
+      emit(WaitingQuestionsState(allList));
   }
 }

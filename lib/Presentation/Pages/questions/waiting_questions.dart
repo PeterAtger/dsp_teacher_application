@@ -2,6 +2,7 @@ import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,6 +14,13 @@ class WaitingQuestions extends StatefulWidget {
 }
 
 class _WaitingQuestionsState extends State<WaitingQuestions> {
+  bool value;
+  @override
+  void initState() {
+    value = false;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
@@ -37,8 +45,29 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
           TitleBar(title: 'Waiting Questions'),
           SizedBox(height: 24),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
-            child: LevelMenu(questionLevels: questionLevels, avatar: avatar),
+            padding:
+                const EdgeInsets.only(left: 32, top: 8, bottom: 8, right: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LevelMenu(questionLevels: questionLevels, avatar: avatar),
+                Container(
+                  width: size.width / 3,
+                  child: SwitchListTile(
+                      contentPadding: EdgeInsets.all(0),
+                      title: Text('Urgent only:', style: AppFonts.captionText),
+                      value: value,
+                      onChanged: (newValue) {
+                        context
+                            .read<WaitingQuestionsCubit>()
+                            .urgentFilter(newValue);
+                        setState(() {
+                          value = newValue;
+                        });
+                      }),
+                ),
+              ],
+            ),
           ),
           BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
