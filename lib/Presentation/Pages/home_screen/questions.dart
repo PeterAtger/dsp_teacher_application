@@ -1,4 +1,3 @@
-import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
@@ -31,19 +30,16 @@ class _QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     questionLevel = widget.argument;
-
     Size size = MediaQuery.of(context).size;
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Stack(children: [
         ArabicImage(
-          right: -h / 3,
-          top: -h / 3,
-          size: h / 1.5,
-          opacity: 0.05,
-          blendMode: BlendMode.srcATop,
+          right: -size.height / 3,
+          top: -size.height / 3,
+          size: size.height / 1.5,
+          opacity: 0.1,
+          blendMode: BlendMode.srcOver,
         ),
         Column(
           children: [
