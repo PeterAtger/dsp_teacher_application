@@ -1,8 +1,8 @@
 import 'package:dsp_teacher_application/Presentation/Pages/error_screen/error_screen.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_page.Dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/questions.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/single_question.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_page/main_page.Dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/HIW.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/questions.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/notifications.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';

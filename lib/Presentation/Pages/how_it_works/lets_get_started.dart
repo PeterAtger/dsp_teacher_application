@@ -3,8 +3,7 @@ import 'package:dsp_teacher_application/Presentation/global_components/ArabicIma
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-
-import 'components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 
 class GetStarted extends StatelessWidget {
   @override
@@ -13,6 +12,7 @@ class GetStarted extends StatelessWidget {
 
     return Scaffold(
         body: Stack(children: <Widget>[
+      // Background Image
       ArabicImage(
         bottom: -size.height / 3,
         left: -size.height / 3,
@@ -20,6 +20,8 @@ class GetStarted extends StatelessWidget {
         opacity: 0.05,
         blendMode: BlendMode.srcATop,
       ),
+
+      // Icon and Text
       Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

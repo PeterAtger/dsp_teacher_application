@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/BackGroundGradient.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';

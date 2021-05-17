@@ -1,4 +1,4 @@
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/selectable_text.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/selectable_text.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 

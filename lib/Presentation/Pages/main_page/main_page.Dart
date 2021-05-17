@@ -1,6 +1,6 @@
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/side_menu.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/home_screen.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_page/components/side_menu.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/home_screen.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/settings_screen.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavBar.dart';

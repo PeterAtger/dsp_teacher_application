@@ -1,10 +1,10 @@
 import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/buttonsBar.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/text_viewer.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/buttonsBar.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/text_viewer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuestionScreen extends StatefulWidget {

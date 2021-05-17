@@ -38,10 +38,7 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
           SizedBox(height: 24),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8),
-            child: LevelMenu(
-                width: size.width,
-                questionLevels: questionLevels,
-                avatar: avatar),
+            child: LevelMenu(questionLevels: questionLevels, avatar: avatar),
           ),
           BlocBuilder<WaitingQuestionsCubit, WaitingQuestionsState>(
             builder: (context, state) {
