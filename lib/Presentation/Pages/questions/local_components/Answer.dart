@@ -8,49 +8,43 @@ class Answer extends StatelessWidget {
   const Answer({Key key, this.answer, this.isGreen = true}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
-
-    return Column(
-      children: [
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
-          color: Colors.transparent,
-          child: Row(
-            children: [
-              Container(
-                height: 2,
-                width: 8,
-                decoration: BoxDecoration(
-                  // shape: BoxShape.circle,
-                  color: AppColors.cPurple[700],
-                ),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                  spreadRadius: 4,
+                  blurRadius: 4,
+                  color: AppColors.cLightGrey,
+                  offset: Offset(0, 4))
+            ]),
+        child: Row(
+          children: [
+            Container(
+              height: 2,
+              width: 8,
+              decoration: BoxDecoration(
+                // shape: BoxShape.circle,
+                color: AppColors.cPurple[700],
               ),
-              SizedBox(width: 8),
-              Container(
-                width: size.width - 80,
+            ),
+            SizedBox(width: 8),
+            Expanded(
+              child: Container(
                 child: Text(
                   this.answer,
                   style: AppFonts.bodyText1,
                   textAlign: TextAlign.justify,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
-        Container(
-          height: 8,
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                AppColors.cLightGrey,
-                AppColors.cLightGrey[700],
-                AppColors.cLightGrey
-              ])),
-          // color: AppColors.cLightGrey[500],
-        )
-      ],
+      ),
     );
   }
 }
