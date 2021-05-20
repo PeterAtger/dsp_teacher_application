@@ -1,10 +1,54 @@
+import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:flutter/material.dart';
 
-//  Please import and use only one upper circle curve throuoght the entire project
-
-class HiwTwo extends StatelessWidget {
+class HIW2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+        body: Stack(children: <Widget>[
+      BackGroundGradient(),
+      ArabicImage(top: -150, left: size.height / 6, size: size.height / 1.5),
+      ArabicImage(
+          bottom: -150, right: size.height / 6, size: size.height / 1.5),
+
+      // White Circle
+      Positioned(
+          top: -size.height * 0.85,
+          right: -size.width * 0.4,
+          child: Container(
+            height: size.height * 2,
+            width: size.width * 1.5,
+            decoration: BoxDecoration(
+              color: AppColors.cWhite,
+              shape: BoxShape.circle,
+            ),
+          )),
+
+      // Gradient Title
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SizedBox(
+            height: size.height / 5,
+          ),
+          GradientHeading(
+            text: 'How it works',
+          )
+        ],
+      ),
+      // Content
+      Instructions(
+        size: size,
+        instructionText:
+            'Select a Question you feel confident about. \nUrgent questions have a green dot next to them.',
+        instructionImage: 'hiw2',
+      )
+    ]));
   }
 }

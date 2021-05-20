@@ -1,0 +1,86 @@
+import 'package:adobe_xd/blend_mask.dart';
+import 'package:dsp_teacher_application/Logic/all_questions/allquestions_cubit.dart';
+import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
+import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
+import 'package:dsp_teacher_application/constants/constants.dart';
+import 'package:flutter/material.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class Questions extends StatefulWidget {
+  final String argument;
+  const Questions({Key key, this.argument}) : super(key: key);
+  @override
+  _QuestionsState createState() => _QuestionsState();
+}
+
+class _QuestionsState extends State<Questions> {
+  bool switchValue;
+  @override
+  void initState() {
+    switchValue = false;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+        body: Stack(children: [
+      Positioned(
+        right: -size.height / 3,
+        top: -size.height / 3,
+        child: Container(
+          width: size.height / 1.5,
+          height: size.height / 1.5,
+          child: BlendMask(
+              blendMode: BlendMode.srcOver,
+              opacity: 0.1,
+              child: Image.asset('lib/Presentation/Images/ArabicCircle.png')),
+        ),
+      ),
+      SingleChildScrollView(
+        child: Column(children: [
+          SizedBox(height: 72),
+          TitleBar(title: 'Waiting Questions'),
+          SizedBox(height: 24),
+          Padding(
+            padding:
+                const EdgeInsets.only(left: 32, top: 8, bottom: 8, right: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LevelMenu(
+                  initialValue: widget.argument,
+                ),
+                Container(
+                  width: size.width / 3,
+                  child: SwitchListTile(
+                      contentPadding: EdgeInsets.all(0),
+                      title: Text('Urgent only:', style: AppFonts.captionText),
+                      value: switchValue,
+                      onChanged: (newValue) {
+                        context
+                            .read<AllquestionsCubit>()
+                            .urgentFilter(newValue);
+                        setState(() {
+                          switchValue = newValue;
+                        });
+                      }),
+                ),
+              ],
+            ),
+          ),
+          BlocBuilder<AllquestionsCubit, AllquestionsState>(
+            builder: (context, state) {
+              return Column(
+                children: state.list == null ? [Container()] : state.list,
+              );
+            },
+          )
+        ]),
+      )
+    ]));
+  }
+}
