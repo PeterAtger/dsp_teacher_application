@@ -3,7 +3,6 @@ import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingque
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,10 +13,10 @@ class WaitingQuestions extends StatefulWidget {
 }
 
 class _WaitingQuestionsState extends State<WaitingQuestions> {
-  bool value;
+  bool switchValue;
   @override
   void initState() {
-    value = false;
+    switchValue = false;
     super.initState();
   }
 
@@ -50,19 +49,21 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                LevelMenu(questionLevels: questionLevels, avatar: avatar),
+                LevelMenu(
+                  initialValue: 'All',
+                ),
                 Container(
                   width: size.width / 3,
                   child: SwitchListTile(
                       contentPadding: EdgeInsets.all(0),
                       title: Text('Urgent only:', style: AppFonts.captionText),
-                      value: value,
+                      value: switchValue,
                       onChanged: (newValue) {
                         context
                             .read<WaitingQuestionsCubit>()
                             .urgentFilter(newValue);
                         setState(() {
-                          value = newValue;
+                          switchValue = newValue;
                         });
                       }),
                 ),
