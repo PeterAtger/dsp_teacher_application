@@ -66,7 +66,7 @@ class SidMenuBar extends StatelessWidget {
                       child: IconButton(
                           icon: Icon(
                             Icons.menu,
-                            size: 32,
+                            size: 24,
                             color: AppColors.cDarkGrey,
                           ),
                           onPressed: () => Navigator.of(context).pop()),
@@ -75,7 +75,7 @@ class SidMenuBar extends StatelessWidget {
                       width: 8,
                     ),
                     Text("Menu",
-                        style: AppFonts.heading4.copyWith(
+                        style: AppFonts.heading5.copyWith(
                           color: AppColors.cDarkGrey,
                         ))
                   ],

@@ -23,7 +23,7 @@ class TitleBar extends StatelessWidget {
         SizedBox(width: 8),
         Text(
           this.title,
-          style: AppFonts.heading4.copyWith(
+          style: AppFonts.heading5.copyWith(
               color:
                   isTitleColorWhite ? AppColors.cWhite : AppColors.cDarkGrey),
         ),

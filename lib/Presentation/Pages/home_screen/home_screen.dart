@@ -47,7 +47,7 @@ class _ScreenBody extends StatelessWidget {
             IconButton(
               icon: Icon(
                 Icons.menu,
-                size: 32,
+                size: 24,
                 color: AppColors.cDarkGrey,
               ),
               onPressed: () => Scaffold.of(context).openDrawer(),
@@ -56,7 +56,7 @@ class _ScreenBody extends StatelessWidget {
               width: 8,
             ),
             Text('Main Screen',
-                style: AppFonts.heading4.copyWith(color: AppColors.cDarkGrey)),
+                style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),
         Expanded(
