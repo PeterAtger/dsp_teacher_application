@@ -4,12 +4,12 @@ import 'package:dsp_teacher_application/Presentation/global_components/GradientL
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Waiting extends StatelessWidget {
+class QuestionCard extends StatelessWidget {
   final String question;
   final Level level;
   final bool isUrgent;
 
-  const Waiting({
+  const QuestionCard({
     Key key,
     this.question,
     this.level,
@@ -25,7 +25,7 @@ class Waiting extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 4, horizontal: 16),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.cWhite,
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -41,7 +41,11 @@ class Waiting extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: AppColors.cWhite,
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(
+                  context, '/MainScreen/Questions/QuestionScreen',
+                  arguments: this.question);
+            },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               // Column of 2 Rows and a seperator
