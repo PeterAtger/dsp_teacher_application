@@ -145,7 +145,7 @@ class QuestionLevelTable extends StatelessWidget {
                   img: 'lib/Presentation/Images/yellow_star.svg',
                   outlineButtonStyle: outlineButtonStyle,
                   size: size,
-                  isGrey: false,
+                  isSaved: true,
                 ),
               ),
             ),

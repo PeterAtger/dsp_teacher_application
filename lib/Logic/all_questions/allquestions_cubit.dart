@@ -3,31 +3,29 @@ import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
 import 'package:meta/meta.dart';
 
-part 'waitingquestions_state.dart';
+part 'allquestions_state.dart';
 
 List<Question> questions = [
   Question(
       isUrgent: true,
       level: Level.Primary,
-      question: 'is tata stupid yes of course he is?'),
+      question: 'These are some respectable Examples'),
   Question(
       isUrgent: false,
       level: Level.Primary,
-      question: 'tata is a kangaarooo and an iceberg?'),
+      question: 'Not like the asshole doba'),
   Question(
       isUrgent: false,
       level: Level.Preparatory,
-      question: 'you are right tata is buffalo'),
+      question: 'Because I am very respectable person'),
   Question(
       isUrgent: true,
       level: Level.Secondary,
-      question: 'you are double right tata is a cow')
+      question: 'Now !!! Where the fuck is my Son IBIRAHEEEEM?')
 ];
 
-class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
-  WaitingQuestionsCubit() : super(WaitingQuestionsState(null));
-
-  //initializing variables and lists
+class AllquestionsCubit extends Cubit<AllquestionsState> {
+  AllquestionsCubit() : super(AllquestionsState(list: null));
 
   List<QuestionCard> primaryList = [];
   List<QuestionCard> prepList = [];
@@ -87,23 +85,23 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   void _listSelector() {
     if (chosenUrgent == true) {
       if (chosenLevel == 'All') {
-        emit(WaitingQuestionsState(allUrgentList));
+        emit(AllquestionsState(list: allUrgentList));
       } else if (chosenLevel == 'Primary') {
-        emit(WaitingQuestionsState(primaryUrgentList));
+        emit(AllquestionsState(list: primaryUrgentList));
       } else if (chosenLevel == 'Preparatory') {
-        emit(WaitingQuestionsState(prepUrgentList));
+        emit(AllquestionsState(list: prepUrgentList));
       } else if (chosenLevel == 'Secondary') {
-        emit(WaitingQuestionsState(secondaryUrgentList));
+        emit(AllquestionsState(list: secondaryUrgentList));
       }
     } else {
       if (chosenLevel == 'All') {
-        emit(WaitingQuestionsState(allList));
+        emit(AllquestionsState(list: allList));
       } else if (chosenLevel == 'Primary') {
-        emit(WaitingQuestionsState(primaryList));
+        emit(AllquestionsState(list: primaryList));
       } else if (chosenLevel == 'Preparatory') {
-        emit(WaitingQuestionsState(prepList));
+        emit(AllquestionsState(list: prepList));
       } else if (chosenLevel == 'Secondary') {
-        emit(WaitingQuestionsState(secondaryList));
+        emit(AllquestionsState(list: secondaryList));
       }
     }
   }

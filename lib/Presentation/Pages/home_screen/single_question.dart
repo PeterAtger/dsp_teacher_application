@@ -18,15 +18,6 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    List<List<String>> list = [
-      ['sara', 'was', 'eating', 'apple', 'she', 'is', 'funny'],
-      ['Doba', 'is', 'sleeping', 'early', 'she', 'is', 'cute'],
-      ['tata', 'has', 'big', 'book', 'he', 'is', 'bad']
-    ];
-    String selectedQuestion = list[0].join(' ');
-
-    //Preparing data to show in the Scroll
-
     //ddeclaring h & w for hight and width so it will be used in sizing throw widgets.
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
@@ -36,9 +27,11 @@ class _QuestionScreenState extends State<QuestionScreen> {
         create: (context) => ManipulateQusetionCubit(),
         child: BlocBuilder<ManipulateQusetionCubit, ManipulateState>(
           builder: (context, state) {
-            print(state.question);
             return _ScreenBody(
-                w: w, h: h, selectedQuestion: selectedQuestion, scrollData: []);
+                w: w,
+                h: h,
+                selectedQuestion: widget.selectedQuestion,
+                scrollData: []);
           },
         ),
       ),

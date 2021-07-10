@@ -1,6 +1,8 @@
+import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainScreenTableItem extends StatelessWidget {
   const MainScreenTableItem({
@@ -9,25 +11,29 @@ class MainScreenTableItem extends StatelessWidget {
     @required this.img,
     @required this.size,
     @required this.txt,
-    this.isGrey = true,
+    this.isSaved = false,
   }) : super(key: key);
 
   final ButtonStyle outlineButtonStyle;
   final String img;
   final Size size;
   final String txt;
-  final bool isGrey;
+  final bool isSaved;
 
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: outlineButtonStyle,
-      onPressed: () async {
-        await Future.delayed(Duration(milliseconds: 250), () {
-          Navigator.of(context)
-              .pushNamed('/MainScreen/Questions', arguments: txt);
-        });
-      },
+      onPressed: isSaved
+          ? () {
+              context.read<NavbarCubit>().goToSavedQuestions();
+            }
+          : () async {
+              await Future.delayed(Duration(milliseconds: 250), () {
+                Navigator.of(context)
+                    .pushNamed('/MainScreen/Questions', arguments: txt);
+              });
+            },
       child: Column(children: [
         SvgPicture.asset(img, height: 56),
         SizedBox(
@@ -35,7 +41,7 @@ class MainScreenTableItem extends StatelessWidget {
         ),
         Text(txt,
             style: AppFonts.bodyText1.copyWith(
-              color: this.isGrey ? AppColors.cDarkGrey : AppColors.cWhite,
+              color: this.isSaved ? AppColors.cWhite : AppColors.cDarkGrey,
             ))
       ]),
     );
