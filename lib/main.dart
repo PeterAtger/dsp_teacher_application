@@ -36,13 +36,11 @@ class App extends StatelessWidget {
         BlocProvider<FilterQuestionCubit>(
           create: (BuildContext context) => FilterQuestionCubit(),
         ),
-<<<<<<< HEAD
         BlocProvider<AuthenticationCubit>(
           create: (BuildContext context) => AuthenticationCubit(),
-=======
+        ),
         BlocProvider<AllquestionsCubit>(
           create: (BuildContext context) => AllquestionsCubit(),
->>>>>>> 99093433d9b2478d2c9dffb7468b2d709171292b
         ),
       ],
       child: MaterialApp(
