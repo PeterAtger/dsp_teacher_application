@@ -1,3 +1,5 @@
+import 'package:dsp_teacher_application/Authentication/authentication.dart';
+import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/InputField.dart';
@@ -6,6 +8,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -13,6 +16,8 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final passwordFieldController = TextEditingController();
+  final emailFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -33,16 +38,31 @@ class _SignInState extends State<SignIn> {
                 children: <Widget>[
                   Container(
                     width: size.width * 0.8,
-                    child: inputfield(size, AppColors.cWhite, AppColors.cWhite,
-                        AppColors.cWhite, 'Email', 'email', true),
+                    child: inputfield(
+                      size,
+                      AppColors.cWhite,
+                      AppColors.cWhite,
+                      AppColors.cWhite,
+                      'Email',
+                      'email',
+                      true,
+                      emailFieldController,
+                    ),
                   ),
                   SizedBox(
                     height: 10,
                   ),
                   Container(
                     width: size.width * 0.8,
-                    child: inputfield(size, AppColors.cWhite, AppColors.cWhite,
-                        AppColors.cWhite, 'Password', 'key', true,
+                    child: inputfield(
+                        size,
+                        AppColors.cWhite,
+                        AppColors.cWhite,
+                        AppColors.cWhite,
+                        'Password',
+                        'key',
+                        true,
+                        passwordFieldController,
                         isPass: true),
                   ),
                   SizedBox(
@@ -55,7 +75,11 @@ class _SignInState extends State<SignIn> {
                       text: 'LOG IN',
                       textcolor: AppColors.cGreen,
                       buttoncolor: AppColors.cWhite,
-                      onButtonPress: () {},
+                      onButtonPress: () {
+                        context.read<AuthenticationCubit>().signInPostRequest(
+                            emailFieldController.text,
+                            passwordFieldController.text);
+                      },
                       // destination: , //main screen
                     ),
                   ),

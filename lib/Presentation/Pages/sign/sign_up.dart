@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/InputField.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/button.dart';
@@ -8,6 +9,8 @@ import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:dsp_teacher_application/Authentication/authentication.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -22,6 +25,9 @@ class _SignUpState extends State<SignUp> {
     ['5+ Years Experience', 'lib/Presentation/Images/scientist.svg']
   ];
   String _selectedItem;
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passController = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -82,7 +88,8 @@ class _SignUpState extends State<SignUp> {
                           AppColors.cDarkGrey,
                           'Full Name',
                           'name',
-                          false)),
+                          false,
+                          nameController)),
                   Container(
                     width: size.width * 0.8,
                     child: inputfield(
@@ -92,7 +99,8 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cGreen,
                         'Email',
                         'email',
-                        true),
+                        true,
+                        emailController),
                   ),
                   SizedBox(
                     height: 4, //bad value
@@ -107,6 +115,7 @@ class _SignUpState extends State<SignUp> {
                         'Password',
                         'key',
                         true,
+                        passController,
                         isPass: true),
                   ),
                   SizedBox(
@@ -154,19 +163,17 @@ class _SignUpState extends State<SignUp> {
                     height: 16,
                   ),
                   Container(
-                    width: size.width * 0.8,
-                    child: Button(
-                      size: size,
-                      text: 'SIGN UP',
-                      textcolor: AppColors.cWhite,
-                      buttoncolor: AppColors.cGreen,
-                      onButtonPress: () async {
-                        await Future.delayed(Duration(milliseconds: 250), () {
-                          Navigator.of(context).pushNamed('/HIW');
-                        });
-                      },
-                    ),
-                  ),
+                      width: size.width * 0.8,
+                      child: Button(
+                          size: size,
+                          text: 'SIGN UP',
+                          textcolor: AppColors.cWhite,
+                          buttoncolor: AppColors.cGreen,
+                          onButtonPress: () {
+                            context
+                                .read<AuthenticationCubit>()
+                                .signUpPostRequest();
+                          })),
                   SizedBox(
                     height: 24,
                   ),

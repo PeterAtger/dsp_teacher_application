@@ -2,11 +2,19 @@ import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-Widget inputfield(var size, MaterialColor linecolor, MaterialColor hintcolor,
-    MaterialColor iconcolor, String hint, String icon, bool coloredicone,
+Widget inputfield(
+    var size,
+    MaterialColor linecolor,
+    MaterialColor hintcolor,
+    MaterialColor iconcolor,
+    String hint,
+    String icon,
+    bool coloredicone,
+    controller,
     {bool isPass = false}) {
   return TextFormField(
     style: AppFonts.bodyText1.copyWith(color: hintcolor),
+    controller: controller,
     obscureText: isPass,
     cursorColor: AppColors.cWhite,
     decoration: InputDecoration(
