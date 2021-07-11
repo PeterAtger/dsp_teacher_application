@@ -16,11 +16,11 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final passwordFieldController = TextEditingController();
+  final emailFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    final passwordFieldController = TextEditingController();
-    final emailFieldController = TextEditingController();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -77,8 +77,8 @@ class _SignInState extends State<SignIn> {
                       buttoncolor: AppColors.cWhite,
                       onButtonPress: () {
                         context.read<AuthenticationCubit>().signInPostRequest(
-                            emailFieldController.value,
-                            passwordFieldController.value);
+                            emailFieldController.text,
+                            passwordFieldController.text);
                       },
                       // destination: , //main screen
                     ),

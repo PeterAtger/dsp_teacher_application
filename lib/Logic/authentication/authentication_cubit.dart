@@ -10,11 +10,10 @@ part 'authentication_state.dart';
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState(data: null));
 
-  Future<void> signInPostRequest(
-      TextEditingValue email, TextEditingValue password) async {
-    final url = Uri.parse('http://443e22f21a59.ngrok.io//accounts/login/');
+  Future<void> signInPostRequest(String email, String password) async {
+    final url = Uri.parse('http://18.193.7.235:8000/accounts/login/');
     final headers = {"Content-type": "application/json"};
-    final json = '{"email": $email, "password": $password }';
+    final json = jsonEncode({"username": email, "password": password});
 
     final response = await post(url, headers: headers, body: json);
     Map signInData = jsonDecode(response.body);

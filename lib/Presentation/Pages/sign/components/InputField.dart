@@ -13,8 +13,8 @@ Widget inputfield(
     controller,
     {bool isPass = false}) {
   return TextFormField(
-    controller: controller,
     style: AppFonts.bodyText1.copyWith(color: hintcolor),
+    controller: controller,
     obscureText: isPass,
     cursorColor: AppColors.cWhite,
     decoration: InputDecoration(
