@@ -172,7 +172,8 @@ class _SignUpState extends State<SignUp> {
                           onButtonPress: () {
                             context
                                 .read<AuthenticationCubit>()
-                                .signUpPostRequest();
+                                .signUpPostRequest(nameController.text,
+                                    emailController.text, passController.text);
                           })),
                   SizedBox(
                     height: 24,
