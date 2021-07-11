@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
-  AuthenticationCubit() : super(AuthenticationState(data: null));
+  AuthenticationCubit() : super(AuthenticationState(data: null, code: null));
 
   Future<void> signInPostRequest(String email, String password) async {
     final url = Uri.parse('http://18.193.7.235:8000/accounts/login/');
@@ -21,8 +21,9 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     print('Status code: ${response.statusCode}');
     print('Body: ${response.body}');
+    int code1 = response.statusCode;
 
-    emit(AuthenticationState(data: signInData));
+    emit(AuthenticationState(data: signInData, code: code1));
   }
 
   Future<void> signUpPostRequest(
@@ -43,7 +44,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     print('Status code2: ${response.statusCode}');
     print('Body2: ${response.body}');
+    int code2 = response.statusCode;
 
-    emit(AuthenticationState(data: signUpData));
+    emit(AuthenticationState(data: signUpData, code: code2));
   }
 }

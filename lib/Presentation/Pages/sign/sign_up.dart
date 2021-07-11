@@ -162,19 +162,40 @@ class _SignUpState extends State<SignUp> {
                   SizedBox(
                     height: 16,
                   ),
-                  Container(
-                      width: size.width * 0.8,
-                      child: Button(
-                          size: size,
-                          text: 'SIGN UP',
-                          textcolor: AppColors.cWhite,
-                          buttoncolor: AppColors.cGreen,
-                          onButtonPress: () {
-                            context
-                                .read<AuthenticationCubit>()
-                                .signUpPostRequest(nameController.text,
-                                    emailController.text, passController.text);
-                          })),
+                  BlocListener<AuthenticationCubit, AuthenticationState>(
+                    listener: (context, state) {
+                      if (state.code != null) {
+                        if (state.code <= 299 && state.code >= 200) {
+                          Navigator.of(context).pushNamed('/HIW');
+                        }
+
+                        if (state.code <= 499 && state.code >= 400) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(state.data["email"][0])));
+                        }
+                        if (state.code <= 599 && state.code >= 500) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                                  "Something went wrong!! Please try again.")));
+                        }
+                      }
+                    },
+                    child: Container(
+                        width: size.width * 0.8,
+                        child: Button(
+                            size: size,
+                            text: 'SIGN UP',
+                            textcolor: AppColors.cWhite,
+                            buttoncolor: AppColors.cGreen,
+                            onButtonPress: () {
+                              context
+                                  .read<AuthenticationCubit>()
+                                  .signUpPostRequest(
+                                      nameController.text,
+                                      emailController.text,
+                                      passController.text);
+                            })),
+                  ),
                   SizedBox(
                     height: 24,
                   ),
