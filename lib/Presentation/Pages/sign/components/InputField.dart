@@ -16,7 +16,7 @@ Widget inputfield(
     style: AppFonts.bodyText1.copyWith(color: hintcolor),
     controller: controller,
     obscureText: isPass,
-    cursorColor: AppColors.cWhite,
+    cursorColor: AppColors.cDarkGrey,
     decoration: InputDecoration(
       contentPadding: EdgeInsets.only(top: 20, bottom: 10),
       isDense: true,

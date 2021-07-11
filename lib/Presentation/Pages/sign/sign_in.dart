@@ -96,6 +96,7 @@ class _SignInState extends State<SignIn> {
                         textcolor: AppColors.cGreen,
                         buttoncolor: AppColors.cWhite,
                         onButtonPress: () {
+                          FocusScope.of(context).unfocus();
                           context.read<AuthenticationCubit>().signInPostRequest(
                               emailFieldController.text,
                               passwordFieldController.text);
