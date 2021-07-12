@@ -1,5 +1,6 @@
 import 'package:dsp_teacher_application/Authentication/authentication.dart';
 import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/InputField.dart';
@@ -7,6 +8,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/buttonicon.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,19 +70,39 @@ class _SignInState extends State<SignIn> {
                   SizedBox(
                     height: 32,
                   ),
-                  Container(
-                    width: size.width * 0.8,
-                    child: Button(
-                      size: size,
-                      text: 'LOG IN',
-                      textcolor: AppColors.cGreen,
-                      buttoncolor: AppColors.cWhite,
-                      onButtonPress: () {
-                        context.read<AuthenticationCubit>().signInPostRequest(
-                            emailFieldController.text,
-                            passwordFieldController.text);
-                      },
-                      // destination: , //main screen
+                  BlocListener<AuthenticationCubit, AuthenticationState>(
+                    listener: (context, state) {
+                      if (state.code != null) {
+                        if (state.code <= 299 && state.code >= 200) {
+                          Navigator.of(context).pushNamed('/MainScreen');
+                        }
+
+                        if (state.code <= 499 && state.code >= 400) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(state.data["error"][0])));
+                        }
+                        if (state.code <= 599 && state.code >= 500) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                                  "Something went wrong!! Please try again.")));
+                        }
+                      }
+                    },
+                    child: Container(
+                      width: size.width * 0.8,
+                      child: Button(
+                        size: size,
+                        text: 'LOG IN',
+                        textcolor: AppColors.cGreen,
+                        buttoncolor: AppColors.cWhite,
+                        onButtonPress: () {
+                          FocusScope.of(context).unfocus();
+                          context.read<AuthenticationCubit>().signInPostRequest(
+                              emailFieldController.text,
+                              passwordFieldController.text);
+                        },
+                        // destination: , //main screen
+                      ),
                     ),
                   ),
                   SizedBox(

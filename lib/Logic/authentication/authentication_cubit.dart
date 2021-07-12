@@ -8,7 +8,7 @@ import 'package:meta/meta.dart';
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
-  AuthenticationCubit() : super(AuthenticationState(data: null));
+  AuthenticationCubit() : super(AuthenticationState(data: null, code: null));
 
   Future<void> signInPostRequest(String email, String password) async {
     final url = Uri.parse('http://18.193.7.235:8000/accounts/login/');
@@ -21,18 +21,20 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     print('Status code: ${response.statusCode}');
     print('Body: ${response.body}');
+    int code1 = response.statusCode;
 
-    emit(AuthenticationState(data: signInData));
+    emit(AuthenticationState(data: signInData, code: code1));
   }
 
-  Future<void> signUpPostRequest() async {
-    final url = Uri.parse('http://4cbafed19910.ngrok.io/accounts/register/');
+  Future<void> signUpPostRequest(
+      String fullName, String email2, String password2) async {
+    final url = Uri.parse('http://18.193.7.235:8000/accounts/register/');
     final headers = {"Content-type": "application/json"};
     final body = {
-      "first_name": "Habiba ",
-      "last_name": "Khairy ",
-      "email": " habibakhairy300@gmail.com",
-      "password": " 12345",
+      "first_name": fullName,
+      "last_name": "a",
+      "email": email2,
+      "password": password2,
       "is_teacher": true
     };
 
@@ -42,7 +44,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     print('Status code2: ${response.statusCode}');
     print('Body2: ${response.body}');
+    int code2 = response.statusCode;
 
-    emit(AuthenticationState(data: signUpData));
+    emit(AuthenticationState(data: signUpData, code: code2));
   }
 }
