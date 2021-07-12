@@ -5,7 +5,6 @@ import 'package:dsp_teacher_application/Presentation/Global_components/GradientL
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,18 +28,18 @@ class LevelMenu extends StatelessWidget {
       LocaleKeys.Secondary.tr(): "lib/Presentation/Images/secondaryboy.svg"
     };
     // First we have to filter the questions according to the InitialValue
-    context.read<FilterQuestionCubit>().chooseFilter(this.initialValue);
-    context.read<WaitingQuestionsCubit>().filter(this.initialValue);
-    context.read<AllquestionsCubit>().filter(this.initialValue);
+    // context.read<WaitingQuestionsCubit>().filter(this.initialValue);
+    // context.read<AllquestionsCubit>().filter(this.initialValue);
 
     return BlocBuilder<FilterQuestionCubit, FilterquestionState>(
       builder: (context, state) {
         Size size = MediaQuery.of(context).size;
+
         return Container(
           alignment: Alignment.topLeft,
           child: DropdownButton(
             underline: GradientLine(size: size),
-            value: state.value == null ? this.initialValue : state.value,
+            value: state.value,
             onChanged: (newValue) {
               // On Choosing a new value I filter both pages because I can't bother
               // to make a sperate widget or function for each page!

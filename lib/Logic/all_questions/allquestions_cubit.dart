@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
 
 part 'allquestions_state.dart';
@@ -84,23 +86,23 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
 
   void _listSelector() {
     if (chosenUrgent == true) {
-      if (chosenLevel == 'All') {
+      if (chosenLevel == LocaleKeys.All.tr()) {
         emit(AllquestionsState(list: allUrgentList));
-      } else if (chosenLevel == 'Primary') {
+      } else if (chosenLevel == LocaleKeys.Primary.tr()) {
         emit(AllquestionsState(list: primaryUrgentList));
-      } else if (chosenLevel == 'Preparatory') {
+      } else if (chosenLevel == LocaleKeys.Preparatory.tr()) {
         emit(AllquestionsState(list: prepUrgentList));
-      } else if (chosenLevel == 'Secondary') {
+      } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(AllquestionsState(list: secondaryUrgentList));
       }
     } else {
-      if (chosenLevel == 'All') {
+      if (chosenLevel == LocaleKeys.All.tr()) {
         emit(AllquestionsState(list: allList));
-      } else if (chosenLevel == 'Primary') {
+      } else if (chosenLevel == LocaleKeys.Primary.tr()) {
         emit(AllquestionsState(list: primaryList));
-      } else if (chosenLevel == 'Preparatory') {
+      } else if (chosenLevel == LocaleKeys.Preparatory.tr()) {
         emit(AllquestionsState(list: prepList));
-      } else if (chosenLevel == 'Secondary') {
+      } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(AllquestionsState(list: secondaryList));
       }
     }

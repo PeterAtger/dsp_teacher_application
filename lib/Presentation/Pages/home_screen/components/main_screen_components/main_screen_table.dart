@@ -1,3 +1,5 @@
+import 'package:dsp_teacher_application/Logic/all_questions/allquestions_cubit.dart';
+import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,6 +31,8 @@ class MainScreenTableItem extends StatelessWidget {
               context.read<NavbarCubit>().goToSavedQuestions();
             }
           : () async {
+              context.read<FilterQuestionCubit>().chooseFilter(txt);
+              context.read<AllquestionsCubit>().filter(txt);
               await Future.delayed(Duration(milliseconds: 250), () {
                 Navigator.of(context)
                     .pushNamed('/MainScreen/Questions', arguments: txt);
