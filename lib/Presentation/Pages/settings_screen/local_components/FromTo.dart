@@ -1,4 +1,6 @@
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class FromToPanda extends StatelessWidget {
@@ -14,11 +16,11 @@ class FromToPanda extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'From',
+            LocaleKeys.From.tr(),
             style: AppFonts.bodyText1.copyWith(color: AppColors.cGreen),
           ),
           Text(
-            'To',
+            LocaleKeys.To.tr(),
             style: AppFonts.bodyText1.copyWith(color: AppColors.cGreen),
           ),
         ],

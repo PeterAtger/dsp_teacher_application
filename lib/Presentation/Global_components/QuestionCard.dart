@@ -1,6 +1,8 @@
 import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -64,7 +66,7 @@ class QuestionCard extends StatelessWidget {
                       this.isUrgent
                           ? Row(
                               children: [
-                                Text('Urgent'),
+                                // Text('Urgent'),
                                 SizedBox(
                                   width: 8,
                                 ),
@@ -110,13 +112,13 @@ class QuestionCard extends StatelessWidget {
 
 Text _textChooser(Level level) {
   if (level == Level.Primary) {
-    return Text('Primary',
+    return Text(LocaleKeys.Primary.tr(),
         style: AppFonts.bodyText1.copyWith(fontWeight: FontWeight.w700));
   } else if (level == Level.Preparatory) {
-    return Text('Preparatory',
+    return Text(LocaleKeys.Preparatory.tr(),
         style: AppFonts.bodyText1.copyWith(fontWeight: FontWeight.w700));
   } else if (level == Level.Secondary) {
-    return Text('Secondary',
+    return Text(LocaleKeys.Secondary.tr(),
         style: AppFonts.bodyText1.copyWith(fontWeight: FontWeight.w700));
   }
   return Text('Error');

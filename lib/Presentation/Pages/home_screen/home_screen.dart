@@ -1,5 +1,7 @@
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/gradientOutline.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/main_screen_components/main_screen_table.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 
@@ -55,7 +57,7 @@ class _ScreenBody extends StatelessWidget {
             SizedBox(
               width: 8,
             ),
-            Text('Main Screen',
+            Text(LocaleKeys.MainScreen.tr(),
                 style: AppFonts.heading5.copyWith(color: AppColors.cDarkGrey)),
           ],
         ),
@@ -66,7 +68,7 @@ class _ScreenBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Welcome Back, \n\nWe’ve got new questions waiting \n ",
+                "${LocaleKeys.WelcomeBack.tr()} \n\n${LocaleKeys.We_veGotNew.tr()} \n ",
                 style: AppFonts.heading6
                     .copyWith(color: AppColors.cDarkGrey, fontSize: 20),
               ),
@@ -97,22 +99,22 @@ class QuestionLevelTable extends StatelessWidget {
         TableRow(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 8.0, bottom: 8),
+              padding: const EdgeInsets.only(right: 8.0, bottom: 8, left: 8),
               child: GradientOutline(
                 size: size,
                 chld: MainScreenTableItem(
-                    txt: 'Primary',
+                    txt: LocaleKeys.Primary.tr(),
                     img: 'lib/Presentation/Images/boysvg.svg',
                     outlineButtonStyle: outlineButtonStyle,
                     size: size),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, bottom: 8),
+              padding: const EdgeInsets.only(left: 8, bottom: 8, right: 8),
               child: GradientOutline(
                 size: size,
                 chld: MainScreenTableItem(
-                    txt: 'Preparatory',
+                    txt: LocaleKeys.Preparatory.tr(),
                     img: 'lib/Presentation/Images/girl.svg',
                     outlineButtonStyle: outlineButtonStyle,
                     size: size),
@@ -123,10 +125,10 @@ class QuestionLevelTable extends StatelessWidget {
         TableRow(
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 8.0, top: 8),
+              padding: const EdgeInsets.only(right: 8.0, top: 8, left: 8),
               child: GradientOutline(
                 chld: MainScreenTableItem(
-                    txt: 'Secondary',
+                    txt: LocaleKeys.Secondary.tr(),
                     img: 'lib/Presentation/Images/secondaryboy.svg',
                     outlineButtonStyle: outlineButtonStyle,
                     size: size),
@@ -134,14 +136,14 @@ class QuestionLevelTable extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, top: 8),
+              padding: const EdgeInsets.only(left: 8, top: 8, right: 8),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(32)),
                   color: AppColors.cGreen,
                 ),
                 child: MainScreenTableItem(
-                  txt: 'Saved',
+                  txt: LocaleKeys.Saved.tr(),
                   img: 'lib/Presentation/Images/yellow_star.svg',
                   outlineButtonStyle: outlineButtonStyle,
                   size: size,

@@ -8,6 +8,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/SettingsToggle.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherTimeSettings.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,13 +47,13 @@ class _NotificationsState extends State<Notifications> {
                   children: [
                     SizedBox(height: 72),
                     TitleBar(
-                      title: 'Notifications',
+                      title: LocaleKeys.Notifications.tr(),
                     ),
                     SizedBox(height: 56),
                     SettingsToggle(
                       size: size,
                       spacing: 40,
-                      toggleText: 'Push Notifications',
+                      toggleText: LocaleKeys.PushNotifications.tr(),
                       onChanged: (value) {
                         context
                             .read<NotificationSettingsCubit>()
@@ -64,7 +66,7 @@ class _NotificationsState extends State<Notifications> {
                     SizedBox(height: 8),
                     SettingsToggle(
                       spacing: 80,
-                      toggleText: 'New Queries',
+                      toggleText: LocaleKeys.NewQueries.tr(),
                       size: size,
                       onChanged: (value) {
                         context
@@ -77,7 +79,7 @@ class _NotificationsState extends State<Notifications> {
                     SettingsToggle(
                       size: size,
                       spacing: 80,
-                      toggleText: 'New Updates',
+                      toggleText: LocaleKeys.NewUpdates.tr(),
                       onChanged: (value) {
                         context
                             .read<NotificationSettingsCubit>()
@@ -111,8 +113,7 @@ class _NotificationsState extends State<Notifications> {
                     ),
                     SizedBox(height: 16),
                     Center(
-                      child: Text(
-                          'Time where you want to recieve questions notifications',
+                      child: Text(LocaleKeys.TimeWhere.tr(),
                           style: AppFonts.captionText
                               .copyWith(color: AppColors.cLightGrey)),
                     ),

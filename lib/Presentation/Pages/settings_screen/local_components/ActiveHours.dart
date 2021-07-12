@@ -1,6 +1,8 @@
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ActiveHours extends StatelessWidget {
   const ActiveHours({
@@ -13,7 +15,7 @@ class ActiveHours extends StatelessWidget {
       children: [
         SizedBox(width: 48),
         Text(
-          'Active Hours',
+          LocaleKeys.ActiveHours.tr(),
           style: AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
         ),
         SizedBox(width: 70),

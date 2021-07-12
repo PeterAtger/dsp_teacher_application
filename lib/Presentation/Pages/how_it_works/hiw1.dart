@@ -2,6 +2,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/componen
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 
@@ -38,7 +40,7 @@ class HIW1 extends StatelessWidget {
             height: size.height / 5,
           ),
           GradientHeading(
-            text: 'How it works',
+            text: LocaleKeys.HowItWorks.tr(),
           ),
         ],
       ),
@@ -46,8 +48,7 @@ class HIW1 extends StatelessWidget {
       // Content
       Instructions(
         size: size,
-        instructionText:
-            'First Select the grade you want to see questions from.',
+        instructionText: LocaleKeys.HIW1.tr(),
         instructionImage: 'hiw1',
       )
     ]));

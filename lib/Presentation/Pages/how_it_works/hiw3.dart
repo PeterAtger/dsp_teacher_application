@@ -2,6 +2,8 @@ import 'package:dsp_teacher_application/Presentation/Global_components/BackGroun
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 
@@ -38,7 +40,7 @@ class HIW3 extends StatelessWidget {
             height: size.height / 5,
           ),
           GradientHeading(
-            text: 'How it works',
+            text: LocaleKeys.HowItWorks.tr(),
           )
         ],
       ),
@@ -46,8 +48,7 @@ class HIW3 extends StatelessWidget {
       // Content
       Instructions(
         size: size,
-        instructionText:
-            'Select a sentence and a slider with possible dactirizations will appear.',
+        instructionText: LocaleKeys.HIW3.tr(),
         instructionImage: 'hiw3',
       )
     ]));

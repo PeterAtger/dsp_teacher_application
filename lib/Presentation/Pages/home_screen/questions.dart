@@ -2,6 +2,8 @@ import 'package:adobe_xd/blend_mask.dart';
 import 'package:dsp_teacher_application/Logic/all_questions/allquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +44,7 @@ class _QuestionsState extends State<Questions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Waiting Questions'),
+          TitleBar(title: LocaleKeys.WaitingQuestion.tr()),
           SizedBox(height: 24),
           Padding(
             padding:
@@ -57,7 +59,8 @@ class _QuestionsState extends State<Questions> {
                   width: size.width / 3,
                   child: SwitchListTile(
                       contentPadding: EdgeInsets.all(0),
-                      title: Text('Urgent only:', style: AppFonts.captionText),
+                      title: Text(LocaleKeys.UrgentOnly.tr(),
+                          style: AppFonts.captionText),
                       value: switchValue,
                       onChanged: (newValue) {
                         context

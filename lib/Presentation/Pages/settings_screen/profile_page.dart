@@ -5,6 +5,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -59,7 +61,7 @@ class _ProfileState extends State<Profile> {
               children: [
                 SizedBox(height: 72),
                 TitleBar(
-                  title: 'Profile',
+                  title: LocaleKeys.Profile.tr(),
                   isTitleColorWhite: true,
                 ),
                 SizedBox(height: 16),
@@ -116,21 +118,21 @@ class _ProfileState extends State<Profile> {
                       height: 32,
                     ),
                     TeacherProfileInf(
-                      field1: 'Email: ',
+                      field1: '${LocaleKeys.Email.tr()} :',
                       field2: 'Habiba.Ash@example.com',
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'Expertize: ',
+                      field1: '${LocaleKeys.Expertise.tr()} :',
                       field2: '5+ Years',
                     ),
                     SizedBox(
                       height: 24,
                     ),
                     TeacherProfileInf(
-                      field1: 'User Score: ',
+                      field1: LocaleKeys.Score.tr(),
                       field2: '4.8',
                     ),
                     SizedBox(height: 32),
@@ -138,13 +140,13 @@ class _ProfileState extends State<Profile> {
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'ANSWERED QUESTIONS: 3',
+                      text: '${LocaleKeys.AnsweredQuestions.tr()} :',
                       green: false,
                     ),
                     SizedBox(height: 16),
                     QuestionButton(
                       size: size,
-                      text: 'WAITING QUESTIONS: 3',
+                      text: '${LocaleKeys.WaitingQuestion.tr()} :',
                       green: true,
                     ),
                   ],

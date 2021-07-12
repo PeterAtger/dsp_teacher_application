@@ -1,6 +1,8 @@
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/GradientHeading.dart';
@@ -29,7 +31,7 @@ class GetStarted extends StatelessWidget {
             height: size.height / 5,
           ),
           GradientHeading(
-            text: 'Let\'s get started',
+            text: LocaleKeys.LetStart.tr(),
           ),
           SizedBox(
             height: size.height / 5,

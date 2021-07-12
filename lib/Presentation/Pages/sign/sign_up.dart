@@ -6,11 +6,12 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/top_curve.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:dsp_teacher_application/Authentication/authentication.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -19,15 +20,16 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _gradeList = [
-    ['Expertise', 'lib/Presentation/Images/expertise.svg'],
-    ['Fresh Graduate', 'lib/Presentation/Images/graduate.svg'],
-    ['1-5 Years Experience', 'lib/Presentation/Images/years_experience.svg'],
-    ['5+ Years Experience', 'lib/Presentation/Images/scientist.svg']
+    [LocaleKeys.Expertise.tr(), 'lib/Presentation/Images/expertise.svg'],
+    [LocaleKeys.Fresh_Graduate.tr(), 'lib/Presentation/Images/graduate.svg'],
+    [LocaleKeys.OneToFive.tr(), 'lib/Presentation/Images/years_experience.svg'],
+    [LocaleKeys.FivePlus.tr(), 'lib/Presentation/Images/scientist.svg']
   ];
   String _selectedItem;
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
@@ -67,8 +69,8 @@ class _SignUpState extends State<SignUp> {
             child: Positioned(
               top: size.height * 0.13,
               child: Text(
-                'Sign Up',
-                style: AppFonts.heading2.copyWith(color: AppColors.cWhite),
+                LocaleKeys.SignUp.tr(),
+                style: AppFonts.heading4.copyWith(color: AppColors.cWhite),
               ),
             ),
           ),
@@ -86,7 +88,7 @@ class _SignUpState extends State<SignUp> {
                           AppColors.cLightGrey,
                           AppColors.cDarkGrey,
                           AppColors.cDarkGrey,
-                          'Full Name',
+                          LocaleKeys.FullName.tr(),
                           'name',
                           false,
                           nameController)),
@@ -97,7 +99,7 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cLightGrey,
                         AppColors.cDarkGrey,
                         AppColors.cGreen,
-                        'Email',
+                        LocaleKeys.Email.tr(),
                         'email',
                         true,
                         emailController),
@@ -112,7 +114,7 @@ class _SignUpState extends State<SignUp> {
                         AppColors.cLightGrey,
                         AppColors.cDarkGrey,
                         AppColors.cGreen,
-                        'Password',
+                        LocaleKeys.Password.tr(),
                         'key',
                         true,
                         passController,
@@ -184,7 +186,7 @@ class _SignUpState extends State<SignUp> {
                         width: size.width * 0.8,
                         child: Button(
                             size: size,
-                            text: 'SIGN UP',
+                            text: LocaleKeys.SignUp.tr(),
                             textcolor: AppColors.cWhite,
                             buttoncolor: AppColors.cGreen,
                             onButtonPress: () {
@@ -203,7 +205,7 @@ class _SignUpState extends State<SignUp> {
                     width: size.width * 0.8,
                     child: DividingLine(
                       size: size,
-                      text: 'Or Login With',
+                      text: LocaleKeys.OrLogInWith.tr(),
                       color: AppColors.cDarkGrey,
                     ),
                   ),
@@ -219,7 +221,7 @@ class _SignUpState extends State<SignUp> {
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'FACEBOOK',
+                            text: LocaleKeys.Facebook.tr(),
                             icon: 'facebook',
                             iconcolor: Colors.blue,
                             textcolor: Colors.blue,
@@ -235,7 +237,7 @@ class _SignUpState extends State<SignUp> {
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'GOOGLE',
+                            text: LocaleKeys.Google.tr(),
                             icon: 'googlee',
                             iconcolor: Colors.red,
                             textcolor: AppColors.cDarkGrey,

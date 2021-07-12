@@ -9,13 +9,22 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 2500), () {
-      Navigator.of(context).pushReplacementNamed('/signIn');
-    });
+    _controller = AnimationController(
+      vsync: this,
+    );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -32,13 +41,13 @@ class _SplashScreenState extends State<SplashScreen> {
               bottom: null,
               left: -200,
               size: size.height / 1.5,
-              opacity: 1),
+              opacity: 0.5),
           ArabicImage(
               bottom: -150,
               top: null,
               left: -200,
               size: size.height / 1.5,
-              opacity: 1),
+              opacity: 0.5),
           Positioned(
               top: -size.height * 0.07,
               left: 0,
@@ -57,7 +66,17 @@ class _SplashScreenState extends State<SplashScreen> {
               height: 250,
               width: size.width,
               child: Lottie.asset('lib/Presentation/animations/shakkel.json',
-                  repeat: false),
+                  repeat: false,
+                  controller: _controller, onLoaded: (lottileComposition) {
+                _controller
+                  ..duration = Duration(seconds: 2)
+                  ..forward()
+                  ..addStatusListener((status) {
+                    if (status == AnimationStatus.completed) {
+                      Navigator.of(context).pushReplacementNamed('/signIn');
+                    }
+                  });
+              }),
             ),
           ),
         ],

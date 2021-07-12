@@ -1,13 +1,2 @@
-const avatar = {
-  'All': 'lib/Presentation/Images/school.svg',
-  'Primary': 'lib/Presentation/Images/boy.svg',
-  'Preparatory': "lib/Presentation/Images/girl.svg",
-  'Secondary': "lib/Presentation/Images/secondaryboy.svg"
-};
-
-const List<String> questionLevels = [
-  'All',
-  'Primary',
-  'Preparatory',
-  'Secondary'
-];
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';

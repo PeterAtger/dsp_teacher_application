@@ -4,6 +4,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/home_screen/component
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/text_viewer.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -69,7 +71,7 @@ class _ScreenBody extends StatelessWidget {
           height: 72,
         ),
         TitleBar(
-          title: 'Question',
+          title: LocaleKeys.Question.tr(),
         ),
         Expanded(
           flex: 1,

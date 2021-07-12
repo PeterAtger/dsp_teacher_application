@@ -3,6 +3,8 @@ import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingque
 import 'package:dsp_teacher_application/Presentation/Global_components/LevelMenu.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +43,7 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: 'Waiting Questions'),
+          TitleBar(title: LocaleKeys.WaitingQuestion.tr()),
           SizedBox(height: 24),
           Padding(
             padding:
@@ -50,13 +52,14 @@ class _WaitingQuestionsState extends State<WaitingQuestions> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 LevelMenu(
-                  initialValue: 'All',
+                  initialValue: LocaleKeys.All.tr(),
                 ),
                 Container(
                   width: size.width / 3,
                   child: SwitchListTile(
                       contentPadding: EdgeInsets.all(0),
-                      title: Text('Urgent only:', style: AppFonts.captionText),
+                      title: Text('${LocaleKeys.UrgentOnly.tr()} :',
+                          style: AppFonts.captionText),
                       value: switchValue,
                       onChanged: (newValue) {
                         context

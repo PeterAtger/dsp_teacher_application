@@ -1,6 +1,4 @@
-import 'package:dsp_teacher_application/Authentication/authentication.dart';
 import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/profile_page.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/InputField.dart';
@@ -8,8 +6,9 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/buttonicon.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/main.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignIn extends StatefulWidget {
@@ -31,6 +30,26 @@ class _SignInState extends State<SignIn> {
           BackGroundGradient(),
           ArabicImage(top: -150, left: -200, size: size.height / 1.5),
           ArabicImage(bottom: -150, left: -200, size: size.height / 1.5),
+          // Positioned(
+          //     top: 32,
+          //     left: 32,
+          //     child: Container(
+          //       width: 200,
+          //       height: 52,
+          //       child: SwitchListTile(
+          //         title: Text(
+          //           context.locale == Locale('ar') ? 'العربية' : 'ARABIC',
+          //           style: AppFonts.button.copyWith(color: AppColors.cWhite),
+          //         ),
+          //         value: context.locale == Locale('ar'),
+          //         onChanged: (value) {
+          //           value
+          //               ? context.setLocale(Locale('ar'))
+          //               : context.setLocale(Locale('en'));
+          //         },
+          //         activeColor: AppColors.cWhite,
+          //       ),
+          //     )),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 72),
             child: Container(
@@ -45,7 +64,7 @@ class _SignInState extends State<SignIn> {
                       AppColors.cWhite,
                       AppColors.cWhite,
                       AppColors.cWhite,
-                      'Email',
+                      LocaleKeys.Email.tr(),
                       'email',
                       true,
                       emailFieldController,
@@ -61,7 +80,7 @@ class _SignInState extends State<SignIn> {
                         AppColors.cWhite,
                         AppColors.cWhite,
                         AppColors.cWhite,
-                        'Password',
+                        LocaleKeys.Password.tr(),
                         'key',
                         true,
                         passwordFieldController,
@@ -92,7 +111,7 @@ class _SignInState extends State<SignIn> {
                       width: size.width * 0.8,
                       child: Button(
                         size: size,
-                        text: 'LOG IN',
+                        text: LocaleKeys.Login.tr(),
                         textcolor: AppColors.cGreen,
                         buttoncolor: AppColors.cWhite,
                         onButtonPress: () {
@@ -112,7 +131,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: Button(
                       size: size,
-                      text: 'SIGN UP',
+                      text: LocaleKeys.SignUp.tr(),
                       textcolor: AppColors.cWhite,
                       buttoncolor: AppColors.cGreen,
                       onButtonPress: () async {
@@ -129,7 +148,7 @@ class _SignInState extends State<SignIn> {
                     width: size.width * 0.8,
                     child: DividingLine(
                       size: size,
-                      text: 'Or Login With',
+                      text: LocaleKeys.OrLogInWith.tr(),
                       color: AppColors.cWhite,
                     ),
                   ),
@@ -145,7 +164,7 @@ class _SignInState extends State<SignIn> {
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'FACEBOOK',
+                            text: LocaleKeys.Facebook.tr(),
                             icon: 'facebook',
                             iconcolor: Colors.blue,
                             textcolor: Colors.blue,
@@ -159,7 +178,7 @@ class _SignInState extends State<SignIn> {
                           flex: 1,
                           child: ButtonIcon(
                             size: size,
-                            text: 'GOOGLE',
+                            text: LocaleKeys.Google.tr(),
                             icon: 'googlee',
                             iconcolor: Colors.red,
                             textcolor: AppColors.cDarkGrey,

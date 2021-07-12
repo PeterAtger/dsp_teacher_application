@@ -3,6 +3,8 @@ import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cu
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:dsp_teacher_application/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +16,18 @@ class LevelMenu extends StatelessWidget {
   const LevelMenu({Key key, @required this.initialValue}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    List<String> questionLevels = [
+      LocaleKeys.All.tr(),
+      LocaleKeys.Primary.tr(),
+      LocaleKeys.Preparatory.tr(),
+      LocaleKeys.Secondary.tr()
+    ];
+    Map avatar = {
+      LocaleKeys.All.tr(): 'lib/Presentation/Images/school.svg',
+      LocaleKeys.Primary.tr(): 'lib/Presentation/Images/boy.svg',
+      LocaleKeys.Preparatory.tr(): "lib/Presentation/Images/girl.svg",
+      LocaleKeys.Secondary.tr(): "lib/Presentation/Images/secondaryboy.svg"
+    };
     // First we have to filter the questions according to the InitialValue
     context.read<FilterQuestionCubit>().chooseFilter(this.initialValue);
     context.read<WaitingQuestionsCubit>().filter(this.initialValue);

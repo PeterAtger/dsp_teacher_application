@@ -1,9 +1,7 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/src/services/text_input.dart';
 import 'package:http/http.dart';
-import 'package:meta/meta.dart';
 
 part 'authentication_state.dart';
 

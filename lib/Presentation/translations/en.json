@@ -25,7 +25,7 @@
   "Menu": "Menu",
   "Help": "Help",
   "Settings": "Setttings",
-  "LogOut": "Log Out",
+  "LogOut": "LOG OUT",
   "Rating": "Rating",
   "AnsweredQuestions": "Answered Questions",
   "WaitingQuestion": "Waiting Questions",
@@ -49,5 +49,10 @@
   "Save": "SAVE",
   "Profile": "Profile",
   "Questions": "Questions",
-  "Question": "Question"
+  "Question": "Question",
+  "OrLogInWith": "Or Log in With",
+  "Facebook": "FACEBOOK",
+  "Google": "GOOGLE",
+  "Score": "User Score",
+  "Change_Language": "Change Language"
 }
