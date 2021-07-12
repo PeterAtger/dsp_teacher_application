@@ -2,6 +2,7 @@ import 'package:dsp_teacher_application/Presentation/global_components/ArabicIma
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(Duration(milliseconds: 2500), () {
       Navigator.of(context).pushReplacementNamed('/signIn');
     });
     super.initState();
@@ -38,9 +39,6 @@ class _SplashScreenState extends State<SplashScreen> {
               left: -200,
               size: size.height / 1.5,
               opacity: 1),
-          Container(
-              //logo
-              ),
           Positioned(
               top: -size.height * 0.07,
               left: 0,
@@ -52,6 +50,16 @@ class _SplashScreenState extends State<SplashScreen> {
                   shape: BoxShape.circle,
                 ),
               )),
+          Positioned(
+            top: size.height / 4,
+            // left: size.width / 2 - size.width / 4,
+            child: Container(
+              height: 250,
+              width: size.width,
+              child: Lottie.asset('lib/Presentation/animations/shakkel.json',
+                  repeat: false),
+            ),
+          ),
         ],
       ),
     );
