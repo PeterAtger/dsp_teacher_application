@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/src/services/text_input.dart';
 import 'package:http/http.dart';
 import 'package:meta/meta.dart';
 
@@ -24,6 +23,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     int code1 = response.statusCode;
 
     emit(AuthenticationState(data: signInData, code: code1));
+
+    var SIGNINTOKEN = signInData['token'];
   }
 
   Future<void> signUpPostRequest(

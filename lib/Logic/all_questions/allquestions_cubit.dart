@@ -1,32 +1,34 @@
 import 'package:bloc/bloc.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Data/repositries/fetch_questions/fetch_questions_data.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
 import 'package:meta/meta.dart';
 
 part 'allquestions_state.dart';
 
-List<Question> questions = [
-  Question(
-      isUrgent: true,
-      level: Level.Primary,
-      question: 'These are some respectable Examples'),
-  Question(
-      isUrgent: false,
-      level: Level.Primary,
-      question: 'Not like the asshole doba'),
-  Question(
-      isUrgent: false,
-      level: Level.Preparatory,
-      question: 'Because I am very respectable person'),
-  Question(
-      isUrgent: true,
-      level: Level.Secondary,
-      question: 'Now !!! Where the fuck is my Son IBIRAHEEEEM?')
-];
+// List<Question> questions = [
+//   Question(
+//       isUrgent: true,
+//       level: Level.Primary,
+//       question: 'These are some respectable Examples'),
+//   Question(
+//       isUrgent: false,
+//       level: Level.Primary,
+//       question: 'Not like the asshole doba'),
+//   Question(
+//       isUrgent: false,
+//       level: Level.Preparatory,
+//       question: 'Because I am very respectable person'),
+//   Question(
+//       isUrgent: true,
+//       level: Level.Secondary,
+//       question: 'Now !!! Where the fuck is my Son IBIRAHEEEEM?')
+// ];
 
 class AllquestionsCubit extends Cubit<AllquestionsState> {
   AllquestionsCubit() : super(AllquestionsState(list: null));
 
+  List<Question> questions = [];
   List<QuestionCard> primaryList = [];
   List<QuestionCard> prepList = [];
   List<QuestionCard> secondaryList = [];
@@ -37,6 +39,7 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
   List<QuestionCard> allUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
+  FetchQuestionsClass fetch = FetchQuestionsClass();
 
 //making the eight lists
   void _listOrder() {
@@ -115,6 +118,7 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
 
 //level filter
   void filter(newValue) {
+    fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
     _listOrder();
     chosenLevel = newValue;
     _listSelector();
