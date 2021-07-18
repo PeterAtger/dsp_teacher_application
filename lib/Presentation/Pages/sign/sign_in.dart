@@ -145,6 +145,9 @@ class _SignInState extends State<SignIn> {
                     height: 24,
                   ),
                   InkWell(
+                    onDoubleTap: () {
+                      Navigator.of(context).pushNamed('/HIW');
+                    },
                     onLongPress: () {
                       Navigator.of(context).pushNamed('/MainScreen');
                     }, // TODO : Remove this
