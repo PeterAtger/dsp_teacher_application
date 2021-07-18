@@ -4,6 +4,7 @@ import 'package:dsp_teacher_application/Presentation/Global_components/QuestionC
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
+import 'package:dsp_teacher_application/Data/repositries/fetch_questions/fetch_questions_data.dart';
 
 part 'waitingquestions_state.dart';
 
@@ -41,6 +42,7 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   List<QuestionCard> allUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
+  FetchQuestionsClass fetch = FetchQuestionsClass();
 
 //making the eight lists
   void _listOrder() {
@@ -119,6 +121,7 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
 
 //level filter
   void filter(newValue) {
+    fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
     _listOrder();
     chosenLevel = newValue;
     _listSelector();
