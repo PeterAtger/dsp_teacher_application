@@ -1,4 +1,5 @@
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/ContactUsList.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/IconListSetting.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -63,7 +64,7 @@ class _SettingsState extends State<Settings> {
               iconName: 'how_it_works_question_mark',
               settingText: LocaleKeys.HowItWorks.tr(),
               onTab: () {
-                Navigator.of(context).pushReplacementNamed('./HIW');
+                Navigator.of(context).pushReplacementNamed('/HIW');
               },
             ),
             IconListSetting(
@@ -80,7 +81,10 @@ class _SettingsState extends State<Settings> {
             IconListSetting(
               iconName: 'profile',
               settingText: LocaleKeys.LogOut.tr(),
-              onTab: () {},
+              onTab: () {
+                Tokens.signInToken = null;
+                Navigator.of(context).pushReplacementNamed('/signIn');
+              },
             ),
             SizedBox(height: 32),
             GradientLine(size: size),

@@ -1,1 +1,3 @@
-var SIGNINTOKEN;
+class Tokens {
+  static var signInToken;
+}

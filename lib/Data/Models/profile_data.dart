@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 enum Expertise { Fresh, OnetoFive, AboveFive }
 
-class ProfileData {
+class ProfileDataModel {
   String name;
   String email;
   Image profilePicture;

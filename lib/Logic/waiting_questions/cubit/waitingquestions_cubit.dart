@@ -121,7 +121,7 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
 
 //level filter
   void filter(newValue) {
-    fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
+    // fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
     _listOrder();
     chosenLevel = newValue;
     _listSelector();

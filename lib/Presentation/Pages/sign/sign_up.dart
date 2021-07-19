@@ -20,12 +20,16 @@ class SignUp extends StatefulWidget {
 
 class _SignUpState extends State<SignUp> {
   final _gradeList = [
-    [LocaleKeys.Expertise.tr(), 'lib/Presentation/Images/expertise.svg'],
-    [LocaleKeys.Fresh_Graduate.tr(), 'lib/Presentation/Images/graduate.svg'],
-    [LocaleKeys.OneToFive.tr(), 'lib/Presentation/Images/years_experience.svg'],
-    [LocaleKeys.FivePlus.tr(), 'lib/Presentation/Images/scientist.svg']
+    [0, LocaleKeys.Expertise.tr(), 'lib/Presentation/Images/expertise.svg'],
+    [1, LocaleKeys.Fresh_Graduate.tr(), 'lib/Presentation/Images/graduate.svg'],
+    [
+      2,
+      LocaleKeys.OneToFive.tr(),
+      'lib/Presentation/Images/years_experience.svg'
+    ],
+    [3, LocaleKeys.FivePlus.tr(), 'lib/Presentation/Images/scientist.svg']
   ];
-  String _selectedItem;
+  int _selectedItem;
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passController = TextEditingController();
@@ -33,7 +37,7 @@ class _SignUpState extends State<SignUp> {
   @override
   void initState() {
     super.initState();
-    _selectedItem = _gradeList[0][0];
+    _selectedItem = 0;
   }
 
   @override
@@ -139,8 +143,11 @@ class _SignUpState extends State<SignUp> {
                         elevation: 2,
                         onChanged: (value) {
                           setState(() {
-                            _selectedItem = value.toString();
+                            _selectedItem = value;
                           });
+                          context
+                              .read<AuthenticationCubit>()
+                              .changeExpertise(value);
                         },
                         items: _gradeList
                             .map((item) => DropdownMenuItem(
@@ -150,9 +157,9 @@ class _SignUpState extends State<SignUp> {
                                     Container(
                                         height: 24,
                                         width: 24,
-                                        child: SvgPicture.asset(item[1])),
+                                        child: SvgPicture.asset(item[2])),
                                     SizedBox(width: 12),
-                                    Text(item[0],
+                                    Text(item[1],
                                         style: AppFonts.bodyText1.copyWith(
                                           color: AppColors.cDarkGrey,
                                           fontWeight: FontWeight.normal,
@@ -168,7 +175,7 @@ class _SignUpState extends State<SignUp> {
                     listener: (context, state) {
                       if (state.code != null) {
                         if (state.code <= 299 && state.code >= 200) {
-                          Navigator.of(context).pushNamed('/HIW');
+                          Navigator.of(context).pushReplacementNamed('/HIW');
                         }
 
                         if (state.code <= 499 && state.code >= 400) {

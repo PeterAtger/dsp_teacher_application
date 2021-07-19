@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -132,6 +133,8 @@ class SidMenuBar extends StatelessWidget {
                     text: 'LogOut',
                     onTab: () {
                       Navigator.of(context).pop();
+                      Tokens.signInToken = null;
+                      Navigator.of(context).pushReplacementNamed('/signIn');
                     },
                   ),
                 ]),

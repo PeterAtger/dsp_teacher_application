@@ -1,12 +1,15 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
+import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:http/http.dart';
 
 part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationState(data: null, code: null));
+  int expertise;
 
   Future<void> signInPostRequest(String email, String password) async {
     final url = Uri.parse('http://34.132.143.59:8000/accounts/login/');
@@ -23,7 +26,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
 
     emit(AuthenticationState(data: signInData, code: code1));
 
-    var SIGNINTOKEN = signInData['token'];
+    Tokens.signInToken = signInData['token'];
+    ProfileData.getProfileInfo();
   }
 
   Future<void> signUpPostRequest(
@@ -35,7 +39,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       "full_name": fullName,
       "email": email2,
       "password": password2,
-      // "expertise": null
+      "expertise": expertise
     };
 
     final response = await post(url, headers: headers, body: jsonEncode(body));
@@ -47,5 +51,10 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     int code2 = response.statusCode;
 
     emit(AuthenticationState(data: signUpData, code: code2));
+    ProfileData.getProfileInfo();
+  }
+
+  void changeExpertise(value) {
+    expertise = value;
   }
 }

@@ -8,25 +8,6 @@ import 'package:meta/meta.dart';
 
 part 'allquestions_state.dart';
 
-// List<Question> questions = [
-//   Question(
-//       isUrgent: true,
-//       level: Level.Primary,
-//       question: 'These are some respectable Examples'),
-//   Question(
-//       isUrgent: false,
-//       level: Level.Primary,
-//       question: 'Not like the asshole doba'),
-//   Question(
-//       isUrgent: false,
-//       level: Level.Preparatory,
-//       question: 'Because I am very respectable person'),
-//   Question(
-//       isUrgent: true,
-//       level: Level.Secondary,
-//       question: 'Now !!! Where the fuck is my Son IBIRAHEEEEM?')
-// ];
-
 class AllquestionsCubit extends Cubit<AllquestionsState> {
   AllquestionsCubit() : super(AllquestionsState(list: null));
 
@@ -41,6 +22,7 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
   List<QuestionCard> allUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
+  bool firstCall = true;
   FetchQuestionsClass fetch = FetchQuestionsClass();
 
 //making the eight lists
@@ -53,6 +35,7 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
     prepUrgentList = [];
     secondaryUrgentList = [];
     allUrgentList = [];
+
     for (int i = 0; i < questions.length; i++) {
       allList.add(QuestionCard(
         question: questions[i].question,
@@ -112,15 +95,30 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
   }
 
   //urgent filter
-  void urgentFilter(newValue) {
+  void urgentFilter(newValue) async {
+    firstCall
+        ? await fetch.fetchQuestionsGetRequest().then((value) {
+            questions = value[0];
+            firstCall = false;
+          })
+        : fetch.fetchQuestionsGetRequest().then((value) {
+            questions = value[0];
+          });
     _listOrder();
     chosenUrgent = newValue;
     _listSelector();
   }
 
 //level filter
-  void filter(newValue) {
-    fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
+  void filter(newValue) async {
+    firstCall
+        ? await fetch.fetchQuestionsGetRequest().then((value) {
+            questions = value[0];
+            firstCall = false;
+          })
+        : fetch.fetchQuestionsGetRequest().then((value) {
+            questions = value[0];
+          });
     _listOrder();
     chosenLevel = newValue;
     _listSelector();

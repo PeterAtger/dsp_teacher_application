@@ -1,11 +1,15 @@
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
+import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/NavItem.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 // NAVBAR
 class DiffNavBar extends StatefulWidget {
@@ -52,6 +56,7 @@ class _DiffNavBarState extends State<DiffNavBar> {
                     itemState: SelectedPage.profile,
                     iconText: 'user',
                     fn: () {
+                      context.read<ProfileDataCubit>().showProfileData();
                       context.read<NavbarCubit>().goToProfile();
                     }),
                 NavItem(
@@ -70,7 +75,12 @@ class _DiffNavBarState extends State<DiffNavBar> {
                     iconText: 'question',
                     fn: () {
                       context.read<NavbarCubit>().goToSavedQuestions();
-                      context.read<WaitingQuestionsCubit>().filter('All');
+                      context
+                          .read<FilterQuestionCubit>()
+                          .chooseFilter(LocaleKeys.All.tr());
+                      context
+                          .read<WaitingQuestionsCubit>()
+                          .filter(LocaleKeys.All.tr());
                     }),
                 NavItem(
                     state: state,

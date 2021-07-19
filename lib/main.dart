@@ -1,8 +1,10 @@
+import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:dsp_teacher_application/Logic/all_questions/allquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -40,7 +42,7 @@ class App extends StatelessWidget {
         title: 'Teacher Demo',
         theme: buildThemeData(),
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: '/',
+        initialRoute: Tokens.signInToken != null ? '/' : '/MainScreen',
       ),
     );
   }
@@ -86,6 +88,9 @@ class MyTopLevelProviders extends StatelessWidget {
       BlocProvider<AllquestionsCubit>(
         create: (BuildContext context) => AllquestionsCubit(),
       ),
+      BlocProvider<ProfileDataCubit>(
+        create: (context) => ProfileDataCubit(),
+      )
     ], child: this.child);
   }
 }
