@@ -1,6 +1,8 @@
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Buttons extends StatelessWidget {
   const Buttons({
@@ -17,11 +19,11 @@ class Buttons extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              height: 52,
+              height: 48,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Apply",
-                    style: AppFonts.bodyText1.copyWith(color: Colors.white)),
+                child: Text(LocaleKeys.Apply.tr(),
+                    style: AppFonts.button.copyWith(color: Colors.white)),
                 style: ButtonStyle(
                     elevation: MaterialStateProperty.all(4),
                     shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),
@@ -46,9 +48,9 @@ class Buttons extends StatelessWidget {
                   height: 24,
                   width: 24,
                 ),
-                label: Text("Save",
-                    style: AppFonts.bodyText1
-                        .copyWith(color: AppColors.cDarkGrey)),
+                label: Text(LocaleKeys.Save.tr(),
+                    style:
+                        AppFonts.button.copyWith(color: AppColors.cDarkGrey)),
                 style: ButtonStyle(
                     elevation: MaterialStateProperty.all(4),
                     shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),

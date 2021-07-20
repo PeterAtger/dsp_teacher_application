@@ -1,4 +1,6 @@
+import 'package:dsp_teacher_application/Data/Models/answers.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Data/repositries/Selected_Question/selected_question.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
@@ -7,15 +9,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class QuestionCard extends StatelessWidget {
+  final int id;
   final String question;
   final Level level;
   final bool isUrgent;
+  final Answers answers;
 
   const QuestionCard({
     Key key,
     this.question,
+    this.answers,
     this.level,
     this.isUrgent,
+    this.id,
   }) : super(key: key);
 
   @override
@@ -44,9 +50,18 @@ class QuestionCard extends StatelessWidget {
           color: AppColors.cWhite,
           child: InkWell(
             onTap: () {
+              SelectedQuestion.setSelectedQuestion(Question(
+                  id: this.id,
+                  isUrgent: this.isUrgent,
+                  question: this.question,
+                  answers: this.answers));
               Navigator.pushNamed(
                   context, '/MainScreen/Questions/QuestionScreen',
-                  arguments: this.question);
+                  arguments: Question(
+                      id: this.id,
+                      question: this.question,
+                      isUrgent: this.isUrgent,
+                      answers: this.answers));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),

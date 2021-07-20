@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/Selected_Question/selected_question.dart';
 import 'package:dsp_teacher_application/Logic/main/check_cubit_matrix.dart';
 import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
 import 'package:dsp_teacher_application/Logic/main/transpose.dart';
@@ -12,17 +13,13 @@ class ManipulateQusetionCubit extends Cubit<ManipulateState> {
           [Center(child: Text(''))],
           [Center(child: Text(''))]
         ]));
-  List<List<String>> list = [
-    ['habiba', 'is', 'playing', 'coco', '.', 'apple', 'is', 'funny'],
-    ['Doba', 'always', 'sleep', 'early', 'she', 'is', 'cute'],
-    ['tata', 'has', 'big', 'book', 'he', 'is', 'sad']
-  ];
 
   List<List<Widget>> scrollData;
   List<List<String>> words;
   List<Widget> choice;
 
   void onTap(String text, int index, int sentencelength) {
+    List<List<String>> list = SelectedQuestion.getListFromSelectedQuestion();
     scrollData = [];
     words = [];
     choice = [];
@@ -37,7 +34,7 @@ class ManipulateQusetionCubit extends Cubit<ManipulateState> {
         return Center(
           child: (Text(
             st,
-            style: AppFonts.captionText.copyWith(color: AppColors.cDarkGrey),
+            style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
           )),
         );
       }).toList();

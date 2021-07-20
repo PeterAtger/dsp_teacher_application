@@ -54,5 +54,7 @@
   "Facebook": "FACEBOOK",
   "Google": "GOOGLE",
   "Score": "User Score",
-  "Change_Language": "Change Language"
+  "Change_Language": "Change Language",
+  "Manual": "MANUAL",
+  "Easy": "Simple"
 }

@@ -8,7 +8,6 @@ class FetchQuestionsClass {
   static List<Question> questions = [];
 
   Future<List> fetchQuestionsGetRequest() async {
-    questions = [];
     final url =
         Uri.parse('http://34.132.143.59:8000/sentences/?diacritized=null');
     final headers = {
@@ -21,14 +20,17 @@ class FetchQuestionsClass {
     List fetchedData = json.decode(utf8.decode(response.bodyBytes));
 
     int code = response.statusCode;
+    questions = [];
 
     for (int i = 0; i < fetchedData.length; i++) {
       questions.add(Question(
+        id: fetchedData[i]['id'],
         question: fetchedData[i]["raw"],
         level: Level.values[fetchedData[i]["author"]["grade"] - 1],
         isUrgent: fetchedData[i]["urgent"],
       ));
     }
+    print(questions);
     return ([questions, code]);
   }
 }

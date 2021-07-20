@@ -33,7 +33,7 @@ class _EditableTextTabState extends State<EditableTextTab> {
           cursorColor: AppColors.cGreen,
           controller: _controller,
           focusNode: _node,
-          style: AppFonts.captionText.copyWith(color: AppColors.cDarkGrey),
+          style: AppFonts.bodyText1.copyWith(color: AppColors.cDarkGrey),
         ),
       ),
     );

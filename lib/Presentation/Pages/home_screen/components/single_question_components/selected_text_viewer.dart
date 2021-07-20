@@ -20,8 +20,8 @@ class TextViewer extends StatelessWidget {
         child: WordSelectableText(
           onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
           text: this.selectedQuestion,
-          highlightColor: Colors.yellow[200],
-          style: AppFonts.captionText,
+          highlightColor: AppColors.cGreen[200],
+          style: AppFonts.bodyText1,
           sentenceLength: 3,
         ),
       ),

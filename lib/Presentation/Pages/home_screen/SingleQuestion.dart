@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/Selected_Question/selected_question.dart';
 import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/chosen_choic_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/chosen_choic_state.dart';
@@ -11,8 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SingleQuestionScreen extends StatefulWidget {
-  final selectedQuestion;
-  const SingleQuestionScreen({Key key, this.selectedQuestion}) : super(key: key);
+  const SingleQuestionScreen({Key key}) : super(key: key);
 
   @override
   _SingleQuestionScreenState createState() => _SingleQuestionScreenState();
@@ -47,30 +47,39 @@ class _SingleQuestionScreenState extends State<SingleQuestionScreen> {
                       opacity: 0.05,
                       blendMode: BlendMode.srcATop,
                     ),
-                    Column(
-                      children: [
-                        SizedBox(
-                          height: 72,
-                        ),
-                        TitleBar(
-                          title: 'Question',
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            QuestionViewer(
-                              selectedQuestion: chocenchoicestate.answer,
-                              scrollData: state.question,
-                              defualtText:
-                                  'defualt text', // replace with selectedQuestion
+                    Container(
+                      height: size.height,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 72,
+                          ),
+                          TitleBar(
+                            title: 'Question',
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                QuestionViewer(
+                                  selectedQuestion: chocenchoicestate.answer,
+                                  scrollData: state.question,
+                                  defualtText: SelectedQuestion
+                                          .getSelectedQuestion()
+                                      .question, // replace with selectedQuestion
+                                ),
+                                SizedBox(height: 24),
+                                Buttons(
+                                  size: size,
+                                ),
+                              ],
                             ),
-                            SizedBox(height: 24),
-                            Buttons(
-                              size: size,
-                            ),
-                          ],
-                        )
-                      ],
+                          ),
+                          SizedBox(
+                            height: 72,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 );

@@ -32,10 +32,7 @@ class RouterGenerator {
                   argument: args,
                 ));
       case '/MainScreen/Questions/QuestionScreen':
-        return MaterialPageRoute(
-            builder: (_) => SingleQuestionScreen(
-                  selectedQuestion: args,
-                ));
+        return MaterialPageRoute(builder: (_) => SingleQuestionScreen());
       case '/MainScreen/Settings':
         return MaterialPageRoute(builder: (_) => Settings());
       case '/MainScreen/Profile':

@@ -33,7 +33,7 @@ class _ScrollingWidgetState extends State<ScrollingWidget> {
             ],
             borderRadius: BorderRadius.all(Radius.circular(36))),
         padding: EdgeInsets.symmetric(horizontal: 8),
-        height: MediaQuery.of(context).size.height * 0.1,
+        height: 52,
         width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

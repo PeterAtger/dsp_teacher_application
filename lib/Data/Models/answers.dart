@@ -1,9 +1,13 @@
 class Answers {
-  List<_Answer> answers;
+  final List<_Answer> answers;
+
+  Answers(this.answers);
 }
 
 class _Answer {
-  List<String> answerWord;
-  String askedTime;
-  List<double> accuracy;
+  final List<String> answerWord;
+  final String askedTime;
+  final List<double> accuracy;
+
+  _Answer(this.answerWord, this.askedTime, this.accuracy);
 }

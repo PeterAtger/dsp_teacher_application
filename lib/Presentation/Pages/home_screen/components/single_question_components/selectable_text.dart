@@ -58,8 +58,7 @@ class _WordSelectableTextState extends State<WordSelectableText> {
               children: [
                 TextSpan(
                     text: sentenceList[i],
-                    style: TextStyle(
-                        color: AppColors.cDarkGrey,
+                    style: AppFonts.bodyText1.copyWith(
                         backgroundColor:
                             selectedWordIndex == i && widget.highlight
                                 ? highlightColor

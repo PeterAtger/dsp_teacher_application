@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:dsp_teacher_application/Data/Models/answers.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Data/repositries/fetch_questions/fetch_questions_data.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
@@ -38,6 +39,8 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
 
     for (int i = 0; i < questions.length; i++) {
       allList.add(QuestionCard(
+        id: questions[i].id,
+        answers: Answers([]),
         question: questions[i].question,
         level: questions[i].level,
         isUrgent: questions[i].isUrgent,
@@ -45,16 +48,22 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
 
       if (questions[i].level == Level.Primary) {
         primaryList.add(QuestionCard(
+            id: questions[i].id,
+            answers: Answers([]),
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
       } else if (questions[i].level == Level.Preparatory) {
         prepList.add(QuestionCard(
+            id: questions[i].id,
+            answers: Answers([]),
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
       } else if (questions[i].level == Level.Secondary) {
         secondaryList.add(QuestionCard(
+            id: questions[i].id,
+            answers: Answers([]),
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
