@@ -28,6 +28,7 @@ class _EditableTextTabState extends State<EditableTextTab> {
       padding: const EdgeInsets.all(4.0),
       child: SingleChildScrollView(
         child: EditableText(
+          textDirection: TextDirection.rtl,
           maxLines: null,
           backgroundCursorColor: AppColors.cGreen,
           cursorColor: AppColors.cGreen,

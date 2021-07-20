@@ -30,7 +30,7 @@ class CodegenLoader extends AssetLoader{
   "HIW2_2": "الاسئلة العاجلة تسبقها دائرة خضراء",
   "HIW3": "اختر جملة ، سيظهر شريط ، به الاختيارات الممكنة لكل كلمة",
   "HIW4": "اذا لم تفضل الشريط ، يمكنك لمس الكلمة مرتين لتعدل فيها مباشرةً",
-  "LetStart": "هيا بنا لنبدأ",
+  "LetStart": "هيا بنا نبدأ",
   "MainScreen": "الصفحة الرئيسية",
   "WelcomeBack": " مرحباً بعودتك ",
   "We'veGotNew": "لدينا اسئلة جديدة فى انتظارك",
@@ -44,11 +44,11 @@ class CodegenLoader extends AssetLoader{
   "LogOut": "تسجيل الخروج",
   "Rating": "التقييم",
   "AnsweredQuestions": "الاسئلة المجابة",
-  "WaitingQuestion": "اسئلة فى انتظارك",
+  "WaitingQuestion": "الأسئلة المحفوظة",
   "AppSettings": "اعدادات البرنامج",
-  "Notifications": "الاشعارات",
+  "Notifications": "الإشعارات",
   "ContactUs": "التواصل معنا",
-  "PushNotifications": "الاشعار اللحظى",
+  "PushNotifications": "الإشعار اللحظي",
   "NewQueries": "اسئلة جديدة",
   "NewUpdates": "التحديثات المتاحة",
   "ActiveHours": "وقت تفرغك",
@@ -70,7 +70,10 @@ class CodegenLoader extends AssetLoader{
   "Facebook": "فيسبوك",
   "Google": "جوجل",
   "Score": "التقييم",
-  "Change_Language": "تغير اللغة"
+  "Change_Language": "تغير اللغة",
+  "Manual": "يدوي",
+  "Easy": "بسيط",
+  "AllQuestions": "اسئلة فى انتظارك"
 };
 static const Map<String,dynamic> en = {
   "Email": "Email",
@@ -128,7 +131,10 @@ static const Map<String,dynamic> en = {
   "Facebook": "FACEBOOK",
   "Google": "GOOGLE",
   "Score": "User Score",
-  "Change_Language": "Change Language"
+  "Change_Language": "Change Language",
+  "Manual": "MANUAL",
+  "Easy": "Simple",
+  "AllQuestions": "Questions"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

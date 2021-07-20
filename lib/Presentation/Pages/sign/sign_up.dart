@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as easyLocalization;
 
 class SignUp extends StatefulWidget {
   @override
@@ -179,13 +179,15 @@ class _SignUpState extends State<SignUp> {
                         }
 
                         if (state.code <= 499 && state.code >= 400) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(state.data["email"][0])));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(state.data["email"][0],
+                                  textDirection: TextDirection.ltr)));
                         }
                         if (state.code <= 599 && state.code >= 500) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
-                                  "Something went wrong!! Please try again.")));
+                                  "Something went wrong!! Please try again.",
+                                  textDirection: TextDirection.ltr)));
                         }
                       }
                     },

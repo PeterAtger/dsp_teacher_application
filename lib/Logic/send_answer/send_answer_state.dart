@@ -1,4 +1,8 @@
-// part of 'send_answer_cubit.dart';
+part of 'send_answer_cubit.dart';
 
-// @immutable
-// class SendAnswerState {}
+@immutable
+class SendAnswerState {
+  final int code;
+
+  SendAnswerState(this.code);
+}

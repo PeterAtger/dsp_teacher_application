@@ -44,7 +44,7 @@ class _QuestionsState extends State<Questions> {
       SingleChildScrollView(
         child: Column(children: [
           SizedBox(height: 72),
-          TitleBar(title: LocaleKeys.WaitingQuestion.tr()),
+          TitleBar(title: LocaleKeys.AllQuestions.tr()),
           SizedBox(height: 24),
           Padding(
             padding:

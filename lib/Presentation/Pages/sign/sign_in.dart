@@ -8,7 +8,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/divid
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as easyLocalization;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignIn extends StatefulWidget {
@@ -78,13 +78,18 @@ class _SignInState extends State<SignIn> {
                         }
 
                         if (state.code <= 499 && state.code >= 400) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text(state.data["error"][0])));
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text(
+                            state.data["error"][0],
+                            textDirection: TextDirection.ltr,
+                          )));
                         }
                         if (state.code <= 599 && state.code >= 500) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
-                                  "Something went wrong!! Please try again.")));
+                            "Something went wrong!! Please try again.",
+                            textDirection: TextDirection.ltr,
+                          )));
                         }
                       }
                     },

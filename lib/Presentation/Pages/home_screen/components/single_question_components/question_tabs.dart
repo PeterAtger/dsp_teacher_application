@@ -4,8 +4,10 @@ import 'package:dsp_teacher_application/Presentation/Pages/home_screen/component
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/scroller.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/selected_text_viewer.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class QuestionViewer extends StatefulWidget {
   final List<String> selectedQuestion;
@@ -68,50 +70,54 @@ class _QuestionViewerState extends State<QuestionViewer>
                       labelColor: AppColors.cWhite,
                       tabs: [
                         Text(
-                          'Manual',
+                          LocaleKeys.Manual.tr(),
                           style: AppFonts.captionText,
                         ),
                         Text(
-                          'Easy',
+                          LocaleKeys.Easy.tr(),
                           style: AppFonts.captionText,
                         ),
                       ]),
                 ),
               ),
               Container(
-                height: size.height * 0.35,
-                child: Stack(children: [
-                  Container(
-                      decoration: BoxDecoration(
-                    border: Border.all(color: AppColors.cGreen, width: 2),
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(16),
-                        bottomLeft: Radius.circular(16),
-                        bottomRight: Radius.circular(16)),
-                  )),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    child: TabBarView(
-                        controller: _controller,
-                        physics: NeverScrollableScrollPhysics(
-                            parent: ScrollPhysics()),
-                        children: [
-                          TabFrame(
-                            size: size,
-                            tap: '1',
-                            widget: EditableTextTab(
-                              defultText: widget.defualtText,
-                            ),
-                          ),
-                          TabFrame(
-                            size: size,
-                            tap: '2',
-                            widget: TextViewer(
-                                selectedQuestion: widget.selectedQuestion),
-                          ),
-                        ]),
-                  ),
-                ]),
+                height: size.height * 0.25,
+                decoration: BoxDecoration(
+                  color: AppColors.cWhite,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4,
+                      spreadRadius: 4,
+                      color: AppColors.cLightGrey,
+                      offset: Offset(2, 8),
+                    )
+                  ],
+                  border: Border.all(color: AppColors.cGreen, width: 2),
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(16),
+                      bottomLeft: Radius.circular(16),
+                      bottomRight: Radius.circular(16)),
+                ),
+                padding: EdgeInsets.all(8),
+                child: TabBarView(
+                    controller: _controller,
+                    physics:
+                        NeverScrollableScrollPhysics(parent: ScrollPhysics()),
+                    children: [
+                      TabFrame(
+                        size: size,
+                        tap: '1',
+                        widget: EditableTextTab(
+                          defultText: widget.defualtText,
+                        ),
+                      ),
+                      TabFrame(
+                        size: size,
+                        tap: '2',
+                        widget: TextViewer(
+                            selectedQuestion: widget.selectedQuestion),
+                      ),
+                    ]),
               )
             ]),
             SizedBox(

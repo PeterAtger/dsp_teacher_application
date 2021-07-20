@@ -47,7 +47,7 @@ class _SingleQuestionScreenState extends State<SingleQuestionScreen> {
                       top: -size.height / 3,
                       size: size.height / 1.5,
                       opacity: 0.05,
-                      blendMode: BlendMode.srcATop,
+                      blendMode: BlendMode.srcOver,
                     ),
                     Container(
                       height: size.height,

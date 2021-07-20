@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:adobe_xd/adobe_xd.dart';
+import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_teacher_application/Logic/profile_image/profile_image_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
@@ -153,7 +154,8 @@ class _ProfileState extends State<Profile> {
                         SizedBox(height: 16),
                         QuestionButton(
                           size: size,
-                          text: '${LocaleKeys.WaitingQuestion.tr()} : 3',
+                          text:
+                              '${LocaleKeys.WaitingQuestion.tr()} : ${SavedQuestionsData.savedQuestionsIds.length}',
                           green: true,
                         ),
                       ],

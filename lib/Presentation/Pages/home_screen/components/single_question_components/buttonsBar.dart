@@ -3,7 +3,7 @@ import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization/easy_localization.dart' as eazyLocalization;
 
 class Buttons extends StatelessWidget {
   const Buttons({
@@ -46,6 +46,11 @@ class Buttons extends StatelessWidget {
                 onPressed: () {
                   SavedQuestionsData.listChanged = true;
                   SavedQuestionsData.addValue();
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(
+                    'Saved Successfully!',
+                    textDirection: TextDirection.ltr,
+                  )));
                 },
                 icon: SvgPicture.asset(
                   'lib/Presentation/Images/yellow_star.svg',
