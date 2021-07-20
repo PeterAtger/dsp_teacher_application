@@ -1,3 +1,4 @@
+import 'package:delayed_display/delayed_display.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/Tabs.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/editable_text.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/scroller.dart';

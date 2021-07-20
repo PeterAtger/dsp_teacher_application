@@ -37,8 +37,7 @@ class ManipulateQusetionCubit extends Cubit<ManipulateState> {
         return Center(
           child: (Text(
             st,
-            style:
-                AppFonts.smallButtonText.copyWith(color: AppColors.cDarkGrey),
+            style: AppFonts.captionText.copyWith(color: AppColors.cDarkGrey),
           )),
         );
       }).toList();

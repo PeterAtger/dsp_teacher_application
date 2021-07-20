@@ -99,6 +99,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  delayed_display:
+    dependency: "direct main"
+    description:
+      name: delayed_display
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   easy_localization:
     dependency: "direct main"
     description:
@@ -113,13 +120,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.2"
-  delayed_display:
-    dependency: "direct main"
-    description:
-      name: delayed_display
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   fake_async:
     dependency: transitive
     description:
