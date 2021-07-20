@@ -27,7 +27,7 @@ class TextViewer extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: WordSelectableText(
             // onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
-            text: this.selectedQuestion,
+            text: [this.selectedQuestion],
             highlightColor: Colors.yellow[200],
             style: AppFonts.bodyText1,
             sentenceLength: 5,

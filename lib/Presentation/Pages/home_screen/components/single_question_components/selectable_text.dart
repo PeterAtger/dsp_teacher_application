@@ -1,11 +1,15 @@
+import 'package:dsp_teacher_application/Logic/main/chosen_choic_cubit.dart';
+import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WordSelectableText extends StatefulWidget {
-  final String text;
+  final List<String> text;
   final Function(
     String word,
     int index,
+    int sentenceLength,
   ) onWordTapped;
   final bool highlight;
   final Color highlightColor;
@@ -55,12 +59,14 @@ class _WordSelectableTextState extends State<WordSelectableText> {
                 TextSpan(
                     text: sentenceList[i],
                     style: TextStyle(
+                        color: AppColors.cDarkGrey,
                         backgroundColor:
                             selectedWordIndex == i && widget.highlight
                                 ? highlightColor
                                 : Colors.transparent),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
+                        context.read<ChocenChoicCubit>().getOffeset(i);
                         setState(() {
                           selectedWordIndex = i;
                         });
@@ -71,7 +77,7 @@ class _WordSelectableTextState extends State<WordSelectableText> {
                                 .replaceAll(RegExp(r'${widget.alphabets}'), "")
                                 .trim(),
                             selectedWordIndex,
-                            // widget.sentenceLength,
+                            widget.sentenceLength,
                           );
                       }),
                 // TextSpan(text: ' ')
@@ -85,22 +91,20 @@ class _WordSelectableTextState extends State<WordSelectableText> {
   }
 }
 
-List<String> splitSentences(String text, int sentenceLength) {
-  List<String> list = text.split(' ');
-  List<String> returnedList = [];
-
-  String sentence = '';
+List<String> splitSentences(List<String> text, int sentenceLength) {
   int stop = 0;
-
-  for (int i = 0; i < list.length; i++) {
-    sentence = sentence + list[i] + ' ';
-    stop++;
-    if (stop == sentenceLength || i + 1 == list.length) {
-      stop = 0;
-      returnedList.add(sentence);
-      sentence = '';
+  String sentence = '';
+  List<String> returnedList = [];
+  for (var i = 0; i < text.length; i++) {
+    if (text[i] != '.') {
+      sentence = sentence + text[i] + ' ';
+      stop++;
+      if (stop == sentenceLength || i + 1 == text.length) {
+        returnedList.add(sentence);
+        sentence = '';
+        stop = 0;
+      }
     }
   }
-
   return returnedList;
 }

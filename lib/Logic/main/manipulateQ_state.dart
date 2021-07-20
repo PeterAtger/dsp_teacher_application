@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
+
 class ManipulateState {
-  final List<List<String>> question;
+  final List<List<Widget>> question;
 
   ManipulateState({this.question});
 }
