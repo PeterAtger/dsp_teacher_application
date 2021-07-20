@@ -30,26 +30,6 @@ class _SignInState extends State<SignIn> {
           BackGroundGradient(),
           ArabicImage(top: -150, left: -200, size: size.height / 1.5),
           ArabicImage(bottom: -150, left: -200, size: size.height / 1.5),
-          // Positioned(
-          //     top: 32,
-          //     left: 32,
-          //     child: Container(
-          //       width: 200,
-          //       height: 52,
-          //       child: SwitchListTile(
-          //         title: Text(
-          //           context.locale == Locale('ar') ? 'العربية' : 'ARABIC',
-          //           style: AppFonts.button.copyWith(color: AppColors.cWhite),
-          //         ),
-          //         value: context.locale == Locale('ar'),
-          //         onChanged: (value) {
-          //           value
-          //               ? context.setLocale(Locale('ar'))
-          //               : context.setLocale(Locale('en'));
-          //         },
-          //         activeColor: AppColors.cWhite,
-          //       ),
-          //     )),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 72),
             child: Container(
