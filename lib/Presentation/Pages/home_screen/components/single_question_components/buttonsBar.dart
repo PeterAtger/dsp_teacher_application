@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -42,7 +43,10 @@ class Buttons extends StatelessWidget {
             child: Container(
               height: 52,
               child: ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: () {
+                  SavedQuestionsData.listChanged = true;
+                  SavedQuestionsData.addValue();
+                },
                 icon: SvgPicture.asset(
                   'lib/Presentation/Images/yellow_star.svg',
                   height: 24,
@@ -52,6 +56,8 @@ class Buttons extends StatelessWidget {
                     style:
                         AppFonts.button.copyWith(color: AppColors.cDarkGrey)),
                 style: ButtonStyle(
+                    overlayColor:
+                        MaterialStateProperty.all(AppColors.cDarkGrey[200]),
                     elevation: MaterialStateProperty.all(4),
                     shadowColor: MaterialStateProperty.all(AppColors.cDarkGrey),
                     padding: MaterialStateProperty.all(

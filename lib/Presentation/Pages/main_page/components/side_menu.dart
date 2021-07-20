@@ -1,9 +1,12 @@
+import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'dart:math' as math;
 
 final Shader linearGradient = LinearGradient(
@@ -17,22 +20,39 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      // give it The desired border radius
-      borderRadius: BorderRadius.only(
-        bottomRight: Radius.circular(56),
-        topRight: Radius.circular(56),
-      ),
-      // wrap with a sizedbox for a custom width [for more flexibility]
-      child: SizedBox(
-        width: size.width / 1.2,
-        child: Drawer(
-          child: SidMenuBar(
-            size: size,
-          ),
-        ),
-      ),
-    );
+    return context.locale == Locale('en')
+        ? ClipRRect(
+            // give it The desired border radius
+            borderRadius: BorderRadius.only(
+              bottomRight: Radius.circular(56),
+              topRight: Radius.circular(56),
+            ),
+            // wrap with a sizedbox for a custom width [for more flexibility]
+            child: SizedBox(
+              width: size.width / 1.25,
+              child: Drawer(
+                child: SidMenuBar(
+                  size: size,
+                ),
+              ),
+            ),
+          )
+        : ClipRRect(
+            // give it The desired border radius
+            borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(56),
+              topLeft: Radius.circular(56),
+            ),
+            // wrap with a sizedbox for a custom width [for more flexibility]
+            child: SizedBox(
+              width: size.width / 1.25,
+              child: Drawer(
+                child: SidMenuBar(
+                  size: size,
+                ),
+              ),
+            ),
+          );
   }
 }
 
@@ -94,7 +114,7 @@ class SidMenuBar extends StatelessWidget {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    " Sara Magdy",
+                    ProfileData.fullName,
                     style:
                         AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
                   ),
@@ -110,27 +130,27 @@ class SidMenuBar extends StatelessWidget {
 
                 Column(children: [
                   SettingTab(
-                    text: 'Profile',
+                    text: LocaleKeys.Profile.tr(),
                     onTab: () {
                       context.read<NavbarCubit>().goToProfile();
                       Navigator.of(context).pop();
                     },
                   ),
                   SettingTab(
-                    text: 'Help',
+                    text: LocaleKeys.Help.tr(),
                     onTab: () {
                       Navigator.of(context).pop();
                     },
                   ),
                   SettingTab(
-                    text: 'Settings',
+                    text: LocaleKeys.Settings.tr(),
                     onTab: () {
                       context.read<NavbarCubit>().goToSettings();
                       Navigator.of(context).pop();
                     },
                   ),
                   SettingTab(
-                    text: 'LogOut',
+                    text: LocaleKeys.LogOut.tr(),
                     onTab: () {
                       Navigator.of(context).pop();
                       Tokens.signInToken = null;

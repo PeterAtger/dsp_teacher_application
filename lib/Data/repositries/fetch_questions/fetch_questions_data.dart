@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Data/Providers/question_from_response.dart';
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:http/http.dart';
 
@@ -23,14 +24,9 @@ class FetchQuestionsClass {
     questions = [];
 
     for (int i = 0; i < fetchedData.length; i++) {
-      questions.add(Question(
-        id: fetchedData[i]['id'],
-        question: fetchedData[i]["raw"],
-        level: Level.values[fetchedData[i]["author"]["grade"] - 1],
-        isUrgent: fetchedData[i]["urgent"],
-      ));
+      questions
+          .add(QuestionFromResponse.makeQuestionFromResponse(fetchedData[i]));
     }
-    print(questions);
     return ([questions, code]);
   }
 }

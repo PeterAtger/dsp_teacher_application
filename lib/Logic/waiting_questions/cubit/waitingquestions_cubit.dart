@@ -1,31 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
+import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
 import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
-import 'package:dsp_teacher_application/Data/repositries/fetch_questions/fetch_questions_data.dart';
 
 part 'waitingquestions_state.dart';
 
-List<Question> questions = [
-  Question(
-      isUrgent: true,
-      level: Level.Primary,
-      question: 'is tata stupid yes of course he is?'),
-  Question(
-      isUrgent: false,
-      level: Level.Primary,
-      question: 'tata is a kangaarooo and an iceberg?'),
-  Question(
-      isUrgent: false,
-      level: Level.Preparatory,
-      question: 'you are right tata is buffalo'),
-  Question(
-      isUrgent: true,
-      level: Level.Secondary,
-      question: 'you are double right tata is a cow')
-];
+List<Question> questions = [];
 
 class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   WaitingQuestionsCubit() : super(WaitingQuestionsState(null));
@@ -42,7 +25,6 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   List<QuestionCard> allUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
-  FetchQuestionsClass fetch = FetchQuestionsClass();
 
 //making the eight lists
   void _listOrder() {
@@ -63,16 +45,19 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
 
       if (questions[i].level == Level.Primary) {
         primaryList.add(QuestionCard(
+            id: questions[i].id,
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
       } else if (questions[i].level == Level.Preparatory) {
         prepList.add(QuestionCard(
+            id: questions[i].id,
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
       } else if (questions[i].level == Level.Secondary) {
         secondaryList.add(QuestionCard(
+            id: questions[i].id,
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
@@ -113,15 +98,24 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   }
 
   //urgent filter
-  void urgentFilter(newValue) {
+  void urgentFilter(newValue) async {
+    if (SavedQuestionsData.listChanged) {
+      await SavedQuestionsData.getSavedQuestions();
+      SavedQuestionsData.listChanged = false;
+    }
+    questions = SavedQuestionsData.savedQuestionsFormatted;
     _listOrder();
     chosenUrgent = newValue;
     _listSelector();
   }
 
 //level filter
-  void filter(newValue) {
-    // fetch.fetchQuestionsGetRequest().then((value) => {questions = value[0]});
+  void filter(newValue) async {
+    if (SavedQuestionsData.listChanged) {
+      await SavedQuestionsData.getSavedQuestions();
+      SavedQuestionsData.listChanged = false;
+    }
+    questions = SavedQuestionsData.savedQuestionsFormatted;
     _listOrder();
     chosenLevel = newValue;
     _listSelector();

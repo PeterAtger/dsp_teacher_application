@@ -8,8 +8,10 @@ import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/buttonsBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/question_tabs.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
+import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SingleQuestionScreen extends StatefulWidget {
   const SingleQuestionScreen({Key key}) : super(key: key);
@@ -55,7 +57,7 @@ class _SingleQuestionScreenState extends State<SingleQuestionScreen> {
                             height: 72,
                           ),
                           TitleBar(
-                            title: 'Question',
+                            title: LocaleKeys.Question.tr(),
                           ),
                           Expanded(
                             child: Column(

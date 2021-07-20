@@ -38,6 +38,7 @@ dependencies:
   easy_localization: ^3.0.0
   lottie: ^1.1.0
   delayed_display: ^2.0.0
+  shared_preferences: any
 
 
   # The following adds the Cupertino Icons font to your application.
