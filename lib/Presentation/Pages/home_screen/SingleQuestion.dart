@@ -10,15 +10,15 @@ import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Question extends StatefulWidget {
+class SingleQuestionScreen extends StatefulWidget {
   final selectedQuestion;
-  const Question({Key key, this.selectedQuestion}) : super(key: key);
+  const SingleQuestionScreen({Key key, this.selectedQuestion}) : super(key: key);
 
   @override
-  _QuestionState createState() => _QuestionState();
+  _SingleQuestionScreenState createState() => _SingleQuestionScreenState();
 }
 
-class _QuestionState extends State<Question> {
+class _SingleQuestionScreenState extends State<SingleQuestionScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;

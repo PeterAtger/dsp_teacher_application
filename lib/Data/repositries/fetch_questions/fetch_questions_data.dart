@@ -5,7 +5,10 @@ import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:http/http.dart';
 
 class FetchQuestionsClass {
+  static List<Question> questions = [];
+
   Future<List> fetchQuestionsGetRequest() async {
+    questions = [];
     final url =
         Uri.parse('http://34.132.143.59:8000/sentences/?diacritized=null');
     final headers = {
@@ -18,7 +21,6 @@ class FetchQuestionsClass {
     List fetchedData = json.decode(utf8.decode(response.bodyBytes));
 
     int code = response.statusCode;
-    List<Question> questions = [];
 
     for (int i = 0; i < fetchedData.length; i++) {
       questions.add(Question(

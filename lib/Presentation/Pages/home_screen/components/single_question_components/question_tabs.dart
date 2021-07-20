@@ -27,7 +27,6 @@ class _QuestionViewerState extends State<QuestionViewer>
   void initState() {
     super.initState();
     _controller = TabController(length: 2, vsync: this);
-
     _controller.addListener(() {
       setState(() {
         _selectedIndex = _controller.index;
@@ -41,8 +40,9 @@ class _QuestionViewerState extends State<QuestionViewer>
       length: 2,
       initialIndex: 1,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+        padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 32),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(children: [
               Align(
@@ -54,7 +54,7 @@ class _QuestionViewerState extends State<QuestionViewer>
                         topRight: Radius.circular(16)),
                     color: AppColors.cLightGrey,
                   ),
-                  width: size.width * 0.4,
+                  width: size.width * 0.5,
                   height: 48,
                   child: TabBar(
                       controller: _controller,
@@ -79,36 +79,39 @@ class _QuestionViewerState extends State<QuestionViewer>
                 ),
               ),
               Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      bottomLeft: Radius.circular(16),
-                      bottomRight: Radius.circular(16)),
-                  color: AppColors.cGreen,
-                ),
                 height: size.height * 0.35,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TabBarView(
-                      controller: _controller,
-                      physics:
-                          NeverScrollableScrollPhysics(parent: ScrollPhysics()),
-                      children: [
-                        TabFrame(
-                          size: size,
-                          tap: '1',
-                          widget: EditableTextTab(
-                            defultText: widget.defualtText,
+                child: Stack(children: [
+                  Container(
+                      decoration: BoxDecoration(
+                    border: Border.all(color: AppColors.cGreen, width: 2),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(16),
+                        bottomLeft: Radius.circular(16),
+                        bottomRight: Radius.circular(16)),
+                  )),
+                  Container(
+                    padding: EdgeInsets.all(8),
+                    child: TabBarView(
+                        controller: _controller,
+                        physics: NeverScrollableScrollPhysics(
+                            parent: ScrollPhysics()),
+                        children: [
+                          TabFrame(
+                            size: size,
+                            tap: '1',
+                            widget: EditableTextTab(
+                              defultText: widget.defualtText,
+                            ),
                           ),
-                        ),
-                        TabFrame(
-                          size: size,
-                          tap: '2',
-                          widget: TextViewer(
-                              selectedQuestion: widget.selectedQuestion),
-                        ),
-                      ]),
-                ),
+                          TabFrame(
+                            size: size,
+                            tap: '2',
+                            widget: TextViewer(
+                                selectedQuestion: widget.selectedQuestion),
+                          ),
+                        ]),
+                  ),
+                ]),
               )
             ]),
             SizedBox(

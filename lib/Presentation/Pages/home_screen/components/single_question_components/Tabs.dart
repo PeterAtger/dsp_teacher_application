@@ -21,14 +21,15 @@ class TabFrame extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: tap == '1'
             ? BorderRadius.only(
-                topLeft: Radius.circular(8),
-                bottomLeft: Radius.circular(8),
-                bottomRight: Radius.circular(8),
+                topLeft: Radius.circular(14),
+                bottomLeft: Radius.circular(14),
+                bottomRight: Radius.circular(14),
               )
             : BorderRadius.only(
-                topRight: Radius.circular(8),
-                bottomRight: Radius.circular(8),
-                // bottomLeft: Radius.circular(8),
+                topRight: Radius.circular(14),
+                topLeft: Radius.circular(14),
+                bottomRight: Radius.circular(14),
+                bottomLeft: Radius.circular(14),
               ),
         color: AppColors.cWhite,
       ),

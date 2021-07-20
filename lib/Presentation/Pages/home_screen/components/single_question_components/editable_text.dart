@@ -25,7 +25,7 @@ class _EditableTextTabState extends State<EditableTextTab> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(4.0),
       child: SingleChildScrollView(
         child: EditableText(
           maxLines: null,
@@ -33,7 +33,7 @@ class _EditableTextTabState extends State<EditableTextTab> {
           cursorColor: AppColors.cGreen,
           controller: _controller,
           focusNode: _node,
-          style: AppFonts.button.copyWith(color: AppColors.cDarkGrey),
+          style: AppFonts.captionText.copyWith(color: AppColors.cDarkGrey),
         ),
       ),
     );

@@ -23,7 +23,7 @@ class _ScrollingWidgetState extends State<ScrollingWidget> {
     return Container(
         decoration: BoxDecoration(
             color: AppColors.cWhite,
-            border: Border.all(color: AppColors.cPurple, width: 2),
+            border: Border.all(color: AppColors.cGreen, width: 2),
             boxShadow: [
               BoxShadow(
                   offset: Offset(2, 3),
@@ -34,7 +34,7 @@ class _ScrollingWidgetState extends State<ScrollingWidget> {
             borderRadius: BorderRadius.all(Radius.circular(36))),
         padding: EdgeInsets.symmetric(horizontal: 8),
         height: MediaQuery.of(context).size.height * 0.1,
-        width: MediaQuery.of(context).size.width * 0.8,
+        width: MediaQuery.of(context).size.width,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [

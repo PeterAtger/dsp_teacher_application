@@ -15,7 +15,7 @@ class TextViewer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(4.0),
       child: Container(
         child: WordSelectableText(
           onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
