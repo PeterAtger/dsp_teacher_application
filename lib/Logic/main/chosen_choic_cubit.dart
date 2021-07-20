@@ -15,6 +15,7 @@ class ChocenChoicCubit extends Cubit<ChocenChoicState> {
     ['Doba', 'always', 'sleep', 'early', 'she', 'is', 'cute'],
     ['tata', 'has', 'big', 'book', 'he', 'is', 'sad']
   ]);
+
   int globalwordIndex = 0;
   int globallistIndex = 0;
   int globaloffeset = 0;

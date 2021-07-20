@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class Buttons extends StatelessWidget {
   const Buttons({
     Key key,
-    this.size,
+    @required this.size,
   }) : super(key: key);
   final Size size;
   @override

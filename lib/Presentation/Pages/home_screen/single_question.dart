@@ -22,14 +22,13 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    List<List<String>> list = [
-      ['habiba', 'is', 'playing', 'coco', '.', 'apple', 'is', 'funny'],
-      ['Doba', 'always', 'sleep', 'early', 'she', 'is', 'cute'],
-      ['tata', 'has', 'big', 'book', 'he', 'is', 'sad']
-    ];
+    // List<List<String>> list = [
+    //   ['habiba', 'is', 'playing', 'coco', '.', 'apple', 'is', 'funny'],
+    //   ['Doba', 'always', 'sleep', 'early', 'she', 'is', 'cute'],
+    //   ['tata', 'has', 'big', 'book', 'he', 'is', 'sad']
+    // ];
 
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
       body: MultiBlocProvider(
@@ -46,8 +45,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
             return BlocBuilder<ManipulateQusetionCubit, ManipulateState>(
               builder: (context, state) {
                 return _ScreenBody(
-                    w: w,
-                    h: h,
+                    size: size,
                     selectedQuestion: chocenchoicestate.answer,
                     scrollData: state.question);
               },
@@ -62,14 +60,12 @@ class _QuestionScreenState extends State<QuestionScreen> {
 class _ScreenBody extends StatelessWidget {
   const _ScreenBody({
     Key key,
-    @required this.w,
-    @required this.h,
     @required this.selectedQuestion,
     this.scrollData = const [],
+    @required this.size,
   }) : super(key: key);
 
-  final double w;
-  final double h;
+  final Size size;
   final List<String> selectedQuestion;
   final List<List<Widget>> scrollData;
 
@@ -78,9 +74,9 @@ class _ScreenBody extends StatelessWidget {
     return Stack(children: [
       //Screen Backgroud
       ArabicImage(
-        right: -h / 3,
-        top: -h / 3,
-        size: h / 1.5,
+        right: -size.height / 3,
+        top: -size.height / 3,
+        size: size.height / 1.5,
         opacity: 0.05,
         blendMode: BlendMode.srcATop,
       ),
@@ -98,7 +94,9 @@ class _ScreenBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 QuestionViewer(),
-                Buttons(),
+                Buttons(
+                  size: size,
+                ),
               ],
             ),
           ),

@@ -36,7 +36,7 @@ class _QuestionViewerState extends State<QuestionViewer>
   }
 
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
     return DefaultTabController(
       length: 2,
       initialIndex: 1,

@@ -14,7 +14,6 @@ class ProfileData {
 
   static Future<int> getProfileInfo() async {
     final url = Uri.parse('http://34.132.143.59:8000/accounts/me/');
-
     final headers = {
       "Content-type": "application/json",
       "authorization": "Token ${Tokens.signInToken}"

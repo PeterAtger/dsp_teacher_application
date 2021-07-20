@@ -42,7 +42,7 @@ class App extends StatelessWidget {
         title: 'Teacher Demo',
         theme: buildThemeData(),
         onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: Tokens.signInToken != null ? '/' : '/MainScreen',
+        initialRoute: Tokens.signInToken == null ? '/' : '/MainScreen',
       ),
     );
   }
