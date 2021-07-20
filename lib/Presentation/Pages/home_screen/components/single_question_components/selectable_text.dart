@@ -25,7 +25,7 @@ class WordSelectableText extends StatefulWidget {
       this.highlightColor,
       this.alphabets = '[a-zA-Z]',
       this.style,
-      this.textDirection = TextDirection.ltr,
+      this.textDirection = TextDirection.rtl,
       this.sentenceLength = 1})
       : super(key: key);
 
@@ -50,42 +50,48 @@ class _WordSelectableTextState extends State<WordSelectableText> {
   Widget build(BuildContext context) {
     List<String> sentenceList =
         splitSentences(widget.text, widget.sentenceLength);
-    return Text.rich(
-      TextSpan(
-        children: [
-          for (int i = 0; i < sentenceList.length; i++)
-            TextSpan(
-              children: [
-                TextSpan(
-                    text: sentenceList[i],
-                    style: AppFonts.bodyText1.copyWith(
-                        backgroundColor:
-                            selectedWordIndex == i && widget.highlight
-                                ? highlightColor
-                                : Colors.transparent),
-                    recognizer: TapGestureRecognizer()
-                      ..onTap = () {
-                        context.read<ChocenChoicCubit>().getOffeset(i);
-                        setState(() {
-                          selectedWordIndex = i;
-                        });
-                        if (widget.onWordTapped != null)
-                          widget.onWordTapped(
-                            sentenceList[i]
-                                .trim()
-                                .replaceAll(RegExp(r'${widget.alphabets}'), "")
-                                .trim(),
-                            selectedWordIndex,
-                            widget.sentenceLength,
-                          );
-                      }),
-                // TextSpan(text: ' ')
-              ],
-            )
-        ],
+    return Container(
+      child: Text.rich(
+        TextSpan(
+          children: [
+            for (int i = 0; i < sentenceList.length; i++)
+              TextSpan(
+                children: [
+                  TextSpan(
+                      text: sentenceList[i],
+                      style: AppFonts.bodyText1.copyWith(
+                        fontWeight: selectedWordIndex == i && widget.highlight
+                            ? FontWeight.w900
+                            : FontWeight.normal,
+                        color: selectedWordIndex == i && widget.highlight
+                            ? AppColors.cGreen
+                            : AppColors.cDarkGrey,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          context.read<ChocenChoicCubit>().getOffeset(i);
+                          setState(() {
+                            selectedWordIndex = i;
+                          });
+                          if (widget.onWordTapped != null)
+                            widget.onWordTapped(
+                              sentenceList[i]
+                                  .trim()
+                                  .replaceAll(
+                                      RegExp(r'${widget.alphabets}'), "")
+                                  .trim(),
+                              selectedWordIndex,
+                              widget.sentenceLength,
+                            );
+                        }),
+                  // TextSpan(text: ' ')
+                ],
+              )
+          ],
+        ),
+        style: AppFonts.bodyText1,
+        textDirection: widget.textDirection,
       ),
-      style: widget.style ?? TextStyle(),
-      textDirection: widget.textDirection,
     );
   }
 }

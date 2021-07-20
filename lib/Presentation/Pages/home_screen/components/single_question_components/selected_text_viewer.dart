@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/Selected_Question/selected_question.dart';
 import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/selectable_text.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
@@ -19,9 +20,8 @@ class TextViewer extends StatelessWidget {
       child: Container(
         child: WordSelectableText(
           onWordTapped: context.read<ManipulateQusetionCubit>().onTap,
-          text: this.selectedQuestion,
-          highlightColor: AppColors.cGreen[200],
-          style: AppFonts.bodyText1,
+          text: SelectedQuestion.getSelectedQuestion().question.split(' '),
+          highlightColor: AppColors.cGreen,
           sentenceLength: 3,
         ),
       ),

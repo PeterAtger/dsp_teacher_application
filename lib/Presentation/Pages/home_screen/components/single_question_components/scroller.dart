@@ -36,6 +36,7 @@ class _ScrollingWidgetState extends State<ScrollingWidget> {
         height: 52,
         width: MediaQuery.of(context).size.width,
         child: Row(
+          textDirection: TextDirection.rtl,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(

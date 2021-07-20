@@ -23,9 +23,6 @@ class SelectedQuestion {
   static List<List<String>> getListFromSelectedQuestion() {
     // TODO : List the answers not the question
     List listOfQuestion = selectedQuestion.question.split(' ');
-    return [
-      listOfQuestion,
-      ['انا', 'البطيخه', 'الكبيرة']
-    ];
+    return [listOfQuestion, listOfQuestion];
   }
 }
