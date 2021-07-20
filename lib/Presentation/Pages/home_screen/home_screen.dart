@@ -143,8 +143,8 @@ class QuestionLevelTable extends StatelessWidget {
                   color: AppColors.cGreen,
                 ),
                 child: MainScreenTableItem(
-                  txt: LocaleKeys.Saved.tr(),
-                  img: 'lib/Presentation/Images/yellow_star.svg',
+                  txt: LocaleKeys.Enthusiast.tr(),
+                  img: 'lib/Presentation/Images/enthusiast.svg',
                   outlineButtonStyle: outlineButtonStyle,
                   size: size,
                   isSaved: true,

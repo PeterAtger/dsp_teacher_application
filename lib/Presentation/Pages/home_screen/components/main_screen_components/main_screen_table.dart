@@ -26,18 +26,14 @@ class MainScreenTableItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: outlineButtonStyle,
-      onPressed: isSaved
-          ? () {
-              context.read<NavbarCubit>().goToSavedQuestions();
-            }
-          : () async {
-              context.read<FilterQuestionCubit>().chooseFilter(txt);
-              context.read<AllquestionsCubit>().filter(txt);
-              await Future.delayed(Duration(milliseconds: 250), () {
-                Navigator.of(context)
-                    .pushNamed('/MainScreen/Questions', arguments: txt);
-              });
-            },
+      onPressed: () async {
+        context.read<FilterQuestionCubit>().chooseFilter(txt);
+        context.read<AllquestionsCubit>().filter(txt);
+        await Future.delayed(Duration(milliseconds: 250), () {
+          Navigator.of(context)
+              .pushNamed('/MainScreen/Questions', arguments: txt);
+        });
+      },
       child: Column(children: [
         SvgPicture.asset(img, height: 56),
         SizedBox(

@@ -73,7 +73,8 @@ class CodegenLoader extends AssetLoader{
   "Change_Language": "تغير اللغة",
   "Manual": "يدوي",
   "Easy": "بسيط",
-  "AllQuestions": "اسئلة فى انتظارك"
+  "AllQuestions": "اسئلة فى انتظارك",
+  "Enthusiast": "هاوي"
 };
 static const Map<String,dynamic> en = {
   "Email": "Email",
@@ -134,7 +135,8 @@ static const Map<String,dynamic> en = {
   "Change_Language": "Change Language",
   "Manual": "MANUAL",
   "Easy": "Simple",
-  "AllQuestions": "Questions"
+  "AllQuestions": "Questions",
+  "Enthusiast": "Enthusiast"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

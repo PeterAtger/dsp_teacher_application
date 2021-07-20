@@ -19,13 +19,15 @@ class LevelMenu extends StatelessWidget {
       LocaleKeys.All.tr(),
       LocaleKeys.Primary.tr(),
       LocaleKeys.Preparatory.tr(),
-      LocaleKeys.Secondary.tr()
+      LocaleKeys.Secondary.tr(),
+      LocaleKeys.Enthusiast.tr()
     ];
     Map avatar = {
       LocaleKeys.All.tr(): 'lib/Presentation/Images/school.svg',
       LocaleKeys.Primary.tr(): 'lib/Presentation/Images/boy.svg',
       LocaleKeys.Preparatory.tr(): "lib/Presentation/Images/girl.svg",
-      LocaleKeys.Secondary.tr(): "lib/Presentation/Images/secondaryboy.svg"
+      LocaleKeys.Secondary.tr(): "lib/Presentation/Images/secondaryboy.svg",
+      LocaleKeys.Enthusiast.tr(): "lib/Presentation/Images/enthusiast2.svg"
     };
     // First we have to filter the questions according to the InitialValue
     // context.read<WaitingQuestionsCubit>().filter(this.initialValue);

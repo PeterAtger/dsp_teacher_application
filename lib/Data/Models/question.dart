@@ -1,6 +1,6 @@
 import 'package:dsp_teacher_application/Data/Models/answers.dart';
 
-enum Level { Primary, Preparatory, Secondary }
+enum Level { Primary, Preparatory, Secondary, Enthusiast }
 
 class Question {
   final int id;

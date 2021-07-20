@@ -18,10 +18,12 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
   List<QuestionCard> primaryList = [];
   List<QuestionCard> prepList = [];
   List<QuestionCard> secondaryList = [];
+  List<QuestionCard> enthusuastList = [];
   List<QuestionCard> allList = [];
   List<QuestionCard> primaryUrgentList = [];
   List<QuestionCard> prepUrgentList = [];
   List<QuestionCard> secondaryUrgentList = [];
+  List<QuestionCard> enthusiastUrgentList = [];
   List<QuestionCard> allUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
@@ -36,6 +38,8 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     prepUrgentList = [];
     secondaryUrgentList = [];
     allUrgentList = [];
+    enthusuastList = [];
+    enthusiastUrgentList = [];
     for (int i = 0; i < questions.length; i++) {
       allList.add(QuestionCard(
         question: questions[i].question,
@@ -61,6 +65,12 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
+      } else if (questions[i].level == Level.Enthusiast) {
+        enthusuastList.add(QuestionCard(
+            id: questions[i].id,
+            question: questions[i].question,
+            level: questions[i].level,
+            isUrgent: questions[i].isUrgent));
       }
     }
     allUrgentList = [...allList];
@@ -71,6 +81,8 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     prepUrgentList.removeWhere((element) => element.isUrgent == false);
     secondaryUrgentList = [...secondaryList];
     secondaryUrgentList.removeWhere((element) => element.isUrgent == false);
+    enthusiastUrgentList = [...enthusuastList];
+    enthusiastUrgentList.removeWhere((element) => element.isUrgent == false);
   }
 
   void _listSelector() {
@@ -83,6 +95,8 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
         emit(WaitingQuestionsState(prepUrgentList));
       } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(WaitingQuestionsState(secondaryUrgentList));
+      } else if (chosenLevel == LocaleKeys.Enthusiast.tr()) {
+        emit(WaitingQuestionsState(enthusiastUrgentList));
       }
     } else {
       if (chosenLevel == LocaleKeys.All.tr()) {
@@ -93,6 +107,8 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
         emit(WaitingQuestionsState(prepList));
       } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(WaitingQuestionsState(secondaryList));
+      } else if (chosenLevel == LocaleKeys.Enthusiast.tr()) {
+        emit(WaitingQuestionsState(enthusuastList));
       }
     }
   }

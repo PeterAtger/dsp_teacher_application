@@ -16,11 +16,13 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
   List<QuestionCard> primaryList = [];
   List<QuestionCard> prepList = [];
   List<QuestionCard> secondaryList = [];
+  List<QuestionCard> enthusuastList = [];
   List<QuestionCard> allList = [];
   List<QuestionCard> primaryUrgentList = [];
   List<QuestionCard> prepUrgentList = [];
   List<QuestionCard> secondaryUrgentList = [];
   List<QuestionCard> allUrgentList = [];
+  List<QuestionCard> enthusiastUrgentList = [];
   String chosenLevel = 'All';
   bool chosenUrgent = false;
   bool firstCall = true;
@@ -67,6 +69,12 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
             question: questions[i].question,
             level: questions[i].level,
             isUrgent: questions[i].isUrgent));
+      } else if (questions[i].level == Level.Enthusiast) {
+        enthusuastList.add(QuestionCard(
+            id: questions[i].id,
+            question: questions[i].question,
+            level: questions[i].level,
+            isUrgent: questions[i].isUrgent));
       }
     }
     allUrgentList = [...allList];
@@ -77,6 +85,8 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
     prepUrgentList.removeWhere((element) => element.isUrgent == false);
     secondaryUrgentList = [...secondaryList];
     secondaryUrgentList.removeWhere((element) => element.isUrgent == false);
+    enthusiastUrgentList = [...enthusuastList];
+    enthusiastUrgentList.removeWhere((element) => element.isUrgent == false);
   }
 
   void _listSelector() {
@@ -89,6 +99,8 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
         emit(AllquestionsState(list: prepUrgentList));
       } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(AllquestionsState(list: secondaryUrgentList));
+      } else if (chosenLevel == LocaleKeys.Enthusiast.tr()) {
+        emit(AllquestionsState(list: enthusiastUrgentList));
       }
     } else {
       if (chosenLevel == LocaleKeys.All.tr()) {
@@ -99,6 +111,8 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
         emit(AllquestionsState(list: prepList));
       } else if (chosenLevel == LocaleKeys.Secondary.tr()) {
         emit(AllquestionsState(list: secondaryList));
+      } else if (chosenLevel == LocaleKeys.Enthusiast.tr()) {
+        emit(AllquestionsState(list: enthusuastList));
       }
     }
   }
