@@ -1,10 +1,13 @@
 import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
+import 'package:dsp_teacher_application/Logic/main/chosen_choic_cubit.dart';
+import 'package:dsp_teacher_application/Logic/main/chosen_choic_state.dart';
 import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/scroller.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/question_tabs.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/TitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/buttonsBar.dart';
-import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/text_viewer.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuestionScreen extends StatefulWidget {
@@ -19,26 +22,35 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     List<List<String>> list = [
-      ['sara', 'was', 'eating', 'apple', 'she', 'is', 'funny'],
-      ['Doba', 'is', 'sleeping', 'early', 'she', 'is', 'cute'],
-      ['tata', 'has', 'big', 'book', 'he', 'is', 'bad']
+      ['habiba', 'is', 'playing', 'coco', '.', 'apple', 'is', 'funny'],
+      ['Doba', 'always', 'sleep', 'early', 'she', 'is', 'cute'],
+      ['tata', 'has', 'big', 'book', 'he', 'is', 'sad']
     ];
-    String selectedQuestion = list[0].join(' ');
 
-    //Preparing data to show in the Scroll
-
-    //ddeclaring h & w for hight and width so it will be used in sizing throw widgets.
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: BlocProvider(
-        create: (context) => ManipulateQusetionCubit(),
-        child: BlocBuilder<ManipulateQusetionCubit, ManipulateState>(
-          builder: (context, state) {
-            print(state.question);
-            return _ScreenBody(
-                w: w, h: h, selectedQuestion: selectedQuestion, scrollData: []);
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<ManipulateQusetionCubit>(
+            create: (BuildContext context) => ManipulateQusetionCubit(),
+          ),
+          BlocProvider<ChocenChoicCubit>(
+            create: (BuildContext context) => ChocenChoicCubit(),
+          ),
+        ],
+        child: BlocBuilder<ChocenChoicCubit, ChocenChoicState>(
+          builder: (context, chocenchoicestate) {
+            return BlocBuilder<ManipulateQusetionCubit, ManipulateState>(
+              builder: (context, state) {
+                return _ScreenBody(
+                    w: w,
+                    h: h,
+                    selectedQuestion: chocenchoicestate.answer,
+                    scrollData: state.question);
+              },
+            );
           },
         ),
       ),
@@ -52,12 +64,12 @@ class _ScreenBody extends StatelessWidget {
     @required this.w,
     @required this.h,
     @required this.selectedQuestion,
-    @required this.scrollData,
+    this.scrollData = const [],
   }) : super(key: key);
 
   final double w;
   final double h;
-  final String selectedQuestion;
+  final List<String> selectedQuestion;
   final List<List<Widget>> scrollData;
 
   @override
@@ -82,12 +94,11 @@ class _ScreenBody extends StatelessWidget {
           flex: 1,
           child: Container(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                TextViewer(h: h, w: w, selectedQuestion: selectedQuestion),
-                // ScrollingWidget(scrollData: scrollData),
+                QuestionViewer(),
                 Buttons(),
               ],
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
             ),
           ),
         ),

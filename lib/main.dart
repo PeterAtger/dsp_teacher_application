@@ -1,5 +1,8 @@
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/Question.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/editable_text.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/main_screen/components/single_question_components/question_tabs.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/home_screen.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/main_screen/single_question.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/router.dart';
@@ -32,8 +35,9 @@ class App extends StatelessWidget {
       child: MaterialApp(
         title: 'Teacher Demo',
         theme: buildThemeData(),
-        onGenerateRoute: RouterGenerator.generateRoute,
-        initialRoute: '/',
+        home: Question(),
+        // onGenerateRoute: RouterGenerator.generateRoute,
+        // initialRoute: '/',
       ),
     );
   }
