@@ -8,6 +8,8 @@ import 'package:dsp_teacher_application/Presentation/Pages/questions/answered_qu
 import 'package:dsp_teacher_application/Presentation/Pages/questions/waiting_questions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter/services.dart';
+
 
 class MainPage extends StatefulWidget {
   @override
@@ -27,6 +29,11 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    
+ ));
     return Scaffold(
         floatingActionButton: FAB(),
         floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,

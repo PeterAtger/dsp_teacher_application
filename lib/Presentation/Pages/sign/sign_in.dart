@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
 import 'package:dsp_teacher_application/Logic/authentication/authentication_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';
@@ -70,9 +71,10 @@ class _SignInState extends State<SignIn> {
                     height: 32,
                   ),
                   BlocListener<AuthenticationCubit, AuthenticationState>(
-                    listener: (context, state) {
+                    listener: (context, state) async {
                       if (state.code != null) {
                         if (state.code <= 299 && state.code >= 200) {
+                          await ProfileData.getProfileInfo();
                           Navigator.of(context)
                               .pushReplacementNamed('/MainScreen');
                         }
