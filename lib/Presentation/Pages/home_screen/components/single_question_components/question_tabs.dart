@@ -1,4 +1,5 @@
 import 'package:delayed_display/delayed_display.dart';
+import 'package:dsp_teacher_application/Logic/send_answer/send_answer_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/Tabs.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/editable_text.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/scroller.dart';
@@ -8,6 +9,7 @@ import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class QuestionViewer extends StatefulWidget {
   final List<String> selectedQuestion;
@@ -32,6 +34,7 @@ class _QuestionViewerState extends State<QuestionViewer>
     _controller.addListener(() {
       setState(() {
         _selectedIndex = _controller.index;
+        context.read<SendAnswerCubit>().changeMethod(_controller.index);
       });
     });
   }
@@ -99,25 +102,21 @@ class _QuestionViewerState extends State<QuestionViewer>
                       bottomRight: Radius.circular(16)),
                 ),
                 padding: EdgeInsets.all(8),
-                child: TabBarView(
-                    controller: _controller,
-                    physics:
-                        NeverScrollableScrollPhysics(parent: ScrollPhysics()),
-                    children: [
-                      TabFrame(
-                        size: size,
-                        tap: '1',
-                        widget: EditableTextTab(
-                          defultText: widget.defualtText,
-                        ),
-                      ),
-                      TabFrame(
-                        size: size,
-                        tap: '2',
-                        widget: TextViewer(
-                            selectedQuestion: widget.selectedQuestion),
-                      ),
-                    ]),
+                child: TabBarView(controller: _controller, children: [
+                  TabFrame(
+                    size: size,
+                    tap: '1',
+                    widget: EditableTextTab(
+                      defultText: widget.defualtText,
+                    ),
+                  ),
+                  TabFrame(
+                    size: size,
+                    tap: '2',
+                    widget:
+                        TextViewer(selectedQuestion: widget.selectedQuestion),
+                  ),
+                ]),
               )
             ]),
             SizedBox(

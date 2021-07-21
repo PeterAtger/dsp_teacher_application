@@ -1,6 +1,5 @@
 import 'package:dsp_teacher_application/Logic/all_questions/allquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
-import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';

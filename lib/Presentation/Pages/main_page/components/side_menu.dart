@@ -114,7 +114,7 @@ class SidMenuBar extends StatelessWidget {
                   ),
                   SizedBox(width: 8),
                   Text(
-                    ProfileData.fullName,
+                    ProfileData.fullName == null ? 'N/A' : ProfileData.fullName,
                     style:
                         AppFonts.heading6.copyWith(color: AppColors.cDarkGrey),
                   ),

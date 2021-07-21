@@ -20,10 +20,11 @@ class ProfileDataCubit extends Cubit<ProfileDataState> {
     if (ProfileData.fullName == null) {
       await ProfileData.getProfileInfo();
     }
-    emit(ProfileDataState(
-        fullName: ProfileData.fullName,
-        email: ProfileData.email,
-        expertise: ProfileData.expertise,
-        rating: ProfileData.rating));
+    if (ProfileData.fullName != null)
+      emit(ProfileDataState(
+          fullName: ProfileData.fullName,
+          email: ProfileData.email,
+          expertise: ProfileData.expertise,
+          rating: ProfileData.rating));
   }
 }

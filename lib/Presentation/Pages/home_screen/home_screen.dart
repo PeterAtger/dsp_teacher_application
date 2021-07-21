@@ -139,12 +139,16 @@ class QuestionLevelTable extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8, top: 8, right: 8),
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(32)),
-                  color: AppColors.cGreen,
-                ),
+                    borderRadius: BorderRadius.all(Radius.circular(32)),
+                    gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [AppColors.cPurple, AppColors.cGreen])
+                    // color: AppColors.cGreen,
+                    ),
                 child: MainScreenTableItem(
                   txt: LocaleKeys.Enthusiast.tr(),
-                  img: 'lib/Presentation/Images/enthusiast.svg',
+                  img: 'lib/Presentation/Images/yellow_star.svg',
                   outlineButtonStyle: outlineButtonStyle,
                   size: size,
                   isSaved: true,

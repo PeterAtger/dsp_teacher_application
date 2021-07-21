@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Logic/answered_questions/answeredquestions_cubit.dart';
 import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cubit.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
@@ -56,6 +57,7 @@ class _DiffNavBarState extends State<DiffNavBar> {
                     itemState: SelectedPage.profile,
                     iconText: 'user',
                     fn: () {
+                      SavedQuestionsData.getSavedQuestions();
                       context.read<ProfileDataCubit>().showProfileData();
                       context.read<NavbarCubit>().goToProfile();
                     }),

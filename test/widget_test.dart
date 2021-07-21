@@ -1,5 +1,4 @@
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
-import 'package:dsp_teacher_application/Logic/profile_data/profile_data_cubit.dart';
 
 main() {
   print(Tokens.signInToken);

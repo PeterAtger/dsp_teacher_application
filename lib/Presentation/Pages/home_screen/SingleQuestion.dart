@@ -3,6 +3,7 @@ import 'package:dsp_teacher_application/Logic/main/ManipulateQ_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/chosen_choic_cubit.dart';
 import 'package:dsp_teacher_application/Logic/main/chosen_choic_state.dart';
 import 'package:dsp_teacher_application/Logic/main/manipulateQ_state.dart';
+import 'package:dsp_teacher_application/Logic/send_answer/send_answer_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/ArabicImage.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/TitleBar.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/buttonsBar.dart';
@@ -35,6 +36,8 @@ class _SingleQuestionScreenState extends State<SingleQuestionScreen> {
           BlocProvider<ChocenChoicCubit>(
             create: (BuildContext context) => ChocenChoicCubit(),
           ),
+          BlocProvider<SendAnswerCubit>(
+              create: (BuildContext context) => SendAnswerCubit())
         ],
         child: BlocBuilder<ChocenChoicCubit, ChocenChoicState>(
           builder: (context, chocenchoicestate) {

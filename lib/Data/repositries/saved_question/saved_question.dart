@@ -21,16 +21,20 @@ class SavedQuestionsData {
   static Future<void> getSavedQuestions() async {
     if (savedQuestionsIds.isEmpty) await loadFromPhone();
     savedQuestionsFormatted = [];
-    final url =
-        Uri.parse('http://34.132.143.59:8000/sentences/?diacritized=null');
+    final url = Uri.parse('http://34.132.143.59:8000/sentences/');
 
     final response = await get(url);
     List fetchedData = json.decode(utf8.decode(response.bodyBytes));
 
     for (int i = 0; i < fetchedData.length; i++) {
-      if (savedQuestionsIds.contains(fetchedData[i]['id']))
-        savedQuestionsFormatted
-            .add(QuestionFromResponse.makeQuestionFromResponse(fetchedData[i]));
+      if (savedQuestionsIds.contains(fetchedData[i]['id'])) {
+        if (fetchedData[i]['diacritized'] == null) {
+          savedQuestionsFormatted.add(
+              QuestionFromResponse.makeQuestionFromResponse(fetchedData[i]));
+        } else {
+          savedQuestionsIds.remove(fetchedData[i]['id']);
+        }
+      }
     }
     await saveToPhone();
   }
