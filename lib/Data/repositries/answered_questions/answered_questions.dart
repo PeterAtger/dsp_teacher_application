@@ -26,6 +26,6 @@ class AnsweredQuestionsData {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     List<String> loadedList = prefs.getStringList('listOfAnswers');
-    listOfAnswers = loadedList;
+    if (loadedList != null) listOfAnswers = loadedList;
   }
 }

@@ -108,7 +108,7 @@ class _ProfileState extends State<Profile> {
                     ),
                     Center(
                       child: Text(
-                        state.fullName,
+                        state.fullName != null ? state.fullName : ' Debug mode',
                         style:
                             AppFonts.heading6.copyWith(color: AppColors.cWhite),
                       ),
@@ -128,21 +128,27 @@ class _ProfileState extends State<Profile> {
                         ),
                         TeacherProfileInf(
                           field1: '${LocaleKeys.Email.tr()} :',
-                          field2: state.email,
+                          field2: state.email != null
+                              ? state.email
+                              : 'Email@email.com',
                         ),
                         SizedBox(
                           height: 24,
                         ),
                         TeacherProfileInf(
                           field1: '${LocaleKeys.Expertise.tr()} :',
-                          field2: state.expertise.toString().split('.').last,
+                          field2: state.expertise != null
+                              ? state.expertise.toString().split('.').last
+                              : ' Tester',
                         ),
                         SizedBox(
                           height: 24,
                         ),
                         TeacherProfileInf(
                           field1: LocaleKeys.Score.tr(),
-                          field2: state.rating.toString(),
+                          field2: state.rating != null
+                              ? state.rating.toString()
+                              : '3',
                         ),
                         SizedBox(height: 32),
                         GradientLine(size: size),
@@ -150,14 +156,14 @@ class _ProfileState extends State<Profile> {
                         QuestionButton(
                           size: size,
                           text:
-                              '${LocaleKeys.AnsweredQuestions.tr()} : ${AnsweredQuestionsData.listOfAnswers.length}',
+                              '${LocaleKeys.AnsweredQuestions.tr()} : ${AnsweredQuestionsData.listOfAnswers != null ? AnsweredQuestionsData.listOfAnswers.length : '-'}',
                           green: false,
                         ),
                         SizedBox(height: 16),
                         QuestionButton(
                           size: size,
                           text:
-                              '${LocaleKeys.WaitingQuestion.tr()} : ${SavedQuestionsData.savedQuestionsIds.length}',
+                              '${LocaleKeys.WaitingQuestion.tr()} : ${SavedQuestionsData.savedQuestionsIds != null ? SavedQuestionsData.savedQuestionsIds.length : '-'}',
                           green: true,
                         ),
                       ],

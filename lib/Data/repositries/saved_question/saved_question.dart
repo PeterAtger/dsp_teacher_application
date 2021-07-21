@@ -49,7 +49,7 @@ class SavedQuestionsData {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     List<String> savedStrList = prefs.getStringList('savedQuestionIds');
-    savedQuestionsIds = savedStrList.map((i) => int.parse(i)).toList();
-    print('loaded: $savedQuestionsIds');
+    if (savedStrList != null)
+      savedQuestionsIds = savedStrList.map((i) => int.parse(i)).toList();
   }
 }
