@@ -146,5 +146,5 @@ class AppColors {
       MaterialColor(0xFF370B64, _ColorMaps.cPurpleMap);
 
   static final MaterialColor cGreen =
-      MaterialColor(0xFF17998a, _ColorMaps.cGreenMap);
+      MaterialColor(0xFF128C7E, _ColorMaps.cGreenMap);
 }
