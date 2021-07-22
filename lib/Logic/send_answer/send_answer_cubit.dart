@@ -43,6 +43,7 @@ class SendAnswerCubit extends Cubit<SendAnswerState> {
     final response = await put(url, headers: headers, body: body);
 
     int code = response.statusCode;
+    print(json.decode(utf8.decode(response.bodyBytes)));
 
     if (code < 299) {
       AnsweredQuestionsData.addAnswer(teacherAnswer);

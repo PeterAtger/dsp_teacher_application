@@ -18,6 +18,13 @@ class SavedQuestionsData {
     }
   }
 
+  static removeValue(id) {
+    if (savedQuestionsIds.contains(id)) {
+      savedQuestionsIds.remove(id);
+      listChanged = true;
+    }
+  }
+
   static Future<void> getSavedQuestions() async {
     if (savedQuestionsIds.isEmpty) await loadFromPhone();
     savedQuestionsFormatted = [];

@@ -42,6 +42,7 @@ class WaitingQuestionsCubit extends Cubit<WaitingQuestionsState> {
     enthusiastUrgentList = [];
     for (int i = 0; i < questions.length; i++) {
       allList.add(QuestionCard(
+        id: questions[i].id,
         question: questions[i].question,
         level: questions[i].level,
         isUrgent: questions[i].isUrgent,

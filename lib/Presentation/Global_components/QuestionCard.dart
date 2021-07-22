@@ -135,6 +135,9 @@ Text _textChooser(Level level) {
   } else if (level == Level.Secondary) {
     return Text(LocaleKeys.Secondary.tr(),
         style: AppFonts.bodyText1.copyWith(fontWeight: FontWeight.w700));
+  } else if (level == Level.Enthusiast) {
+    return Text(LocaleKeys.Enthusiast.tr(),
+        style: AppFonts.bodyText1.copyWith(fontWeight: FontWeight.w700));
   }
   return Text('Error');
 }
@@ -146,6 +149,9 @@ SvgPicture _iconChooser(Level level) {
     return SvgPicture.asset('lib/Presentation/Images/girl.svg', height: 24);
   } else if (level == Level.Secondary) {
     return SvgPicture.asset('lib/Presentation/Images/secondaryboy.svg',
+        height: 24);
+  } else if (level == Level.Enthusiast) {
+    return SvgPicture.asset('lib/Presentation/Images/enthusiast2.svg',
         height: 24);
   }
   return SvgPicture.asset('lib/Presentation/Images/error.svg', height: 24);
