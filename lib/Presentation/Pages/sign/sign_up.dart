@@ -6,7 +6,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/sign/components/butto
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/dividingline.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/sign/components/top_curve.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

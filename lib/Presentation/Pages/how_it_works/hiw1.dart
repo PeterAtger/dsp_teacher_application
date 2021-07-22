@@ -2,7 +2,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/componen
 import 'package:dsp_teacher_application/Presentation/Pages/how_it_works/components/Instruction.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/ArabicImage.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/BackGroundGradient.dart';

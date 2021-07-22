@@ -2,7 +2,7 @@ import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_da
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dsp_teacher_application/Presentation/global_components/GradientLine.dart';
 import 'package:flutter/material.dart';

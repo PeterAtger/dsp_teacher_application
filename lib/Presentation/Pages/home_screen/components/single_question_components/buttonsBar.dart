@@ -1,7 +1,7 @@
 import 'package:dsp_teacher_application/Data/repositries/Selected_Question/selected_question.dart';
 import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Logic/send_answer/send_answer_cubit.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';

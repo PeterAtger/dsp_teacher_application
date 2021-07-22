@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
 

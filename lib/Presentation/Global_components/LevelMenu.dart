@@ -3,7 +3,7 @@ import 'package:dsp_teacher_application/Logic/filter_questions/filterquestion_cu
 import 'package:dsp_teacher_application/Logic/waiting_questions/cubit/waitingquestions_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/GradientLine.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

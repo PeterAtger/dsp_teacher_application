@@ -5,7 +5,7 @@ import 'package:dsp_teacher_application/Presentation/Pages/home_screen/component
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/scroller.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/home_screen/components/single_question_components/selected_text_viewer.dart';
 import 'package:dsp_teacher_application/Presentation/Theme/theme.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';

@@ -3,7 +3,7 @@ import 'package:dsp_teacher_application/Data/Models/answers.dart';
 import 'package:dsp_teacher_application/Data/Models/question.dart';
 import 'package:dsp_teacher_application/Data/repositries/fetch_questions/fetch_questions_data.dart';
 import 'package:dsp_teacher_application/Presentation/Global_components/QuestionCard.dart';
-import 'package:dsp_teacher_application/Presentation/translations/lokale_keys.g.dart';
+import 'package:dsp_teacher_application/Presentation/translations/locale_keys.g.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:meta/meta.dart';
 
