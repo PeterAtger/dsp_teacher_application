@@ -1,8 +1,11 @@
 import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:dsp_teacher_application/Data/repositries/answered_questions/answered_questions.dart';
 import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
+import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
+import 'package:dsp_teacher_application/Presentation/Pages/questions/waiting_questions.dart';
 import 'package:http/http.dart';
 
 part 'authentication_state.dart';
@@ -27,6 +30,8 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signInData.containsKey('token')) {
       Tokens.signInToken = signInData['token'];
       ProfileData.getProfileInfo();
+      AnsweredQuestionsData.listOfAnswers = [];
+      SavedQuestionsData.savedQuestionsIds = [];
     }
 
     emit(AuthenticationState(data: signInData, code: code1, isSignIn: true));
@@ -55,10 +60,11 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     if (signUpData.containsKey('token')) {
       Tokens.signInToken = signUpData['token'];
       ProfileData.getProfileInfo();
+      AnsweredQuestionsData.listOfAnswers = [];
+      SavedQuestionsData.savedQuestionsIds = [];
     }
 
     emit(AuthenticationState(data: signUpData, code: code2, isSignIn: false));
-    ProfileData.getProfileInfo();
   }
 
   void changeExpertise(value) {

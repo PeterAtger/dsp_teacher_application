@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:adobe_xd/adobe_xd.dart';
 import 'package:dsp_teacher_application/Data/repositries/answered_questions/answered_questions.dart';
 import 'package:dsp_teacher_application/Data/repositries/saved_question/saved_question.dart';
+import 'package:dsp_teacher_application/Logic/nav_bar/navbar_cubit.dart';
 import 'package:dsp_teacher_application/Logic/profile_data/profile_data_cubit.dart';
 import 'package:dsp_teacher_application/Logic/profile_image/profile_image_cubit.dart';
 import 'package:dsp_teacher_application/Presentation/Pages/settings_screen/local_components/TeacherProfileInf.dart';
@@ -154,6 +155,8 @@ class _ProfileState extends State<Profile> {
                         GradientLine(size: size),
                         SizedBox(height: 16),
                         QuestionButton(
+                          onPress:
+                              context.read<NavbarCubit>().goToAnsweredQuestions,
                           size: size,
                           text:
                               '${LocaleKeys.AnsweredQuestions.tr()} : ${AnsweredQuestionsData.listOfAnswers != null ? AnsweredQuestionsData.listOfAnswers.length : '-'}',
@@ -161,6 +164,8 @@ class _ProfileState extends State<Profile> {
                         ),
                         SizedBox(height: 16),
                         QuestionButton(
+                          onPress:
+                              context.read<NavbarCubit>().goToSavedQuestions,
                           size: size,
                           text:
                               '${LocaleKeys.WaitingQuestion.tr()} : ${SavedQuestionsData.savedQuestionsIds != null ? SavedQuestionsData.savedQuestionsIds.length : '-'}',
