@@ -1,13 +1,14 @@
 import 'dart:convert';
 
-import 'package:dsp_teacher_application/Data/Models/profile_data.dart';
-import 'package:dsp_teacher_application/Data/repositries/answered_questions/answered_questions.dart';
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:http/http.dart';
+
+enum Expertise { Fresh, OnetoFive, AboveFive }
 
 class ProfileData {
   const ProfileData();
 
+  static int id;
   static String email;
   static String fullName;
   static Expertise expertise;
@@ -23,8 +24,10 @@ class ProfileData {
     final response = await get(url, headers: headers);
     Map profileData = jsonDecode(response.body);
     int code = response.statusCode;
+    print(profileData);
 
     if (Tokens.signInToken != null) {
+      id = profileData['data']['id'];
       fullName = profileData['data']['full_name'];
       email = profileData['data']['email'];
       expertise =

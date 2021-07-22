@@ -1,3 +1,4 @@
+import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AnsweredQuestionsData {
@@ -6,6 +7,7 @@ class AnsweredQuestionsData {
   static List<String> listOfAnswers = [];
 
   static Future<List<String>> getAnswers() async {
+    print(listOfAnswers);
     if (listOfAnswers.isEmpty) await loadFromPhone();
     return listOfAnswers;
   }
@@ -19,13 +21,15 @@ class AnsweredQuestionsData {
 
   static Future<void> saveToPhone() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setStringList("listOfAnswers", listOfAnswers);
+    if (listOfAnswers != null)
+      prefs.setStringList("listOfAnswers ${ProfileData.id}", listOfAnswers);
   }
 
   static Future<void> loadFromPhone() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    List<String> loadedList = prefs.getStringList('listOfAnswers');
+    List<String> loadedList =
+        prefs.getStringList('listOfAnswers ${ProfileData.id}');
     if (loadedList != null) listOfAnswers = loadedList;
   }
 }

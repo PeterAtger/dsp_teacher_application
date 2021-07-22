@@ -10,9 +10,9 @@ import 'package:meta/meta.dart';
 part 'send_answer_state.dart';
 
 class SendAnswerCubit extends Cubit<SendAnswerState> {
-  SendAnswerCubit() : super(SendAnswerState(null));
+  SendAnswerCubit() : super(SendAnswerState(400));
   static String teacherAnswer;
-  static int method;
+  static int method = 0;
 
   void manualChangeAnswer(String answer) {
     teacherAnswer = answer;
@@ -36,16 +36,21 @@ class SendAnswerCubit extends Cubit<SendAnswerState> {
       "Content-type": "application/json",
       "authorization": "Token ${Tokens.signInToken}"
     };
-    if (method == 1) autoChangeAnswer();
-    final json = jsonEncode({"diacritized": teacherAnswer});
 
-    final response = await put(url, headers: headers, body: json);
+    if (method == 1 || teacherAnswer == null) autoChangeAnswer();
+    final body = jsonEncode({"diacritized": teacherAnswer});
+
+    final response = await put(url, headers: headers, body: body);
 
     int code = response.statusCode;
+
     if (code < 299) {
       AnsweredQuestionsData.addAnswer(teacherAnswer);
     }
-
-    emit(SendAnswerState(code));
+    if (code != null) {
+      emit(SendAnswerState(code));
+    } else {
+      emit(SendAnswerState(400));
+    }
   }
 }

@@ -174,7 +174,9 @@ class _SignUpState extends State<SignUp> {
                   BlocListener<AuthenticationCubit, AuthenticationState>(
                     listener: (context, state) {
                       if (state.code != null) {
-                        if (state.code <= 299 && state.code >= 200) {
+                        if (state.code <= 299 &&
+                            state.code >= 200 &&
+                            state.isSignIn == false) {
                           Navigator.of(context).pushReplacementNamed('/HIW');
                         }
 

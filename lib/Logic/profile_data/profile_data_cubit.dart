@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dsp_teacher_application/Data/Models/profile_data.dart';
 import 'package:dsp_teacher_application/Data/repositries/profile_data/profile_data.dart';
 import 'package:dsp_teacher_application/Data/repositries/sign_in_token.dart';
 import 'package:meta/meta.dart';

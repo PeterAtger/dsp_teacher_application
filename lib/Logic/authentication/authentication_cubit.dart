@@ -29,7 +29,7 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
       ProfileData.getProfileInfo();
     }
 
-    emit(AuthenticationState(data: signInData, code: code1));
+    emit(AuthenticationState(data: signInData, code: code1, isSignIn: true));
   }
 
   Future<void> signUpPostRequest(
@@ -52,7 +52,12 @@ class AuthenticationCubit extends Cubit<AuthenticationState> {
     print('Body2: ${response.body}');
     int code2 = response.statusCode;
 
-    emit(AuthenticationState(data: signUpData, code: code2));
+    if (signUpData.containsKey('token')) {
+      Tokens.signInToken = signUpData['token'];
+      ProfileData.getProfileInfo();
+    }
+
+    emit(AuthenticationState(data: signUpData, code: code2, isSignIn: false));
     ProfileData.getProfileInfo();
   }
 

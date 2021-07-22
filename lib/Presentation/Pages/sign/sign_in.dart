@@ -73,7 +73,9 @@ class _SignInState extends State<SignIn> {
                   BlocListener<AuthenticationCubit, AuthenticationState>(
                     listener: (context, state) async {
                       if (state.code != null) {
-                        if (state.code <= 299 && state.code >= 200) {
+                        if (state.code <= 299 &&
+                            state.code >= 200 &&
+                            state.isSignIn) {
                           await ProfileData.getProfileInfo();
                           Navigator.of(context)
                               .pushReplacementNamed('/MainScreen');
@@ -82,7 +84,7 @@ class _SignInState extends State<SignIn> {
                         if (state.code <= 499 && state.code >= 400) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                               content: Text(
-                            state.data["error"][0],
+                            state.data.values.first[0],
                             textDirection: TextDirection.ltr,
                           )));
                         }

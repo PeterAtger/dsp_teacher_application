@@ -83,8 +83,8 @@ class _ProfileState extends State<Profile> {
                           child: Center(
                             child: imageState.imagePath != null
                                 ? Container(
-                                    height: 96,
-                                    width: 96,
+                                    height: size.height / 10,
+                                    width: size.height / 10,
                                     child: Image.file(
                                       File(imageState.imagePath),
                                       fit: BoxFit.cover,
@@ -95,8 +95,8 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   )
                                 : Container(
-                                    height: 96,
-                                    width: 96,
+                                    height: size.height / 10,
+                                    width: size.height / 10,
                                     decoration: BoxDecoration(
                                       color: AppColors.cWhite,
                                       shape: BoxShape.circle,
@@ -145,7 +145,7 @@ class _ProfileState extends State<Profile> {
                           height: 24,
                         ),
                         TeacherProfileInf(
-                          field1: LocaleKeys.Score.tr(),
+                          field1: '${LocaleKeys.Score.tr()} :',
                           field2: state.rating != null
                               ? state.rating.toString()
                               : '3',

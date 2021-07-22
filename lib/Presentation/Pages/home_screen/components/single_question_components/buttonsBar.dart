@@ -27,8 +27,9 @@ class Buttons extends StatelessWidget {
                 child: Container(
                   height: 48,
                   child: ElevatedButton(
-                    onPressed: () {
-                      context
+                    onPressed: () async {
+                      print(SelectedQuestion.selectedQuestion.id);
+                      await context
                           .read<SendAnswerCubit>()
                           .postAnswer(SelectedQuestion.selectedQuestion.id);
                       if (state.code < 299)
