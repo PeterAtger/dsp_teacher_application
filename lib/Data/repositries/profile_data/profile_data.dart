@@ -22,7 +22,7 @@ class ProfileData {
     };
 
     final response = await get(url, headers: headers);
-    Map profileData = jsonDecode(response.body);
+    Map profileData = json.decode(utf8.decode(response.bodyBytes));
     int code = response.statusCode;
     print(profileData);
 
