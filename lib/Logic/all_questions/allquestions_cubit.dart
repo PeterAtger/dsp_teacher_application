@@ -37,6 +37,8 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
     primaryUrgentList = [];
     prepUrgentList = [];
     secondaryUrgentList = [];
+    enthusuastList = [];
+    enthusiastUrgentList = [];
     allUrgentList = [];
 
     for (int i = 0; i < questions.length; i++) {
@@ -87,6 +89,7 @@ class AllquestionsCubit extends Cubit<AllquestionsState> {
     secondaryUrgentList.removeWhere((element) => element.isUrgent == false);
     enthusiastUrgentList = [...enthusuastList];
     enthusiastUrgentList.removeWhere((element) => element.isUrgent == false);
+    print(enthusiastUrgentList);
   }
 
   void _listSelector() {
